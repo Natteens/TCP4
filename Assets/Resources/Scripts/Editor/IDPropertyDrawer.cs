@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using ComponentUtils;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
 
     [CustomPropertyDrawer(typeof(ID))]

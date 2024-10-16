@@ -2,7 +2,7 @@
 using UnityEngine;
 using ComponentUtils;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     [CreateAssetMenu(fileName = "BaseEntity", menuName = "Entity/Create new Entity")]
     public class BaseEntitySO : ScriptableObject

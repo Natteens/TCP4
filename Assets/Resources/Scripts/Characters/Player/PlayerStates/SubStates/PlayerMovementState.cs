@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class PlayerMovementState : PlayerGroundedState
     {
@@ -13,22 +13,11 @@ namespace CrimsonReaper
             };
         }
 
-        public override void DoEnterLogic()
-        {
-            base.DoEnterLogic();
-            Debug.Log("Player está no estado Walk.");
-        }
-
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
 
             Movement(InputHandler.GetNormalizedDirectionX());
-        }
-
-        public override void DoExitLogic()
-        {
-            base.DoExitLogic();
         }
     }
 }

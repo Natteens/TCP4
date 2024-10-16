@@ -2,13 +2,13 @@ using ComponentUtils;
 using System.Collections;
 using UnityEngine;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public abstract class BaseEntity : MonoBehaviour
     {
         public BaseEntitySO baseStatus;
         public StatusComponent statusComponent { get; private set; }
-        public HealthComponent healthComponent { get; private set; }
+       // public HealthComponent healthComponent { get; private set; }
         public Animator anim { get; private set; }
         public SpriteRenderer spriteRenderer { get; private set; }
         public Rigidbody rb { get; private set; }
@@ -36,7 +36,7 @@ namespace CrimsonReaper
         private void GetComponents()
         {
             statusComponent = GetComponent<StatusComponent>();
-            healthComponent = GetComponent<HealthComponent>();
+           // healthComponent = GetComponent<HealthComponent>();
             anim = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb = GetComponent<Rigidbody>();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public interface ISkill
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
 
     public class MovingPlatform : MonoBehaviour

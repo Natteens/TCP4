@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     [CreateAssetMenu(fileName = "New Status Effect", menuName = "Effects/New Effect")]
     public class StatusEffect : ScriptableObject

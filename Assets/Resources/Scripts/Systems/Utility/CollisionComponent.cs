@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class CollisionComponent : MonoBehaviour
     {

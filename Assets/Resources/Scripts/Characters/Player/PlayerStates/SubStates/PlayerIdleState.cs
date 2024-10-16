@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class PlayerIdleState : PlayerGroundedState
     {
@@ -15,7 +15,6 @@ namespace CrimsonReaper
         public override void DoEnterLogic()
         {
             base.DoEnterLogic();
-         //   Debug.Log("Player está no estado Idle.");
             Movement(0);
         }
 

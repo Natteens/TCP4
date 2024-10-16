@@ -2,7 +2,7 @@
 using UnityEngine;
 using ComponentUtils;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class Player : DynamicEntity
     {
@@ -10,9 +10,6 @@ namespace CrimsonReaper
 
         private PlayerIdleState idleState;
         private PlayerMovementState runState;
-        private PlayerJumpState jumpState;
-        private PlayerFallState fallState;
-        private PlayerLandingState landingState;
         private PlayerInteractState interactState;
 
         public override void Awake()
@@ -33,16 +30,10 @@ namespace CrimsonReaper
         {
             idleState = new PlayerIdleState();
             runState = new PlayerMovementState();
-            jumpState = new PlayerJumpState();
-            fallState = new PlayerFallState();
-            landingState = new PlayerLandingState();
             interactState = new PlayerInteractState();
 
             machine.RegisterState("Idle", idleState,this,abilitySet => abilitySet.GetAbilityValue(AbilityType.CanMove));
             machine.RegisterState("Move", runState,this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanMove));
-            machine.RegisterState("Jump", jumpState,this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanAirborne));
-            machine.RegisterState("Fall", fallState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanAirborne));
-            machine.RegisterState("Land", landingState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanAirborne));
             machine.RegisterState("Interact", interactState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanInteract));
         }
 

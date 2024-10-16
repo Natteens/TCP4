@@ -4,7 +4,7 @@ using UnityEditor;
 using ComponentUtils;
 
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     [CustomPropertyDrawer(typeof(AbilitySet))]
     public class AbilitySetDrawer : PropertyDrawer

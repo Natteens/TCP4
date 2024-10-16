@@ -5,7 +5,7 @@ using UnityEditor.Animations;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     //public class EntitySetupWindow : EditorWindow
     //{

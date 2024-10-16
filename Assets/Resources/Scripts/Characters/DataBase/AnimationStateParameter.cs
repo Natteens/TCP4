@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public abstract class AnimationStateParameter
     {

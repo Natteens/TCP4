@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class Teleport : StaticEntity, IInteractable
     {

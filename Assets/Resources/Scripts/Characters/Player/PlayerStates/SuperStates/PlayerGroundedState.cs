@@ -4,21 +4,13 @@ using UnityEngine;
 using ComponentUtils;
 using System;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class PlayerGroundedState : State
     {
         protected PlayerInputHandler InputHandler;
         protected CollisionComponent coll;
         protected IInteractable currentInteractable;
-
-        protected override void ConfigureAnimationParameters()
-        {
-            animationParameters = new AnimationStateParameter[]
-            {
-                new BoolStateAnimationParameter("IsGrounded", true, false),
-            };
-        }
 
         public override void Initialize(DynamicEntity entity)
         {
@@ -53,15 +45,6 @@ namespace CrimsonReaper
                 } 
             }
 
-            if (InputHandler.GetJumpInput())
-            {
-                entity.machine.ChangeState("Jump", entity);
-            }
-            else if (entity.rb.linearVelocity.y < 0 && !coll.IsColliding<RaycastResult>("Ground", out var _))
-            {
-                entity.machine.ChangeState("Fall", entity);
-            }
-
             if (InputHandler.GetInteractInput() && currentInteractable != null)
             {
                 Debug.Log("Interagindo com objeto");
@@ -77,7 +60,6 @@ namespace CrimsonReaper
         protected void Movement(int input)
         {
             float speed = entity.statusComponent.GetStatus(StatusType.Speed);
-          //  Debug.Log($"Speed atual: {speed}");
             entity.movement.Move(input, speed);
         }
 

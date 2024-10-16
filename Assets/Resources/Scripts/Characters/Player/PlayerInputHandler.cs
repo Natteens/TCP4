@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     public class PlayerInputHandler : MonoBehaviour
     {

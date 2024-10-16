@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace CrimsonReaper
+namespace Tcp4
 {
     [CustomEditor(typeof(BaseEntitySO))]
     public class BaseEntitySOEditor : Editor
