@@ -34,7 +34,7 @@ namespace Tcp4
         private void GetComponents()
         {
             statusComponent = GetComponent<StatusComponent>();
-            anim = GetComponent<Animator>();
+            anim = GetComponentInChildren<Animator>();
             rb = GetComponent<Rigidbody>();
             coll = GetComponent<Collider>();
             checker = GetComponent<CollisionComponent>();

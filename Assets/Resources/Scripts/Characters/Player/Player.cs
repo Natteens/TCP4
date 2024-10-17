@@ -39,7 +39,7 @@ namespace Tcp4
 
         private void HandleAbilityUnlocked(AbilityType unlockedAbility)
         {
-            Debug.Log("Habilidade desbloqueada: " + unlockedAbility);
+            UnlockAbility(unlockedAbility);
         }
     }
 }
