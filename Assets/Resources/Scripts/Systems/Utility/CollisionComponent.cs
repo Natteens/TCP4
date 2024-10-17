@@ -1,6 +1,6 @@
-using UnityEngine;
-using System;
 using System.Collections.Generic;
+using System;
+using UnityEngine;
 
 namespace Tcp4
 {
@@ -34,10 +34,9 @@ namespace Tcp4
         }
 
         [SerializeField] private List<CollisionCheck> collisionChecks = new List<CollisionCheck>();
-        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private Dictionary<CollisionType, ICollisionDetector> collisionDetectors;
-        private Vector3 FacingDirection => spriteRenderer != null && spriteRenderer.flipX ? Vector3.left : Vector3.right;
+        private Vector3 FacingDirection => Vector3.forward;
 
         private void Awake()
         {

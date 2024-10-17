@@ -37,7 +37,6 @@ namespace Tcp4
             machine.RegisterState("Interact", interactState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanInteract));
         }
 
-
         private void HandleAbilityUnlocked(AbilityType unlockedAbility)
         {
             Debug.Log("Habilidade desbloqueada: " + unlockedAbility);

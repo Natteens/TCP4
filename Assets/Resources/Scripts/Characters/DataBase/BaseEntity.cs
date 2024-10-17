@@ -8,9 +8,7 @@ namespace Tcp4
     {
         public BaseEntitySO baseStatus;
         public StatusComponent statusComponent { get; private set; }
-       // public HealthComponent healthComponent { get; private set; }
         public Animator anim { get; private set; }
-        public SpriteRenderer spriteRenderer { get; private set; }
         public Rigidbody rb { get; private set; }
         public Collider coll { get; private set; }
         public CollisionComponent checker { get; private set; }
@@ -36,9 +34,7 @@ namespace Tcp4
         private void GetComponents()
         {
             statusComponent = GetComponent<StatusComponent>();
-           // healthComponent = GetComponent<HealthComponent>();
             anim = GetComponent<Animator>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
             rb = GetComponent<Rigidbody>();
             coll = GetComponent<Collider>();
             checker = GetComponent<CollisionComponent>();

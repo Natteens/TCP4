@@ -35,7 +35,7 @@ namespace Tcp4
         {
             if (coll.IsColliding<RaycastResult>("Ground", out var _))
             {
-                if (InputHandler.GetNormalizedDirectionX() != 0)
+                if (InputHandler.GetRawMovementDirection() != Vector3.zero)
                 {
                     entity.machine.ChangeState("Move", entity);
                 }
@@ -47,7 +47,6 @@ namespace Tcp4
 
             if (InputHandler.GetInteractInput() && currentInteractable != null)
             {
-                Debug.Log("Interagindo com objeto");
                 entity.machine.ChangeState("Interact", entity);
             }
         }
@@ -57,7 +56,7 @@ namespace Tcp4
             base.DoExitLogic();
         }
 
-        protected void Movement(int input)
+        protected void Movement(Vector3 input)
         {
             float speed = entity.statusComponent.GetStatus(StatusType.Speed);
             entity.movement.Move(input, speed);

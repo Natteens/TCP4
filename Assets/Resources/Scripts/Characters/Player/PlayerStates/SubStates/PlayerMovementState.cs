@@ -16,8 +16,7 @@ namespace Tcp4
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
-
-            Movement(InputHandler.GetNormalizedDirectionX());
+            Movement(InputHandler.GetRawMovementDirection());
         }
     }
 }

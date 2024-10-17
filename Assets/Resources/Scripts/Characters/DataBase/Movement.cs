@@ -6,40 +6,30 @@ namespace Tcp4
     public class Movement
     {
         private Rigidbody rb;
-        private SpriteRenderer spriteRenderer;
-        private bool isFacingLeft;
+        private Transform entityTransform;
 
         public Movement(DynamicEntity entity)
         {
             this.rb = entity.rb;
-            this.spriteRenderer = entity.spriteRenderer;
-            //this.knockback = entity.knockback;
+            this.entityTransform = entity.transform;
         }
 
-        public void Move(int direction, float moveSpeed)
+        public void Move(Vector3 direction, float moveSpeed)
         {
-            //if (knockback.GettingKnockedBack) return;
-            Vector2 movement = new Vector2(direction * moveSpeed, rb.linearVelocity.y);
-            rb.linearVelocity = movement;
-            Flip(direction);
+            Vector3 movement = direction.normalized * moveSpeed;
+            rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
         }
 
-        public void Flip(int moveInput)
+        public void RotateTowards(Vector3 targetPosition)
         {
-            if (moveInput < 0 && !isFacingLeft)
+            Vector3 direction = targetPosition - entityTransform.position;
+            direction.y = 0f;
+
+            if (direction.magnitude > 0.1f)
             {
-                FlipCharacter();
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                entityTransform.rotation = Quaternion.Slerp(entityTransform.rotation, targetRotation, Time.deltaTime * 10f);
             }
-            else if (moveInput > 0 && isFacingLeft)
-            {
-                FlipCharacter();
-            }
-        }
-
-        private void FlipCharacter()
-        {
-            isFacingLeft = !isFacingLeft;
-            spriteRenderer.flipX = isFacingLeft;
         }
     }
 }

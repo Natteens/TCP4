@@ -15,7 +15,7 @@ namespace Tcp4
         public override void DoEnterLogic()
         {
             base.DoEnterLogic();
-            Movement(0);
+            Movement(Vector3.zero);
         }
 
         public override void DoExitLogic()
