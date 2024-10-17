@@ -22,7 +22,7 @@ namespace Tcp4
 
             public Vector3 GetCheckPosition(Transform transform, Vector3 facingDirection)
             {
-                return transform.position + facingDirection * offset.x + Vector3.up * offset.y + Vector3.forward * offset.z;
+                return transform.position + facingDirection * offset.x + Vector3.up * offset.y + transform.right * offset.z;
             }
         }
 
@@ -36,7 +36,7 @@ namespace Tcp4
         [SerializeField] private List<CollisionCheck> collisionChecks = new List<CollisionCheck>();
 
         private Dictionary<CollisionType, ICollisionDetector> collisionDetectors;
-        private Vector3 FacingDirection => Vector3.forward;
+        private Vector3 FacingDirection => transform.forward;
 
         private void Awake()
         {
