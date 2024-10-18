@@ -24,7 +24,7 @@ namespace Tcp4
                 entityTransform.rotation = Quaternion.Slerp(
                     entityTransform.rotation,
                     targetRotation,
-                    rotationSpeed * Time.deltaTime
+                    rotationSpeed * Time.fixedDeltaTime
                 );
             }
             else

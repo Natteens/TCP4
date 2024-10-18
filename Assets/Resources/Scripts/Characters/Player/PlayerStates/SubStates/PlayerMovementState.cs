@@ -13,9 +13,9 @@ namespace Tcp4
             };
         }
 
-        public override void DoFrameUpdateLogic()
+        public override void DoPhysicsLogic()
         {
-            base.DoFrameUpdateLogic();
+            base.DoPhysicsLogic();
             Movement(InputHandler.GetRawMovementDirection());
         }
     }
