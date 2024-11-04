@@ -1,6 +1,7 @@
 ﻿using ComponentUtils;
 using System;
 using System.Collections.Generic;
+using Tcp4.Resources.Scripts.Core;
 using UnityEngine;
 
 namespace Tcp4
@@ -29,7 +30,7 @@ namespace Tcp4
         private void InitializeStatus()
         {
             var entity = GetComponent<BaseEntity>();
-            baseStatus = entity.serviceLocator.GetService<BaseEntitySO>();
+            baseStatus = entity.ServiceLocator.GetService<BaseEntitySO>();
             currentStatus.Clear();
             foreach (var baseStat in baseStatus.GetBaseStatus())
             {

@@ -1,37 +1,25 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.Core
 {
     public abstract class DynamicEntity : BaseEntity
     {
-        public StateMachine machine;
-        public Movement movement;
+        public StateMachine Machine;
         public event Action<AbilityType> OnAbilityUnlocked;
-
+        public Movement Movement;
+        
         public override void Awake()
         {
             base.Awake();
-            movement = new Movement(this);
-            machine = new StateMachine();
+            Movement = new Movement(this);
+            Machine = new StateMachine(this);
         }
+        
+        protected virtual void Update() => Machine?.UpdateState();
+        
+        protected virtual void FixedUpdate() => Machine?.PhysicsUpdateState();
 
-        protected virtual void Update()
-        {
-            machine.CurrentState.DoFrameUpdateLogic();
-        }
-
-        protected virtual void FixedUpdate()
-        {
-            machine.CurrentState.DoPhysicsLogic();
-        }
-
-        public AbilitySet GetAbility()
-        {
-            return baseStatus.GetBaseAbilitySet();
-        }
+        public AbilitySet GetAbility() => baseStatus.GetBaseAbilitySet();
 
         protected void UnlockAbility(AbilityType ability)
         {

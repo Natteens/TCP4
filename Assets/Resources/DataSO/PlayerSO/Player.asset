@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a5043223bb6234daa81929be6738ed, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Name: 
-  Id:
-    group: 2
-    id: 1
+  Name: MainCharacter
+  Id: 1
   baseStats:
   - statusName: None
     statusType: 0
@@ -59,4 +57,6 @@ MonoBehaviour:
   abilitySet:
     abilities:
     - abilityType: 0
+      isActive: 1
+    - abilityType: 2
       isActive: 1

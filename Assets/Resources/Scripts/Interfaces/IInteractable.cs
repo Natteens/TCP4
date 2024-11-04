@@ -1,12 +1,17 @@
-using UnityEngine;
+using System;
+using Tcp4.Resources.Scripts.Types;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.Interfaces
 {
     public interface IInteractable
     {
-        void OnPlayerEnter();
-        void OnPlayerExit();
-        void OnInteractStart(BaseEntity interactor);
-        void OnInteractEnd(BaseEntity interactor);
+        InteractionType InteractionKey { get; }
+        event Action OnInteractionStart;
+        event Action OnInteractionExecute;
+        event Action OnInteractionEnd;
+    
+        void StartInteraction();
+        void ExecuteInteraction();
+        void EndInteraction();
     }
 }

@@ -1,56 +1,57 @@
-using UnityEngine;
+using System.Collections.Generic;
+using CrimsonReaper.Resources.Scripts.Core;
+using Tcp4.Resources.Scripts.Core;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.FSM
 {
-    public abstract class State : IState
+    public abstract class State<T> : IInitializeState<T> where T : BaseEntity
     {
-        protected DynamicEntity entity;
-        protected AnimationStateParameter[] animationParameters = null;
+        protected T Entity;
+        protected AnimationData StateAnimation;
+        protected List<string> AdditionalAnimations;
 
-        public virtual void Initialize(DynamicEntity entity)
+        public virtual void Initialize(T e) // e = entity
         {
-            this.entity = entity;
-            ConfigureAnimationParameters();
+            this.Entity = e;
+            AdditionalAnimations = new List<string>();
+            ConfigureAnimation();
         }
 
         public virtual void DoEnterLogic()
         {
             DoChecks();
-            ApplyEnterAnimations();
+            PlayStateAnimation();
         }
 
         public virtual void DoExitLogic()
         {
             ResetValues();
-            ApplyExitAnimations();
         }
 
-        protected virtual void ConfigureAnimationParameters() { }
+        protected virtual void ConfigureAnimation() { }
         public virtual void DoFrameUpdateLogic() { }
         public virtual void DoPhysicsLogic() { DoChecks(); }
         public virtual void DoChecks() { }
         public virtual void ResetValues() { }
-
-        private void ApplyEnterAnimations()
+     
+        protected void PlayStateAnimation()
         {
-            if (animationParameters != null)
+            if (StateAnimation != null && Entity.Anim != null)
             {
-                foreach (var param in animationParameters)
-                {
-                    param.ApplyEnter(entity.anim);
-                    //Debug.Log($"Aplicando parâmetro de animação: {param.GetType().Name}");
-                }
+                Entity.Anim.CrossFade(
+                    StateAnimation.StateName,
+                    StateAnimation.TransitionDuration,
+                    StateAnimation.Layer
+                );
             }
         }
-
-        private void ApplyExitAnimations()
+        
+        protected void PlayAdditionalAnimation(string animationName, float transitionDuration = 0.1f, int layer = 0)
         {
-            if (animationParameters != null)
+            Entity.Anim.CrossFadeInFixedTime(animationName, transitionDuration, layer);
+            if (!AdditionalAnimations.Contains(animationName))
             {
-                foreach (var param in animationParameters)
-                {
-                    param.ApplyExit(entity.anim);
-                }
+                AdditionalAnimations.Add(animationName);
             }
         }
     }

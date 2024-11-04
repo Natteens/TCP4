@@ -1,19 +1,26 @@
 using ComponentUtils;
-using System.Collections;
+using Tcp4.Resources.Scripts.Systems.Interaction;
+using Tcp4.Resources.Scripts.Types;
 using UnityEngine;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.Core
 {
     public abstract class BaseEntity : MonoBehaviour
     {
-        public BaseEntitySO baseStatus;
-        public StatusComponent statusComponent { get; private set; }
-        public Animator anim { get; private set; }
-        public Rigidbody rb { get; private set; }
-        public Collider coll { get; private set; }
-        public CollisionComponent checker { get; private set; }
-        public ServiceLocator serviceLocator { get; private set; }
+        public BaseEntitySO baseStatus;   
+        public EntityConfigSO entityConfig;
+        public ServiceLocator ServiceLocator { get; private set; }
 
+        // Componentes 
+        public StatusComponent StatusComp { get; private set; }
+      //  public SkillComponent SkillComp { get; private set; }
+        public Animator Anim { get; private set; }
+        public Rigidbody Rb { get; private set; }
+        public Collider Coll { get; private set; }
+        public CollisionComponent Checker { get; private set; }
+        
+        public InteractionManager InteractionManager { get; private set; }
+        
         public virtual void Awake()
         {
             InitializeComponents();
@@ -21,24 +28,25 @@ namespace Tcp4
 
         private void InitializeComponents()
         {
-            serviceLocator = new ServiceLocator();
-            RegisterComponents();
-            GetComponents();
+            ServiceLocator = new ServiceLocator();
+            entityConfig?.SetupComponents(gameObject, ServiceLocator);
+            ServiceLocator?.RegisterService(baseStatus);
+            SetupComponents();
         }
-
-        private void RegisterComponents()
+        
+        private void SetupComponents()
         {
-            serviceLocator.RegisterService(baseStatus);
+            StatusComp = Get<StatusComponent>(ComponentType.StatusComponent);
+            Anim = Get<Animator>(ComponentType.Animator, SearchScope.InChildren);
+            Rb = Get<Rigidbody>(ComponentType.Rigidbody);
+            Coll = Get<Collider>(ComponentType.Collider);
+            Checker = Get<CollisionComponent>(ComponentType.CollisionComponent);
+            InteractionManager = Get<InteractionManager>(ComponentType.InteractionManager);
+          //SkillComp = Get<SkillComponent>(ComponentType.SkillComponent);
         }
-
-        private void GetComponents()
-        {
-            statusComponent = GetComponent<StatusComponent>();
-            anim = GetComponentInChildren<Animator>();
-            rb = GetComponent<Rigidbody>();
-            coll = GetComponent<Collider>();
-            checker = GetComponent<CollisionComponent>();
-        }
+        
+        public T Get<T>(ComponentType type, SearchScope scope = SearchScope.Self) where T : Component => 
+            entityConfig.GetComponent(gameObject, (ComponentType)type, (SearchScope)scope) as T;
     }
 
 }

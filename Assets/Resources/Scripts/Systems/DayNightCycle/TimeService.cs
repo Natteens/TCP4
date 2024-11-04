@@ -56,7 +56,30 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
             double percentage = elapsedTime.TotalMinutes / totalTime.TotalMinutes;
             return Mathf.Lerp(startDegree, startDegree + 180, (float)percentage);
         }
+        
+        public void AdvanceTime(float hours)
+        {
+            if (hours < 0 || hours + currentTime.Hour > 23)
+                throw new ArgumentOutOfRangeException("Você pode avançar no máximo até 23:00.");
 
+            currentTime = currentTime.AddHours(hours);
+            isDayTime.Value = IsDayTime();
+            currentHour.Value = currentTime.Hour;
+            
+            if (currentTime.Day != (currentTime.AddHours(hours)).Day)
+                OnDayPassed?.Invoke();
+        }
+
+        public void SleepUntilMorning()
+        {
+            var nextSunrise = sunriseTime.Add(new TimeSpan(24, 0, 0)); 
+            var newDate = currentTime.Date.AddDays(1).Add(sunriseTime);
+            currentTime = newDate;
+            isDayTime.Value = IsDayTime();
+            currentHour.Value = currentTime.Hour;
+            OnDayPassed?.Invoke(); 
+        }
+        
         public DateTime CurrentTime => currentTime;
         bool IsDayTime() => currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime;
 

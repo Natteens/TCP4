@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
 {
@@ -11,7 +12,7 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
         [Header("configurables")]
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TimeSettings timeSettings;
-        [SerializeField] private bool isBrazilianTimeFormat = true;
+        [FormerlySerializedAs("isBrazilianTimeFormat")] [SerializeField] private bool isBrazilianFormat = true;
         
         [Header("Day and Night")]
         [SerializeField] private Light sun;
@@ -78,6 +79,7 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
             UpdateLightSettings();
             UpdateSkyBlend();
         }
+
         
         void UpdateSkyBlend()
         {
@@ -106,9 +108,27 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
             if (timeText != null)
             {
                 string dateFormat = "dd/MM/yyyy"; 
-                string timeFormat = isBrazilianTimeFormat ? "HH:mm" : "hh:mm tt";
+                string timeFormat = isBrazilianFormat ? "HH:mm" : "hh:mm tt";
                 timeText.text = _timeService.CurrentTime.ToString($"{dateFormat} / {timeFormat}");
             }
         }
+        public void AdvanceTime(float hours)
+        {
+            try
+            {
+                _timeService.AdvanceTime(hours);
+                Debug.Log($"Avançou {hours} horas.");
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Debug.LogError(e.Message);
+            }
+        }
+        public void Sleep()
+        {
+            _timeService.SleepUntilMorning();
+            Debug.Log("Dormindo até o amanhecer...");
+        }
+
     }
 }

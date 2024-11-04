@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using ComponentUtils;
+﻿using UnityEngine;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.Core
 {
     [CreateAssetMenu(fileName = "BaseEntity", menuName = "Entity/Create new Entity")]
     public class BaseEntitySO : ScriptableObject
@@ -10,10 +8,9 @@ namespace Tcp4
         [Header("Entity Info")]
         [Tooltip("Name of the entity")]
         public string Name;
-
-        [AutoID(IdGroup.DynamicEntity)]
+        
         [Tooltip("Unique identifier for the entity")]
-        public ID Id;
+        public int Id;
 
         [Header("Entity Status")]
         [Tooltip("List of base stats for the entity")]

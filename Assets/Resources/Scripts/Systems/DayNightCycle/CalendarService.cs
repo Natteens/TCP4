@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
 {
@@ -11,36 +10,36 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
         public event Action<int, int, int> OnDayChanged;
         public event Action OnNewSeason;
 
-        private DateTime currentDate;
-        private Season currentSeason;
+        private DateTime _currentDate;
+        private Season _currentSeason;
 
-        private Dictionary<int, int> daysInMonth = new Dictionary<int, int>
+        private Dictionary<int, int> _daysInMonth = new Dictionary<int, int>
         {
-            { 1, 31 }, { 2, 28 }, { 3, 31 }, { 4, 30 }, { 5, 31 },
+            { 1, 30 }, { 2, 28 }, { 3, 31 }, { 4, 30 }, { 5, 31 },
             { 6, 30 }, { 7, 31 }, { 8, 31 }, { 9, 30 }, { 10, 31 },
             { 11, 30 }, { 12, 31 }
         };
 
         public CalendarService(DateTime startDate)
         {
-            currentDate = startDate;
-            currentSeason = CalculateSeason(startDate.Month);
+            _currentDate = startDate;
+            _currentSeason = CalculateSeason(startDate.Month);
         }
 
-        public DateTime CurrentDate => currentDate;
-        public Season CurrentSeason => currentSeason;
+        public DateTime CurrentDate => _currentDate;
+        public Season CurrentSeason => _currentSeason;
 
         public void AdvanceDay()
         {
-            currentDate = currentDate.AddDays(1);
+            _currentDate = _currentDate.AddDays(1);
 
-            if (currentDate.Day == 1)
+            if (_currentDate.Day == 1)
             {
-                currentSeason = CalculateSeason(currentDate.Month);
+                _currentSeason = CalculateSeason(_currentDate.Month);
                 OnNewSeason?.Invoke();
             }
 
-            OnDayChanged?.Invoke(currentDate.Day, currentDate.Month, currentDate.Year);
+            OnDayChanged?.Invoke(_currentDate.Day, _currentDate.Month, _currentDate.Year);
         }
 
         private Season CalculateSeason(int month)

@@ -1,17 +1,20 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Tcp4.Resources.Scripts.Core;
 
 namespace Tcp4
 {
-    public class StateMachine
+     public class StateMachine
     {
         public IState CurrentState { get; private set; }
         private Dictionary<string, IState> states;
         private Dictionary<string, Func<AbilitySet, bool>> stateAbilities;
+        private BaseEntity owner;
 
-        public StateMachine()
+        public StateMachine(BaseEntity owner)
         {
+            this.owner = owner;
             states = new Dictionary<string, IState>();
             stateAbilities = new Dictionary<string, Func<AbilitySet, bool>>();
         }
@@ -19,10 +22,8 @@ namespace Tcp4
         public void Initialize(IState startingState)
         {
             CurrentState = startingState;
-           // Debug.Log($"Estado inicial configurado: {startingState?.GetType().Name}");
             CurrentState?.DoEnterLogic();
         }
-
 
         public void ChangeState(string newStateName, DynamicEntity entity)
         {
@@ -34,7 +35,7 @@ namespace Tcp4
             }
             else
             {
-                Debug.LogWarning($"N„o foi possÌvel mudar para o estado: {newStateName}. Estado atual: {CurrentState?.GetType().Name}");
+                Debug.LogWarning($"N√£o foi poss√≠vel mudar para o estado: {newStateName}. Estado atual: {CurrentState?.GetType().Name}");
             }
         }
 
@@ -48,12 +49,13 @@ namespace Tcp4
             CurrentState?.DoPhysicsLogic();
         }
 
-        public void RegisterState(string stateName, IState state, DynamicEntity entity, Func<AbilitySet, bool> canSwitchFunc = null)
+        public void RegisterState<T>(string stateName, IInitializeState<T> state, T entity, Func<AbilitySet, bool> canSwitchFunc = null) 
+            where T : BaseEntity
         {
             if (!states.ContainsKey(stateName))
             {
+                state.Initialize(entity); 
                 states[stateName] = state;
-                state.Initialize(entity);
 
                 if (canSwitchFunc != null)
                 {
@@ -62,7 +64,7 @@ namespace Tcp4
             }
             else
             {
-                Debug.LogWarning($"Estado j· registrado: {stateName}");
+                Debug.LogWarning($"Estado j√° registrado: {stateName}");
             }
         }
 
@@ -70,9 +72,13 @@ namespace Tcp4
         {
             if (stateAbilities.TryGetValue(newStateName, out var canSwitchFunc))
             {
-                return canSwitchFunc(entity.GetAbility());
+                var dynamicEntity = owner as DynamicEntity;
+                if (dynamicEntity != null)
+                {
+                    return canSwitchFunc(dynamicEntity.GetAbility());
+                }
             }
-            return false;
+            return true;
         }
     }
 }

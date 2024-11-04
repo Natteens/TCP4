@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tcp4.Resources.Scripts.Core;
 
 namespace Tcp4
 {
@@ -349,7 +350,7 @@ namespace Tcp4
     {
         public static void UpdatePlatformMovement(this BaseEntity entity, Vector3 movement)
         {
-            // Implemente a lógica específica para mover a entidade junto com a plataforma
+            // Implemente a lï¿½gica especï¿½fica para mover a entidade junto com a plataforma
             entity.transform.position += movement;
         }
     }

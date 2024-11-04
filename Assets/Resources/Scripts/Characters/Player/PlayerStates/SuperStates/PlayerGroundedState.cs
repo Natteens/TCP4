@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using ComponentUtils;
 using System;
+using Tcp4.Resources.Scripts.FSM;
+using Tcp4.Resources.Scripts.Interfaces;
+using Tcp4.Resources.Scripts.Types;
+using UnityEngine;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
 {
-    public class PlayerGroundedState : State
+    public class PlayerGroundedState : State<Player>
     {
         protected PlayerInputHandler InputHandler;
-        protected CollisionComponent coll;
-        protected IInteractable currentInteractable;
-
-        public override void Initialize(DynamicEntity entity)
+        protected CollisionComponent Checker;
+        
+        public override void Initialize(Player entity)
         {
             base.Initialize(entity);
-            coll = entity.checker;
-            InputHandler = entity.serviceLocator.GetService<PlayerInputHandler>();
+            Checker = entity.Checker;
+            InputHandler = entity.ServiceLocator.GetService<PlayerInputHandler>();
         }
 
         public override void DoEnterLogic()
@@ -33,21 +32,23 @@ namespace Tcp4
 
         private void HandleInput()
         {
-            if (coll.IsColliding<RaycastResult>("Ground", out var _))
+            if (Checker.IsColliding<SphereCollisionResult>("Ground", out var _))
             {
                 if (InputHandler.GetRawMovementDirection() != Vector3.zero)
                 {
-                    entity.machine.ChangeState("Move", entity);
+                    Entity.Machine.ChangeState("Move", Entity);
                 }
                 else
                 {
-                    entity.machine.ChangeState("Idle", entity);
+                    Entity.Machine.ChangeState("Idle", Entity);
                 } 
             }
 
-            if (InputHandler.GetInteractInput() && currentInteractable != null)
+            if (InputHandler.GetInteractInput() && Entity.InteractionManager.CurrentInteractable != null)
             {
-                entity.machine.ChangeState("Interact", entity);
+                InteractionType interactionType = Entity.InteractionManager.CurrentInteractable.InteractionKey;
+                string interactionState = interactionType.ToString();
+                Entity.Machine.ChangeState(interactionState, Entity);
             }
         }
 
@@ -58,29 +59,55 @@ namespace Tcp4
 
         protected void Movement(Vector3 input)
         {
-            float speed = entity.statusComponent.GetStatus(StatusType.Speed);
-            entity.movement.Move(input, speed);
+           // Debug.Log(input);
+            float speed = Entity.StatusComp.GetStatus(StatusType.Speed);
+            Entity.Movement.Move(input, speed);
         }
 
         private void CheckInteraction()
         {
-            if (coll.IsColliding<EntityCollisionResult>("Interact", out var result))
+            if (Checker.IsColliding<EntityCollisionResult>("Interact", out var entityResult))
             {
-                var interactable = result.Entity as IInteractable;
-                if (interactable != null && interactable != currentInteractable)
+                Debug.Log(entityResult.HitObject.ToString());
+                IInteractable interactable = entityResult.Entity.GetComponent<IInteractable>();
+                HandleInteractableDetection(interactable, entityResult.Entity.gameObject);
+            }
+            else if (Checker.IsColliding<BoxCollisionResult>("Interact", out var result))
+            {
+                if (result.HitObject != null)
                 {
-                    currentInteractable?.OnPlayerExit();
-                    currentInteractable = interactable;
-                    currentInteractable.OnPlayerEnter();
+                    Debug.Log(result.HitObject.ToString());
+                    IInteractable interactable = result.HitObject.transform.gameObject.GetComponent<IInteractable>();
+                    HandleInteractableDetection(interactable, result.HitObject.transform.gameObject);
+                }
+                else
+                {
+                    Debug.Log(" ta null como obj");
+                    Entity.InteractionManager.SetInteractable(null);
                 }
             }
-            else if (currentInteractable != null)
+            else
             {
-                currentInteractable.OnPlayerExit();
-                currentInteractable = null;
+                Debug.Log(" ta null como entidade");
+                Entity.InteractionManager.SetInteractable(null);
             }
         }
 
+        private void HandleInteractableDetection(IInteractable interactable, GameObject detectedObject)
+        {
+            if (interactable != null)
+            {
+                Debug.Log($"Interagível detectado: {detectedObject.name}");
+                Entity.InteractionManager.SetInteractable(interactable);
+                
+            }
+            else
+            {
+                Debug.LogWarning($"Objeto {detectedObject.name} não possui um componente IInteractable.");
+                Entity.InteractionManager.SetInteractable(null);
+            }
+        }
+        
     }
 
 }

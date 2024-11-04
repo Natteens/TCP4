@@ -1,16 +1,16 @@
-using UnityEngine;
+using CrimsonReaper.Resources.Scripts.Core;
+using Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates;
 
-namespace Tcp4
+namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SubStates
 {
     public class PlayerMovementState : PlayerGroundedState
     {
-
-        protected override void ConfigureAnimationParameters()
+        protected override void ConfigureAnimation()
         {
-            animationParameters = new AnimationStateParameter[]
-            {
-                new FloatStateAnimationParameter("Speed", 1f, 0f), 
-            };
+            StateAnimation = new AnimationData(
+                stateName: "PlayerRun",
+                transitionDuration: 0
+            );
         }
 
         public override void DoPhysicsLogic()

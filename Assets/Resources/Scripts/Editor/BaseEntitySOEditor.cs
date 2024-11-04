@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tcp4.Resources.Scripts.Core;
 using UnityEngine;
 using UnityEditor;
 
@@ -31,7 +32,7 @@ namespace Tcp4
         {
             if (target == null)
             {
-                EditorGUILayout.HelpBox("O objeto alvo é nulo. Por favor, selecione um objeto válido.", MessageType.Error);
+                EditorGUILayout.HelpBox("O objeto alvo ï¿½ nulo. Por favor, selecione um objeto vï¿½lido.", MessageType.Error);
                 return;
             }
 
@@ -73,7 +74,7 @@ namespace Tcp4
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
             GUILayout.Label("Status Type", EditorStyles.miniButtonLeft, GUILayout.Width(150));
             GUILayout.Label("Valor", EditorStyles.miniButtonMid, GUILayout.Width(80));
-            GUILayout.Label("Gráfico", EditorStyles.miniButtonRight);
+            GUILayout.Label("Grï¿½fico", EditorStyles.miniButtonRight);
             EditorGUILayout.EndHorizontal();
 
             if (baseStatsProperty != null && baseStatsProperty.isArray)
