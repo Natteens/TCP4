@@ -11,20 +11,32 @@ namespace Tcp4.Resources.Scripts.Systems.Interaction
     {
         public IInteractable CurrentInteractable;
 
+        public void UpdateInteraction(InteractionType type)
+        {
+            UpdateInteractionUI(type);
+        }
+        
         protected abstract void UpdateInteractionUI(InteractionType type);
 
         public void SetInteractable(IInteractable interactable)
         {
-            if (CurrentInteractable != null)
+            if (interactable != null)
             {
-                UnsubscribeEvents(CurrentInteractable);
-            }
 
-            CurrentInteractable = interactable;
-            if (CurrentInteractable != null)
+                if (CurrentInteractable != null)
+                {
+                    UnsubscribeEvents(CurrentInteractable);
+                }
+                CurrentInteractable = interactable;
+                if (CurrentInteractable != null)
+                {
+                    SubscribeEvents(CurrentInteractable);
+                    UpdateInteractionUI(CurrentInteractable.InteractionKey);
+                }
+            }
+            else
             {
-                SubscribeEvents(CurrentInteractable);
-                UpdateInteractionUI(CurrentInteractable.InteractionKey);
+                CurrentInteractable = null;
             }
         }
 

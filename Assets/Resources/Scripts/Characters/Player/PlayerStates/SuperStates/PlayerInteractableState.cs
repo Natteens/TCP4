@@ -1,4 +1,5 @@
 using Tcp4.Resources.Scripts.FSM;
+using UnityEngine;
 
 namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
 {
@@ -13,22 +14,21 @@ namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
             Checker = entity.Checker;
             InputHandler = entity.ServiceLocator.GetService<PlayerInputHandler>();
         }
-
-        public override void DoEnterLogic()
-        {
-            base.DoEnterLogic();
-        }
-
+        
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
-           
-        }
-
-        public override void DoExitLogic()
-        {
-            base.DoExitLogic();
+            if (Checker.IsColliding<SphereCollisionResult>("Ground", out var _))
+            {
+                if (InputHandler.GetRawMovementDirection() != Vector3.zero)
+                {
+                    Entity.Machine.ChangeState("Move", Entity);
+                }
+                else
+                {
+                    Entity.Machine.ChangeState("Idle", Entity);
+                } 
+            }
         }
     }
-
 }

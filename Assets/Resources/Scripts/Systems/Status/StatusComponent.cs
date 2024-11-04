@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Tcp4.Resources.Scripts.Core;
 using UnityEngine;
+using GDX.Collections.Generic;
 
 namespace Tcp4
 {
@@ -10,7 +11,7 @@ namespace Tcp4
     {
         private BaseEntitySO baseStatus;
         [SerializeField] private List<StatusEffectData> activeEffects = new List<StatusEffectData>();
-        public Dictionary<StatusType, float> currentStatus = new Dictionary<StatusType, float>();
+        public SerializableDictionary<StatusType, float> currentStatus = new SerializableDictionary<StatusType, float>();
 
         public event Action<Dictionary<StatusType, float>> OnStatusChanged;
         public event Action<List<StatusEffectData>> OnEffectsUpdated;

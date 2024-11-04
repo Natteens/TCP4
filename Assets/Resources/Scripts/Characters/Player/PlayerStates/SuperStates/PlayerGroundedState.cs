@@ -66,49 +66,21 @@ namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
 
         private void CheckInteraction()
         {
-            if (Checker.IsColliding<EntityCollisionResult>("Interact", out var entityResult))
-            {
-                Debug.Log(entityResult.HitObject.ToString());
-                IInteractable interactable = entityResult.Entity.GetComponent<IInteractable>();
-                HandleInteractableDetection(interactable, entityResult.Entity.gameObject);
-            }
-            else if (Checker.IsColliding<BoxCollisionResult>("Interact", out var result))
+            if (Checker.IsColliding<BoxCollisionResult>("Interact", out var result))
             {
                 if (result.HitObject != null)
                 {
                     Debug.Log(result.HitObject.ToString());
                     IInteractable interactable = result.HitObject.transform.gameObject.GetComponent<IInteractable>();
-                    HandleInteractableDetection(interactable, result.HitObject.transform.gameObject);
-                }
-                else
-                {
-                    Debug.Log(" ta null como obj");
-                    Entity.InteractionManager.SetInteractable(null);
+                    Entity.InteractionManager.SetInteractable(interactable);
                 }
             }
             else
             {
-                Debug.Log(" ta null como entidade");
+                Entity.InteractionManager.UpdateInteraction(InteractionType.Default);
                 Entity.InteractionManager.SetInteractable(null);
             }
         }
-
-        private void HandleInteractableDetection(IInteractable interactable, GameObject detectedObject)
-        {
-            if (interactable != null)
-            {
-                Debug.Log($"Interagível detectado: {detectedObject.name}");
-                Entity.InteractionManager.SetInteractable(interactable);
-                
-            }
-            else
-            {
-                Debug.LogWarning($"Objeto {detectedObject.name} não possui um componente IInteractable.");
-                Entity.InteractionManager.SetInteractable(null);
-            }
-        }
-        
     }
-
 }
 

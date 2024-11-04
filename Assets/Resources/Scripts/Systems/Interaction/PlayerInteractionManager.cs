@@ -15,9 +15,6 @@ namespace Tcp4.Resources.Scripts.Systems.Interaction
         [SerializeField] private GameEvent onInteractionEnter;    // Quando detecta uma interação
         [SerializeField] private GameEvent onInteractionExit;     // Quando sai da área de interação
         [SerializeField] private GameEvent onInteractionExecute;  // Quando executa a interação
-
-        [Header("Default Settings")]
-        [SerializeField] private Sprite defaultIcon;
         
         protected override void UpdateInteractionUI(InteractionType type)
         {
@@ -26,28 +23,22 @@ namespace Tcp4.Resources.Scripts.Systems.Interaction
         
         public void SwitchUI()
         {
-            SwitchIconsUI(CurrentInteractable.InteractionKey);
+            if (CurrentInteractable != null)
+            {
+                SwitchIconsUI(CurrentInteractable.InteractionKey);
+            }
+            else
+            {
+                SwitchIconsUI(InteractionType.Default);
+            }
         }
+        
         private void SwitchIconsUI(InteractionType type)
         {
             if (interactionSprites.TryGetValue(type, out var sprite))
             {
                 interactionIcon.sprite = sprite;
-                interactionIcon.enabled = true;
             }
-            else
-            {
-                SetDefaultInteractionIcon();
-            }
-        }
-
-        private void SetDefaultInteractionIcon()
-        {
-            if (defaultIcon != null)
-            {
-                interactionIcon.sprite = defaultIcon;
-            }
-            onInteractionExit?.Raise();
         }
 
         protected override void HandleInteractionStart() 
@@ -62,7 +53,7 @@ namespace Tcp4.Resources.Scripts.Systems.Interaction
         
         protected override void HandleInteractionEnd()
         {
-            SetDefaultInteractionIcon();
+            onInteractionExit?.Raise();
         }
     }
 }
