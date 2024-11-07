@@ -8,8 +8,30 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataSO/ManagerEntity/ID Generator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DataSO/ManagerEntity/ID Generator.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/BasicEntitys/Cow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/BasicEntitys/Cow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerInputHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerCollectState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerCollectState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerHarvestState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerHarvestState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerMovementState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerMovementState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerTalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerTalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerInteractableState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerInteractableState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/AnimationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/AnimationData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/DynamicEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/DynamicEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/FSM/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/FSM/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractableComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractableComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +60,12 @@
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Managers/GameEventListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Systems/Utility/DebugComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Types/ComponentType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Prefab/Mobile-Controls/Scripts/CanvasInputs/UICanvasControllerInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Systems/DayNightCycle/TimeService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Systems/DayNightCycle/TimeSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.dotbunny.gdx/GDX/Collections/Generic/SerializableDictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.dotbunny.gdx/GDX/Developer/ConsoleLogEntry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Plugins/OnScreen/OnScreenStick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/org.khronos.unitygltf/Editor/Scripts/Internal/HumanoidSetup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -59,7 +83,7 @@
   &quot;keyToString&quot;: {
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Development&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -124,6 +148,8 @@
       <workItem from="1730685929391" duration="12674000" />
       <workItem from="1730720718260" duration="6197000" />
       <workItem from="1730756413775" duration="40000" />
+      <workItem from="1730845300933" duration="3362000" />
+      <workItem from="1730852000717" duration="2000" />
     </task>
     <servers />
   </component>

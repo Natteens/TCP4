@@ -1,4 +1,5 @@
 using System;
+using Tcp4.Assets.Resources.Scripts.Core;
 
 namespace Tcp4.Resources.Scripts.Core
 {
@@ -11,7 +12,6 @@ namespace Tcp4.Resources.Scripts.Core
         public override void Awake()
         {
             base.Awake();
-            Movement = new Movement(this);
             Machine = new StateMachine(this);
         }
         
