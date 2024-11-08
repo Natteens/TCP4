@@ -1,7 +1,7 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
@@ -11,24 +11,8 @@ namespace Tcp4
 {
     public class PerformanceManager : MonoBehaviour
     {
-        #region Singleton
         public static PerformanceManager Instance { get; private set; }
         private CancellationTokenSource cancellationTokenSource;
-
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-                cancellationTokenSource = new CancellationTokenSource();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-        #endregion
 
         [Header("Debug UI")]
         [SerializeField] private bool showDebugUI = true;
@@ -47,6 +31,8 @@ namespace Tcp4
         [SerializeField, Range(0.1f, 1f)] private float maxResolutionScale = 1f;
         [SerializeField, Range(0, 3)] private int textureQuality = 1;
         [SerializeField, Range(0f, 150f)] private float shadowDistance = 50f;
+        [SerializeField] private TMP_Dropdown resolutionDropdown;
+        [SerializeField] private Slider renderScaleSlider;
 
         [Header("Mobile Specific")]
         [SerializeField] private bool optimizeForMobile = true;
@@ -57,19 +43,18 @@ namespace Tcp4
         [SerializeField] private bool useObjectPooling = true;
         [SerializeField, Range(10, 100)] private int defaultPoolSize = 20;
 
-        // Performance monitoring
         private readonly Queue<float> fpsQueue = new Queue<float>(30);
         private float lastFPSUpdate;
         private const float UPDATE_FPS_INTERVAL = 0.5f;
         private const int MAX_FPS_SAMPLES = 30;
 
-        // Component caching
-        [field : SerializeField]private readonly SerializableDictionary<int, WeakReference<Component>> componentCache = new SerializableDictionary<int, WeakReference<Component>>();
+        [field: SerializeField] private readonly SerializableDictionary<int, WeakReference<Component>> componentCache = new SerializableDictionary<int, WeakReference<Component>>();
         private Camera mainCamera;
         private bool isApplicationQuitting;
 
         private async void Start()
         {
+            cancellationTokenSource = new CancellationTokenSource();
             InitializeSettings();
 
             if (showDebugUI)
@@ -93,6 +78,8 @@ namespace Tcp4
             SetupGraphicsSettings();
             SetupMobileSettings();
             SetupDynamicResolution();
+            SetupResolutionDropdown();
+            SetupRenderScaleSlider();
         }
 
         private void SetupGraphicsSettings()
@@ -124,6 +111,33 @@ namespace Tcp4
                 ScalableBufferManager.ResizeBuffers(minResolutionScale, maxResolutionScale);
             }
 #endif
+        }
+
+        private void SetupResolutionDropdown()
+        {
+            resolutionDropdown.ClearOptions();
+            List<string> options = new List<string> { "320x160", "480x270", "640x360", "800x450", "960x540", "1280x720", "1920x1080" };
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        }
+
+        private void SetResolution(int index)
+        {
+            string[] res = resolutionDropdown.options[index].text.Split('x');
+            int width = int.Parse(res[0]);
+            int height = int.Parse(res[1]);
+            Screen.SetResolution(width, height, Screen.fullScreen);
+        }
+
+        private void SetupRenderScaleSlider()
+        {
+            renderScaleSlider.onValueChanged.AddListener(SetRenderScale);
+        }
+
+        private void SetRenderScale(float value)
+        {
+            float scale = Mathf.Lerp(minResolutionScale, maxResolutionScale, value / 100f);
+            ScalableBufferManager.ResizeBuffers(scale, scale);
         }
 
         private async Task StartPerformanceMonitoring()
@@ -284,10 +298,9 @@ namespace Tcp4
         private void OnDestroy()
         {
             cancellationTokenSource?.Cancel();
-            cancellationTokenSource?.Dispose();
-            componentCache.Clear();
         }
     }
+
     public static class UnityMainThread
     {
         private static readonly TaskScheduler unityScheduler;
