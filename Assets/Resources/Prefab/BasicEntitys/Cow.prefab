@@ -81,7 +81,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8005673164623206172}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -99,7 +99,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!136 &1715015032104629655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -171,16 +171,16 @@ MonoBehaviour:
     boxSize: {x: 1, y: 1, z: 1}
     isColliding: 0
   - name: Interact
-    radius: 0.65
-    offset: {x: 0.5, y: 0.5, z: 0}
+    radius: 2
+    offset: {x: 0, y: 0.5, z: 0}
     layers:
       serializedVersion: 2
       m_Bits: 64
     collisionColor: {r: 0, g: 0.33725977, b: 1, a: 1}
     noCollisionColor: {r: 1, g: 0, b: 0.5792651, a: 1}
-    collisionType: 2
+    collisionType: 0
     raycastDistance: 0
-    boxSize: {x: 1, y: 1, z: 1}
+    boxSize: {x: 0, y: 0, z: 0}
     isColliding: 0
   showGizmosInEditor: 1
 --- !u!114 &5606774480743994683
@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  guiOffset: {x: 0, y: 1.5}
-  textSize: 20
+  guiOffset: {x: -0.5, y: 1.5}
+  textSize: 15
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &9063904109463382028
 MonoBehaviour:
@@ -213,50 +213,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathfindingType: 2
   pathPoints:
-  - relativePosition: {x: 0, y: 1, z: 5}
-    waitTime: 0
+  - relativePosition: {x: 0, y: 0, z: 5}
+    waitTime: 1
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: 5, y: 1, z: 0}
-    waitTime: 0
+  - relativePosition: {x: 5, y: 0, z: 0}
+    waitTime: 3
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: -5, y: 1, z: 0}
-    waitTime: 0
+  - relativePosition: {x: -5, y: 0, z: 0}
+    waitTime: 2
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: 0, y: 1, z: -5}
-    waitTime: 0
+  - relativePosition: {x: 0, y: 0, z: -5}
+    waitTime: 1
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: 4, y: 1, z: -4}
-    waitTime: 0
+  - relativePosition: {x: 4, y: 0, z: -4}
+    waitTime: 3
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: -4, y: 1, z: -4}
-    waitTime: 0
+  - relativePosition: {x: -4, y: 0, z: -4}
+    waitTime: 4
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: 4, y: 1, z: 4}
-    waitTime: 0
+  - relativePosition: {x: 4, y: 0, z: 4}
+    waitTime: 1
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
         m_Calls: []
-  - relativePosition: {x: -4, y: 1, z: 4}
-    waitTime: 0
+  - relativePosition: {x: -4, y: 0, z: 4}
+    waitTime: 2
     interactionRadius: 1
     onPointReached:
       m_PersistentCalls:
@@ -265,7 +265,7 @@ MonoBehaviour:
   detectionRadius: 5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 640
   obstacleAvoidanceStrength: 0.5
   pathColor: {r: 0, g: 0, b: 1, a: 1}
   pointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -346,7 +346,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f9d1231c1dfee794a886ef44862a0525, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 724ae8660bd1eea4a869225286ad710c, type: 2}
+      objectReference: {fileID: 2100000, guid: 80687a3101c80e24bab7c94614abeff3, type: 2}
     - target: {fileID: 919132149155446097, guid: f9d1231c1dfee794a886ef44862a0525, type: 3}
       propertyPath: m_Name
       value: Vaquinha
