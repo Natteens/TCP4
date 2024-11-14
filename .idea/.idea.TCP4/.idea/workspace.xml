@@ -5,33 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ea245cf-fd84-42fc-8ce6-601b7d995ea0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InventoryManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InventoryManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/ItemType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/ItemType.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataSO/ManagerEntity/ID Generator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DataSO/ManagerEntity/ID Generator.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/BasicEntitys/Cow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/BasicEntitys/Cow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerInputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerCollectState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerCollectState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerHarvestState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerHarvestState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerIdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerMovementState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerMovementState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerTalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerTalkState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerInteractableState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerInteractableState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/AnimationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/AnimationData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/DynamicEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/DynamicEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/FSM/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/FSM/State.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Inputs/InputMapping.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractableComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractableComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,13 +77,13 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\UnityEditors\6000.0.23f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Unity\6000.0.23f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\UnityProjects\TCP4 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\UnityProjects\TCP4" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -104,7 +91,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\UnityEditors\6000.0.23f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Unity\6000.0.23f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\UnityProjects\TCP4 -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\UnityProjects\TCP4" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -150,6 +137,8 @@
       <workItem from="1730756413775" duration="40000" />
       <workItem from="1730845300933" duration="3362000" />
       <workItem from="1730852000717" duration="2000" />
+      <workItem from="1731565053869" duration="168000" />
+      <workItem from="1731624326867" duration="323000" />
     </task>
     <servers />
   </component>
@@ -165,5 +154,9 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
