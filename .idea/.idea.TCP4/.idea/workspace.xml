@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ea245cf-fd84-42fc-8ce6-601b7d995ea0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InventoryManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InventoryManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/ItemType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/ItemType.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +19,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Characters/Player/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerMovementState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Core/BaseEntity.cs" root0="SKIP_HIGHLIGHTING" />
@@ -45,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/FSM/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Interfaces/IState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Managers/GameEventListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Managers/Management/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Systems/Utility/DebugComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Types/ComponentType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Prefab/Mobile-Controls/Scripts/CanvasInputs/UICanvasControllerInput.cs" root0="FORCE_HIGHLIGHTING" />
@@ -138,7 +125,7 @@
       <workItem from="1730845300933" duration="3362000" />
       <workItem from="1730852000717" duration="2000" />
       <workItem from="1731565053869" duration="168000" />
-      <workItem from="1731624326867" duration="323000" />
+      <workItem from="1731624326867" duration="1176000" />
     </task>
     <servers />
   </component>

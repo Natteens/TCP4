@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using GDX.Collections.Generic;
 namespace Tcp4.Resources.Scripts.Systems.Inventory
 {
     [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory/Storage")]
     public class InventoryData : ScriptableObject
     {
-        private Dictionary<short, int> items = new Dictionary<short, int>();
+        private SerializableDictionary<short, int> items = new SerializableDictionary<short, int>();
     
         public void AddItem(ItemData item, int amount = 1)
         {
