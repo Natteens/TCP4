@@ -1,16 +1,18 @@
 using System;
+using Tcp4.Assets.Resources.Scripts.Characters.Player;
+using Tcp4.Resources.Scripts.Characters.Player;
 using Tcp4.Resources.Scripts.FSM;
 using Tcp4.Resources.Scripts.Interfaces;
 using Tcp4.Resources.Scripts.Types;
 using UnityEngine;
 
-namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
+namespace Tcp4.Assets.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
 {
     public class PlayerGroundedState : State<Player>
     {
         protected PlayerInputHandler InputHandler;
         protected CollisionComponent Checker;
-        
+        private bool isInteracting = false;
         public override void Initialize(Player entity)
         {
             base.Initialize(entity);
@@ -34,20 +36,26 @@ namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
         {
             if (Checker.IsColliding<SphereCollisionResult>("Ground", out var _))
             {
-                if (InputHandler.GetRawMovementDirection() != Vector3.zero)
+                if (InputHandler.GetRawMovementDirection() != Vector3.zero && InputHandler.GetRunningInput())
                 {
-                    Entity.Machine.ChangeState("Move", Entity);
+                    Entity.Machine.ChangeState("Run", Entity);
+                }
+                else if (InputHandler.GetRawMovementDirection() != Vector3.zero)
+                {
+                    Entity.Machine.ChangeState("Walk", Entity);
                 }
                 else
                 {
                     Entity.Machine.ChangeState("Idle", Entity);
-                } 
+                }
             }
 
             if (InputHandler.GetInteractInput() && Entity.InteractionManager.CurrentInteractable != null)
             {
-                InteractionType interactionType = Entity.InteractionManager.CurrentInteractable.InteractionKey;
-                string interactionState = interactionType.ToString();
+                var interactable = Entity.InteractionManager.CurrentInteractable;
+                interactable.StartInteraction();
+
+                string interactionState = interactable.InteractionKey.ToString();
                 Entity.Machine.ChangeState(interactionState, Entity);
             }
         }
@@ -57,9 +65,8 @@ namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
             base.DoExitLogic();
         }
 
-        protected void Movement(Vector3 input)
+        protected virtual void Movement(Vector3 input)
         {
-           // Debug.Log(input);
             float speed = Entity.StatusComp.GetStatus(StatusType.Speed);
             Entity.Movement.Move(input, speed);
         }
@@ -68,17 +75,29 @@ namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
         {
             if (Checker.IsColliding<BoxCollisionResult>("Interact", out var result))
             {
-                if (result.HitObject != null)
+                if (result.HitObject != null && !isInteracting)
                 {
-                    Debug.Log(result.HitObject.ToString());
                     IInteractable interactable = result.HitObject.transform.gameObject.GetComponent<IInteractable>();
                     Entity.InteractionManager.SetInteractable(interactable);
+                    Entity.Machine.ChangeState("Interact", Entity);
+                    isInteracting = true;
+                }
+            }
+            else if (Checker.IsColliding<EntityCollisionResult>("Interact", out var EntityResult))
+            {
+                if (EntityResult.HitObject != null && !isInteracting)
+                {
+                    IInteractable interactable = EntityResult.HitObject.transform.gameObject.GetComponent<IInteractable>();
+                    Entity.InteractionManager.SetInteractable(interactable);
+                    Entity.Machine.ChangeState("Interact", Entity);
+                    isInteracting = true;
                 }
             }
             else
             {
                 Entity.InteractionManager.UpdateInteraction(InteractionType.Default);
                 Entity.InteractionManager.SetInteractable(null);
+                isInteracting = false;
             }
         }
     }

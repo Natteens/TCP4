@@ -1,4 +1,5 @@
 using System;
+using Tcp4.Resources.Scripts.Core;
 using Tcp4.Resources.Scripts.Interfaces;
 using Tcp4.Resources.Scripts.Types;
 using UnityEngine;
@@ -15,22 +16,28 @@ namespace Tcp4.Resources.Scripts.Systems.Interaction
         public event Action OnInteractionExecute;
         public event Action OnInteractionEnd;
 
+        private bool isInteracting = false;
+
         public void StartInteraction()
         {
+            if (isInteracting) return;
+            isInteracting = true;
             OnInteractionStart?.Invoke();
-            Debug.Log($"Interação {interactionType} iniciada.");
         }
 
         public void ExecuteInteraction()
         {
+            if (!isInteracting) return;
             OnInteractionExecute?.Invoke();
-            Debug.Log($"Interação {interactionType} em andamento.");
         }
 
         public void EndInteraction()
         {
+            if (!isInteracting) return;
+            isInteracting = false;
             OnInteractionEnd?.Invoke();
-            Debug.Log($"Interação {interactionType} finalizada.");
         }
+
+        public bool IsInteracting => isInteracting;
     }
 }

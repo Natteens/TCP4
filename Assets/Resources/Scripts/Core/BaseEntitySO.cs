@@ -10,7 +10,7 @@ namespace Tcp4.Resources.Scripts.Core
         public string Name;
         
         [Tooltip("Unique identifier for the entity")]
-        public int Id;
+        public byte Id;
 
         [Header("Entity Status")]
         [Tooltip("List of base stats for the entity")]

@@ -1,34 +1,44 @@
 using Tcp4.Resources.Scripts.FSM;
-using UnityEngine;
 
 namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
 {
-    public class PlayerInteractableState : State<Player>
+    public class PlayerInteractableState : State<Assets.Resources.Scripts.Characters.Player.Player>
     {
         protected PlayerInputHandler InputHandler;
-        protected CollisionComponent Checker;
-        
-        public override void Initialize(Player entity)
+        private bool isInteracting;
+
+        public override void Initialize(Assets.Resources.Scripts.Characters.Player.Player e)
         {
-            base.Initialize(entity);
-            Checker = entity.Checker;
-            InputHandler = entity.ServiceLocator.GetService<PlayerInputHandler>();
+            base.Initialize(e);
+            InputHandler = Entity.ServiceLocator.GetService<PlayerInputHandler>();
         }
         
+
+        public override void DoEnterLogic()
+        {
+            base.DoEnterLogic();
+            isInteracting = true;
+            var interactable = Entity.InteractionManager.CurrentInteractable;
+            interactable?.StartInteraction();
+        }
+
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
-            if (Checker.IsColliding<SphereCollisionResult>("Ground", out var _))
+            if (isInteracting && Entity.InteractionManager.CurrentInteractable != null)
             {
-                if (InputHandler.GetRawMovementDirection() != Vector3.zero)
-                {
-                    Entity.Machine.ChangeState("Move", Entity);
-                }
-                else
-                {
-                    Entity.Machine.ChangeState("Idle", Entity);
-                } 
+                Entity.InteractionManager.CurrentInteractable.ExecuteInteraction();
             }
+        }
+
+        public override void DoExitLogic()
+        {
+            base.DoExitLogic();
+            if (isInteracting && Entity.InteractionManager.CurrentInteractable != null)
+            {
+                Entity.InteractionManager.CurrentInteractable.EndInteraction();
+            }
+            isInteracting = false;
         }
     }
 }
