@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Chocolate
   m_EditorClassIdentifier: 
   quality: 0
-  ingredientType: 0
+  ingredientType: 2
