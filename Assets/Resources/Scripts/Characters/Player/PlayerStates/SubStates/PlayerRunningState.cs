@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using Tcp4.Assets.Resources.Scripts.Characters.Player.PlayerStates.SuperStates;
-using Tcp4.Assets.Resources.Scripts.Core;
+﻿using Tcp4.Assets.Resources.Scripts.Core;
+using Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates;
 using UnityEngine;
 
-namespace Tcp4.Assets.Resources.Scripts.Characters.Player.PlayerStates.SubStates
+namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SubStates
 {
     public class PlayerRunningState : PlayerGroundedState
     {

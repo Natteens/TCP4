@@ -15,11 +15,9 @@ MonoBehaviour:
   ComponentsToSetup:
   - Type: 0
     Scope: 0
-  - Type: 2
-    Scope: 0
   - Type: 4
     Scope: 0
   - Type: 5
     Scope: 0
-  - Type: 6
+  - Type: 3
     Scope: 0

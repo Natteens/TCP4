@@ -1,40 +1,43 @@
-using System;
-using Tcp4.Assets.Resources.Scripts.Characters.Player;
-using Tcp4.Resources.Scripts.Characters.Player;
 using Tcp4.Resources.Scripts.FSM;
-using Tcp4.Resources.Scripts.Interfaces;
-using Tcp4.Resources.Scripts.Types;
+using Tcp4.Resources.Scripts.Systems.CollisionCasters;
+using Tcp4.Resources.Scripts.Systems.Interaction;
 using UnityEngine;
 
-namespace Tcp4.Assets.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
+namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates
 {
     public class PlayerGroundedState : State<Player>
     {
         protected PlayerInputHandler InputHandler;
-        protected CollisionComponent Checker;
-        private bool isInteracting = false;
+        private CollisionComponent _checker;
+        protected InteractableHandler InteractionHandler;
         public override void Initialize(Player entity)
         {
             base.Initialize(entity);
-            Checker = entity.Checker;
             InputHandler = entity.ServiceLocator.GetService<PlayerInputHandler>();
-        }
-
-        public override void DoEnterLogic()
-        {
-            base.DoEnterLogic();
+            _checker = entity.Checker;
+            InteractionHandler = entity.InteractableHandler;
         }
 
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
-            HandleInput();
-            CheckInteraction();
+            HandleStateTransitions();
+            CheckInteractable();
         }
 
-        private void HandleInput()
+        protected virtual void Movement(Vector3 input)
         {
-            if (Checker.IsColliding<SphereCollisionResult>("Ground", out var _))
+            float speed = Entity.StatusComp.GetStatus(StatusType.Speed);
+            Entity.Movement.Move(input, speed);
+        }
+        
+        protected virtual void HandleStateTransitions()
+        { 
+            if (ShouldInteract())
+            {
+                Entity.Machine.ChangeState("Interact", Entity);
+            } 
+            else if (IsGrounded())
             {
                 if (InputHandler.GetRawMovementDirection() != Vector3.zero && InputHandler.GetRunningInput())
                 {
@@ -49,57 +52,28 @@ namespace Tcp4.Assets.Resources.Scripts.Characters.Player.PlayerStates.SuperStat
                     Entity.Machine.ChangeState("Idle", Entity);
                 }
             }
-
-            if (InputHandler.GetInteractInput() && Entity.InteractionManager.CurrentInteractable != null)
-            {
-                var interactable = Entity.InteractionManager.CurrentInteractable;
-                interactable.StartInteraction();
-
-                string interactionState = interactable.InteractionKey.ToString();
-                Entity.Machine.ChangeState(interactionState, Entity);
-            }
+            
         }
-
-        public override void DoExitLogic()
+        private bool ShouldInteract()
         {
-            base.DoExitLogic();
+            bool canInteract = CheckInteractable() && IsGrounded();
+            return canInteract && InputHandler.GetInteractInput();
         }
 
-        protected virtual void Movement(Vector3 input)
+        protected bool CheckInteractable()
         {
-            float speed = Entity.StatusComp.GetStatus(StatusType.Speed);
-            Entity.Movement.Move(input, speed);
+            if (_checker.IsColliding<EntityCollisionResult>("Interact", out var result))
+            {
+                InteractionHandler.OnCollisionDetected(result);
+                return InteractionHandler.CurrentInteractable != null;
+            }
+        
+            InteractionHandler.ClearCurrentTarget();
+            return false;
         }
 
-        private void CheckInteraction()
-        {
-            if (Checker.IsColliding<BoxCollisionResult>("Interact", out var result))
-            {
-                if (result.HitObject != null && !isInteracting)
-                {
-                    IInteractable interactable = result.HitObject.transform.gameObject.GetComponent<IInteractable>();
-                    Entity.InteractionManager.SetInteractable(interactable);
-                    Entity.Machine.ChangeState("Interact", Entity);
-                    isInteracting = true;
-                }
-            }
-            else if (Checker.IsColliding<EntityCollisionResult>("Interact", out var EntityResult))
-            {
-                if (EntityResult.HitObject != null && !isInteracting)
-                {
-                    IInteractable interactable = EntityResult.HitObject.transform.gameObject.GetComponent<IInteractable>();
-                    Entity.InteractionManager.SetInteractable(interactable);
-                    Entity.Machine.ChangeState("Interact", Entity);
-                    isInteracting = true;
-                }
-            }
-            else
-            {
-                Entity.InteractionManager.UpdateInteraction(InteractionType.Default);
-                Entity.InteractionManager.SetInteractable(null);
-                isInteracting = false;
-            }
-        }
+        private bool IsGrounded() => _checker.IsColliding<CollisionResult>("Ground", out var _);
+
     }
 }
 

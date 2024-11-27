@@ -1,20 +1,20 @@
 using Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow.CowStates.SubStates;
 using Tcp4.Assets.Resources.Scripts.Core;
-using Tcp4.Resources.Scripts.Characters.Animals.Cow;
 using Tcp4.Resources.Scripts.Core;
+using Tcp4.Resources.Scripts.Interfaces;
 using Tcp4.Resources.Scripts.Systems.Interaction;
 using UnityEngine;
 
-namespace Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow
+namespace Tcp4.Resources.Scripts.Characters.Animals.Cow
 {
-    public class Cow : DynamicEntity
+    public class Cow : DynamicEntity, IInteractable
     {
+        [SerializeField]private bool canInteract = true;
+        private bool isInteracting;
         private NPCPathfinding Pathfinding;
-        private InteractableComponent interactableComp;
 
         private CowIdleState _idleState;
         private CowMovementState _movementState;
-        private CowTalkState _talkState;
 
         public override void Awake()
         {
@@ -23,11 +23,19 @@ namespace Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow
             
             TryGetComponent<NPCPathfinding>(out Pathfinding);
             ServiceLocator.RegisterService<NPCPathfinding>(Pathfinding);
-
-            TryGetComponent<InteractableComponent>(out interactableComp);
-            ServiceLocator.RegisterService<InteractableComponent>(interactableComp);
         }
 
+        private void OnEnable()
+        {
+            InteractionEvents.OnInteractionStarted += HandleInteractionStarted;
+            InteractionEvents.OnInteractionEnded += OnInteractionEnded;
+        }
+        
+        private void OnDisable()
+        {
+            InteractionEvents.OnInteractionStarted -= HandleInteractionStarted;
+            InteractionEvents.OnInteractionEnded -= OnInteractionEnded;
+        }
         private void Start()
         {
             RegisterBaseStates();
@@ -38,11 +46,30 @@ namespace Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow
         {
             _idleState = new CowIdleState();
             _movementState = new CowMovementState();
-            _talkState = new CowTalkState();
 
             Machine.RegisterState("Idle", _idleState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanMove));
             Machine.RegisterState("Move", _movementState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanMove));
-            Machine.RegisterState("Talk", _talkState, this, abilitySet => abilitySet.GetAbilityValue(AbilityType.CanInteract));
         }
+        
+        private void HandleInteractionStarted(IInteractable interactable, BaseEntity interactor)
+        {
+            if (interactable == this)
+            {
+                Interact(interactor);
+            }
+        }
+        
+        public void Interact(BaseEntity interactor)
+        {
+            if (!canInteract) return;
+                isInteracting = true;
+       }
+
+        private void OnInteractionEnded()
+        {
+            canInteract = true;
+            isInteracting = false;
+        }
+        public bool IsInteracting() => isInteracting;
     }
 }

@@ -3839,7 +3839,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8005673164623206172, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1321946767}
   m_SourcePrefab: {fileID: 100100000, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
 --- !u!1 &956605211
 GameObject:
@@ -4531,8 +4534,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8005673164623206172, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1310016070}
   m_SourcePrefab: {fileID: 100100000, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
+--- !u!1 &1238599006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8005673164623206172, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
+  m_PrefabInstance: {fileID: 1161844662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1297125090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4613,6 +4624,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400080401193323173, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
   m_PrefabInstance: {fileID: 1161844662}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310016070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238599006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b84e13411cf4345b6c1cba32a2ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionChecks:
+  - name: Ground
+    radius: 0.3
+    offset: {x: 0, y: 0, z: 0}
+    direction: {x: 0, y: 0, z: 0}
+    scale: {x: 0.3, y: 0.3, z: 0.3}
+    layers:
+      serializedVersion: 2
+      m_Bits: 8
+    collisionColor: {r: 0.05724919, g: 1, b: 0, a: 1}
+    noCollisionColor: {r: 1, g: 0, b: 0, a: 1}
+    collisionType: 2
+    raycastDistance: 0
+    flipWithSprite: 0
+    isColliding: 0
+    useEvents: 0
+    onCollisionEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    onCollisionExit:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1318283757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +4694,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1321946757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8005673164623206172, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
+  m_PrefabInstance: {fileID: 931524266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1321946767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321946757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b84e13411cf4345b6c1cba32a2ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionChecks:
+  - name: Ground
+    radius: 0.3
+    offset: {x: 0, y: 0, z: 0}
+    direction: {x: 0, y: 0, z: 0}
+    scale: {x: 0.3, y: 0.3, z: 0.3}
+    layers:
+      serializedVersion: 2
+      m_Bits: 8
+    collisionColor: {r: 0.05724919, g: 1, b: 0, a: 1}
+    noCollisionColor: {r: 1, g: 0, b: 0, a: 1}
+    collisionType: 2
+    raycastDistance: 0
+    flipWithSprite: 0
+    isColliding: 0
+    useEvents: 0
+    onCollisionEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    onCollisionExit:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1346733377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5235,17 +5319,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394811535}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1414558358 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-  m_PrefabInstance: {fileID: 4261373226985436989}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bbba0c44d4b8f45875fcfe4d870b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1425798840
 GameObject:
   m_ObjectHideFlags: 8
@@ -5417,7 +5490,6 @@ GameObject:
   - component: {fileID: 1454527664}
   - component: {fileID: 1454527666}
   - component: {fileID: 1454527662}
-  - component: {fileID: 1454527661}
   - component: {fileID: 1454527665}
   - component: {fileID: 1454527655}
   - component: {fileID: 1454527656}
@@ -5522,44 +5594,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStatus: {fileID: 11400000, guid: 2a3eed0be52e4884aa21a70fcfdc6040, type: 2}
   entityConfig: {fileID: 11400000, guid: b811ae38726e64849b2a98f9e2fcac1c, type: 2}
---- !u!114 &1454527661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454527653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c176de1af0fc9bc47bc515e390f1fefa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionChecks:
-  - name: Ground
-    radius: 0.25
-    offset: {x: 0, y: 0, z: 0}
-    layers:
-      serializedVersion: 2
-      m_Bits: 8
-    collisionColor: {r: 0.14481223, g: 1, b: 0, a: 1}
-    noCollisionColor: {r: 1, g: 0, b: 0, a: 1}
-    collisionType: 0
-    raycastDistance: 0
-    boxSize: {x: 1, y: 1, z: 1}
-    isColliding: 0
-  - name: Interact
-    radius: 1
-    offset: {x: 0.5, y: 0.5, z: 0}
-    layers:
-      serializedVersion: 2
-      m_Bits: 640
-    collisionColor: {r: 0, g: 0.33725977, b: 1, a: 1}
-    noCollisionColor: {r: 1, g: 0, b: 0.5792651, a: 1}
-    collisionType: 2
-    raycastDistance: 0
-    boxSize: {x: 1, y: 1, z: 1}
-    isColliding: 0
-  showGizmosInEditor: 1
 --- !u!114 &1454527662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5732,22 +5766,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 1454527653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d011a5a8cb1c483183c3fd32ae5485c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b84e13411cf4345b6c1cba32a2ce96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionSprites:
-    m_IsSerializable: 1
-    m_SerializedLength: 4
-    m_SerializedKeys: 01000000020000000300000000000000
-    m_SerializedValues:
-    - {fileID: 21300000, guid: 5a7438743a50adb45afdd672a411eb19, type: 3}
-    - {fileID: 21300000, guid: 855a14bcf349618479d7ae0220ac7632, type: 3}
-    - {fileID: 21300000, guid: cd09d50a372474e4db6cf17ece16e26d, type: 3}
-    - {fileID: 21300000, guid: 6f6d22c23c391bf4ca4bdf02eb2e30ff, type: 3}
-  interactionIcon: {fileID: 1472817181}
-  onInteractionEnter: {fileID: 11400000, guid: e4029e07ddd1e4c46b9ab24b01ef6971, type: 2}
-  onInteractionExit: {fileID: 11400000, guid: da195a352ed0d64458b33ab037b17bac, type: 2}
-  onInteractionExecute: {fileID: 11400000, guid: 0baf3540071f0e34b846a3a86417f291, type: 2}
+  collisionChecks:
+  - name: Ground
+    radius: 0.3
+    offset: {x: 0, y: 0, z: 0}
+    direction: {x: 0, y: 0, z: 0}
+    scale: {x: 0.3, y: 0.3, z: 0.3}
+    layers:
+      serializedVersion: 2
+      m_Bits: 8
+    collisionColor: {r: 0.05724919, g: 1, b: 0, a: 1}
+    noCollisionColor: {r: 1, g: 0, b: 0, a: 1}
+    collisionType: 2
+    raycastDistance: 0
+    flipWithSprite: 0
+    isColliding: 0
+    useEvents: 0
+    onCollisionEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    onCollisionExit:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Interact
+    radius: 0.3
+    offset: {x: 0, y: 0.75, z: 0.25}
+    direction: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    layers:
+      serializedVersion: 2
+      m_Bits: 640
+    collisionColor: {r: 0.05724919, g: 1, b: 0, a: 1}
+    noCollisionColor: {r: 1, g: 0, b: 0, a: 1}
+    collisionType: 2
+    raycastDistance: 0
+    flipWithSprite: 0
+    isColliding: 0
+    useEvents: 0
+    onCollisionEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    onCollisionExit:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1464294272
 GameObject:
   m_ObjectHideFlags: 0
@@ -5823,17 +5887,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464294272}
   m_CullTransparentMesh: 1
---- !u!114 &1472817181 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6604053163029732620, guid: 9e55d9b4642484f41be20c69a9b48063, type: 3}
-  m_PrefabInstance: {fileID: 8690618095464993381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1488445051
 GameObject:
   m_ObjectHideFlags: 0
@@ -7989,30 +8042,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863602489}
     m_Modifications:
-    - target: {fileID: 73259629303392516, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: collisionChecks.Array.data[1].radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 73259629303392516, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: collisionChecks.Array.data[1].offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 73259629303392516, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: collisionChecks.Array.data[1].boxSize.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 73259629303392516, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: collisionChecks.Array.data[1].boxSize.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 73259629303392516, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: collisionChecks.Array.data[1].boxSize.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 73259629303392516, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: collisionChecks.Array.data[1].collisionType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400080401193323173, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8053,121 +8082,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2542531502474557504, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2542531502474557504, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 2542531502474557504, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606774480743994683, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: textSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606774480743994683, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606774480743994683, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: guiOffset.x
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8005673164623206172, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
       propertyPath: m_Name
       value: Cow
-      objectReference: {fileID: 0}
-    - target: {fileID: 8005673164623206172, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathfindingType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: obstacleLayer.m_Bits
-      value: 640
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[0].waitTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[1].waitTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[2].waitTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[3].waitTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[4].waitTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[5].waitTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[6].waitTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[7].waitTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[0].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[1].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[2].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[3].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[4].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[5].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[6].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[7].relativePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[0].onPointReached.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[0].onPointReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1414558358}
-    - target: {fileID: 9063904109463382028, guid: 3cc34e2ed7eaa4c4d8425293c6abbdad, type: 3}
-      propertyPath: pathPoints.Array.data[0].onPointReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

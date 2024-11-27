@@ -5,7 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ea245cf-fd84-42fc-8ce6-601b7d995ea0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Inventory/InvetoryData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Interfaces/ICollisionDetector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Interfaces/ICollisionDetector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Interfaces/ICollisionResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Interfaces/ICollisionResult.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/CollisionType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/CollisionType.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TCP4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ComponentUtils/Scripts/ServiceLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComponentUtils/Scripts/ServiceLocator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FolderColor/SaveSetUp/FolderModificationData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Art/Materials/DayNightSkybox.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataSO/NpcsSO/Animals/Cow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DataSO/NpcsSO/Animals/Cow.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataSO/NpcsSO/Animals/CowConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DataSO/NpcsSO/Animals/CowConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataSO/PlayerSO/Player.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DataSO/PlayerSO/Player.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataSO/PlayerSO/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DataSO/PlayerSO/PlayerConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/BasicEntitys/Cow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/BasicEntitys/Cow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/Cow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/Cow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SubStates/CowIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SubStates/CowIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SubStates/CowMovementState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SubStates/CowMovementState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SubStates/CowTalkState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SubStates/CowTalkState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SuperStates/CowGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SuperStates/CowGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SuperStates/CowInteractableState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Animals/Cow/CowStates/SuperStates/CowInteractableState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerCollectState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerCollectState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerHarvestState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerHarvestState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerRunningState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerRunningState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerTalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerInteractState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerTalkState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerInteractState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerWalkingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerWalkingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerInteractableState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerInteractableState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/BaseEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/EntityConfigSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Core/EntityConfigSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/AbilitySetDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/AbilitySetDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/BaseEntitySOEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/BaseEntitySOEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Interfaces/IInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Interfaces/IInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractableComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractableComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/InteractionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/PlayerInteractionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Interaction/PlayerInteractionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Utility/CollisionComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Systems/Utility/CollisionComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/ComponentType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Types/ComponentType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DevelopmentScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +75,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../SteamProjects/DevilRoguelike/DevilRoguelike/Assets/Resources/Scripts/Characters/Player/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../SteamProjects/DevilRoguelike/DevilRoguelike/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerInteractState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../SteamProjects/DevilRoguelike/DevilRoguelike/Assets/Resources/Scripts/Characters/Player/PlayerStates/SuperStates/PlayerGroundedState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../SteamProjects/DevilRoguelike/DevilRoguelike/Assets/Resources/Scripts/Core/BaseEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../SteamProjects/DevilRoguelike/DevilRoguelike/Assets/Resources/Scripts/Systems/Utility/Teleport.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Characters/Player/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Characters/Player/PlayerStates/SubStates/PlayerMovementState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../SteamProjects/ProjectCrimsonReaper/Assets/Resources/Scripts/Core/BaseEntity.cs" root0="SKIP_HIGHLIGHTING" />
@@ -126,6 +187,7 @@
       <workItem from="1730852000717" duration="2000" />
       <workItem from="1731565053869" duration="168000" />
       <workItem from="1731624326867" duration="1176000" />
+      <workItem from="1732730978973" duration="6473000" />
     </task>
     <servers />
   </component>

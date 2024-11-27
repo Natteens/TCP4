@@ -1,4 +1,6 @@
 using ComponentUtils;
+using ComponentUtils.ComponentUtils.Scripts;
+using Tcp4.Resources.Scripts.Systems.CollisionCasters;
 using Tcp4.Resources.Scripts.Systems.Interaction;
 using Tcp4.Resources.Scripts.Types;
 using UnityEngine;
@@ -13,14 +15,11 @@ namespace Tcp4.Resources.Scripts.Core
 
         // Componentes 
         public StatusComponent StatusComp { get; private set; }
-      //  public SkillComponent SkillComp { get; private set; }
         public Animator Anim { get; private set; }
         public Rigidbody Rb { get; private set; }
         public Collider Coll { get; private set; }
         public CollisionComponent Checker { get; private set; }
-        
-        public InteractionManager InteractionManager { get; private set; }
-        
+        public InteractableHandler InteractableHandler { get; private set; }
         public virtual void Awake()
         {
             InitializeComponents();
@@ -41,8 +40,7 @@ namespace Tcp4.Resources.Scripts.Core
             Rb = Get<Rigidbody>(ComponentType.Rigidbody);
             Coll = Get<Collider>(ComponentType.Collider);
             Checker = Get<CollisionComponent>(ComponentType.CollisionComponent);
-            InteractionManager = Get<InteractionManager>(ComponentType.InteractionManager);
-          //SkillComp = Get<SkillComponent>(ComponentType.SkillComponent);
+            InteractableHandler = Get<InteractableHandler>(ComponentType.InteractableHandler);
         }
         
         public T Get<T>(ComponentType type, SearchScope scope = SearchScope.Self) where T : Component => 

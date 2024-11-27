@@ -1,4 +1,4 @@
-using Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow.CowStates.SuperStates;
+using Tcp4.Resources.Scripts.Characters.Animals.Cow.CowStates.SuperStates;
 using UnityEngine;
 
 namespace Tcp4.Resources.Scripts.Characters.Animals.Cow

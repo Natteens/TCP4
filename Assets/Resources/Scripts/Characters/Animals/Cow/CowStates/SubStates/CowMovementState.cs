@@ -1,4 +1,4 @@
-using Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow.CowStates.SuperStates;
+using Tcp4.Resources.Scripts.Characters.Animals.Cow.CowStates.SuperStates;
 using UnityEngine;
 
 namespace Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow.CowStates.SubStates
@@ -35,11 +35,11 @@ namespace Tcp4.Assets.Resources.Scripts.Characters.Animals.Cow.CowStates.SubStat
 
             if (moveDirection.magnitude > 0)
             {
-                Movement(moveDirection);  // Passa a direção para o método Movement do script Movement
+                Movement(moveDirection);  // Passa a direï¿½ï¿½o para o mï¿½todo Movement do script Movement
             }
             else
             {
-                Movement(Vector3.zero);  // Se não estiver se movendo, para a vaca
+                Movement(Vector3.zero);  // Se nï¿½o estiver se movendo, para a vaca
             }
         }
 

@@ -15,45 +15,9 @@ MonoBehaviour:
   Name: Cow
   Id: 2
   baseStats:
-  - statusName: None
-    statusType: 0
-    value: 0
-  - statusName: Health
-    statusType: 1
-    value: 0
   - statusName: Speed
     statusType: 2
     value: 5
-  - statusName: Agility
-    statusType: 3
-    value: 0
-  - statusName: Luck
-    statusType: 4
-    value: 0
-  - statusName: CooldownReduction
-    statusType: 5
-    value: 0
-  - statusName: PhisicalResistance
-    statusType: 6
-    value: 0
-  - statusName: FireResistance
-    statusType: 7
-    value: 0
-  - statusName: IceResistance
-    statusType: 8
-    value: 0
-  - statusName: WindResistance
-    statusType: 9
-    value: 0
-  - statusName: PoisonResistance
-    statusType: 10
-    value: 0
-  - statusName: DarknessResistance
-    statusType: 11
-    value: 0
-  - statusName: LightResistance
-    statusType: 12
-    value: 0
   abilitySet:
     abilities:
     - abilityType: 0
