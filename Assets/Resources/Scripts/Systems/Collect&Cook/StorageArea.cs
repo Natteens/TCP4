@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,20 +34,19 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
         {
             if (other.CompareTag("Player") && isAbleToGive)
             {
-                 Inventory i = other.GetComponent<Inventory>();
-                List <Ingredients> playerInventory = i.GetInventory();
+                Inventory i = other.GetComponent<Inventory>();
+                List<BaseProduct> playerInventory = i.GetInventory();
 
                 if (playerInventory.Count == 0) return;
 
-                Ingredients ingredient = playerInventory[^1];
+                BaseProduct ingredient = playerInventory[^1];
 
-                i.RemoveIngredient(ingredient, 1);
-                storage.AddIngredient(ingredient, 1);
+                i.RemoveProduct(ingredient, 1);
+                storage.AddProduct(ingredient, 1);
 
                 isAbleToGive = false;
                 currentTime = timeToGive;
             }
         }
-
     }
 }

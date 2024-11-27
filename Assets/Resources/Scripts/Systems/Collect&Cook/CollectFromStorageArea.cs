@@ -30,6 +30,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
         {
             if (other.CompareTag("Player") && isAbleToGive)
             {
+                /*
                 Inventory i = other.GetComponent<Inventory>();
                 List<Ingredients> playerInventory = i.GetInventory();
 
@@ -43,7 +44,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
                 i.AddIngredient(ingredient, 1);
 
                 isAbleToGive = false;
-                currentTime = timeToGive;
+                currentTime = timeToGive;*/
             }
         }
     }
