@@ -6,6 +6,7 @@ public class BaseProduct : ScriptableObject
     public string productName;
     public int quality;
     public byte productID;
+    public GameObject model;
 
     private static byte nextID = 0;
 

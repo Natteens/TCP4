@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6718556ead9eb114581990b08f3d82f2, type: 3}
-  m_Name: Chocolate
+  m_Script: {fileID: 11500000, guid: db6063a670b1291468999ca7715d9e56, type: 3}
+  m_Name: Producao_Cafe
   m_EditorClassIdentifier: 
-  quality: 0
-  ingredientType: 2
+  product: {fileID: 11400000, guid: 31ce6c66ce14f2e40baf34d7a438a15c, type: 2}
+  timeToGrow: 10
+  timeToHarvest: 10

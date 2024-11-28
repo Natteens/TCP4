@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tcp4.Assets.Resources.Scripts.Managers;
 using UnityEngine;
 
 namespace Tcp4
@@ -12,11 +13,12 @@ namespace Tcp4
         private float currentTime;
         private bool isAbleToGive;
         private bool isGrown;
-        private bool isMenuOpen;
+        private bool hasChoosedProduction;
 
         public void Start()
         {
-            isMenuOpen = false;
+            hasChoosedProduction = false;
+            ProductionManager.Instance.OnChooseProduction += SelectProduction;
         }
 
         public void Update()
@@ -34,23 +36,40 @@ namespace Tcp4
 
         public void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Player") && !isMenuOpen)
+            if (other.CompareTag("Player") && !hasChoosedProduction)
             {
                 OpenProductionMenu();
+            }
+            else if (other.CompareTag("Player"))
+            {
+                HarvestProduct(other);
+            }
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                CloseProductionMenu();
             }
         }
 
         private void OpenProductionMenu()
         {
-            // Lógica para abrir o menu de seleção de produção
-            isMenuOpen = true;
-            // Suponha que o menu chame o método SelectProduction quando uma produção é selecionada
+            UIManager.Instance.ControlProductionMenu(true);
         }
 
-        public void SelectProduction(Production selectedProduction)
+        private void CloseProductionMenu()
         {
-            production = selectedProduction;
-            isMenuOpen = false;
+            UIManager.Instance.ControlProductionMenu(false);
+        }
+
+        public void SelectProduction()
+        {
+            hasChoosedProduction = true;
+            production = ProductionManager.Instance.GetNewProduction();
+            ProductionManager.Instance.OnChooseProduction -= SelectProduction;
+            CloseProductionMenu();
             StartCoroutine(GrowthCycle());
         }
 
