@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tcp4
 {
-    public class ProductionType : MonoBehaviour
+    public class ProductionCard : MonoBehaviour
     {
         public Production myProduction;
 

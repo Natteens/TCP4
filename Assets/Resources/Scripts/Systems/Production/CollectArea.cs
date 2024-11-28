@@ -10,6 +10,8 @@ namespace Tcp4
         [SerializeField] private Production production;
         [SerializeField] private int amount;
         [SerializeField] private float timeToGive;
+        [SerializeField] private Transform pointToSpawn;
+        [SerializeField] private GameObject currentModel;
         private float currentTime;
         private bool isAbleToGive;
         private bool isGrown;
@@ -75,9 +77,26 @@ namespace Tcp4
 
         private IEnumerator GrowthCycle()
         {
-            yield return new WaitForSeconds(production.timeToGrow);
+
+            if (currentModel != null)
+            {
+                Destroy(currentModel);
+            }
+
+            foreach (var model in production.models)
+            {
+                if (currentModel != null)
+                {
+                    Destroy(currentModel);
+                }
+                currentModel = Instantiate(model, pointToSpawn.position, model.transform.rotation);
+                yield return new WaitForSeconds(production.timeToGrow / production.models.Length);
+            }
+
             isGrown = true;
+
         }
+
 
         public void HarvestProduct(Collider player)
         {
