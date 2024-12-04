@@ -9,9 +9,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 {
     public class ProductionManager : Singleton<ProductionManager>
     {
-        [SerializeField] private GameObject holderChoices;
 
-        private List<ProductionCard> choices = new();
+        private readonly List<ProductionCard> choices = new();
         private CollectArea reference;
 
         private Production productionToSet;

@@ -47,7 +47,7 @@ namespace Tcp4
 
         void Spawn(GameObject model)
         {
-            var offset = productInventory.Count / 10f;
+            var offset = productInventory.Count / 3.5f;
             GameObject instance = Instantiate(model, bagPoint);
             instance.transform.position += new Vector3(0, offset, 0);
             instanceInventory.Add(instance);

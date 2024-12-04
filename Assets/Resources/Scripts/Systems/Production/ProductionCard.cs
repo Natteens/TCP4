@@ -16,5 +16,7 @@ namespace Tcp4
             ProductionManager.Instance.SetupNewProduction(myProduction);
             ProductionManager.Instance.InvokeChooseProduction();
         }
+
+
     }
 }

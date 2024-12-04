@@ -73,9 +73,10 @@ namespace Tcp4
         public void SelectProduction()
         {
             this.production = ProductionManager.Instance.GetNewProduction();
-            CloseProductionMenu();
+            
             if (production == null) return;
 
+            CloseProductionMenu();
             hasChoosedProduction = true;
             ProductionManager.Instance.OnChooseProduction -= SelectProduction;
             ProductionManager.Instance.Clean();
