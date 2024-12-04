@@ -26,7 +26,7 @@ namespace Tcp4
             for (int i = 0; i < amount; i++)
             {
                 productInventory.Add(product);
-                Spawn();
+                Spawn(product.model);
             }
         }
 
@@ -41,25 +41,42 @@ namespace Tcp4
             for (int i = 0; i < amount; i++)
             {
                 productInventory.RemoveAll(x => x.productID == product.productID);
-                Despawn();
+                Despawn(product.model);
             }
         }
 
-        void Spawn()
+        void Spawn(GameObject model)
         {
             var offset = productInventory.Count / 10f;
-            GameObject instance = Instantiate(pfDebugItem, bagPoint);
+            GameObject instance = Instantiate(model, bagPoint);
             instance.transform.position += new Vector3(0, offset, 0);
             instanceInventory.Add(instance);
         }
 
-        void Despawn()
+        void Despawn(GameObject model)
         {
             if (instanceInventory.Count == 0) return;
 
-            int indexToRemove = instanceInventory.Count - 1;
-            Destroy(instanceInventory[indexToRemove]);
-            instanceInventory.RemoveAt(indexToRemove);
+            GameObject instanceToRemove = null;
+            int index = 0;
+
+            for(int i = 0; i < instanceInventory.Count; i++)
+            {
+                if (instanceInventory[i].GetComponent<MeshFilter>().mesh == model.GetComponent<MeshFilter>().mesh)
+                {
+                    instanceToRemove = instanceInventory[i];
+                    index = i;
+                }
+                    
+            }
+               
+            if(instanceToRemove != null)
+            {
+                Destroy(instanceToRemove);
+                instanceInventory.RemoveAt(index);
+            }
+     
+           
         }
     }
 }
