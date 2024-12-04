@@ -58,20 +58,27 @@ namespace Tcp4
 
         private void OpenProductionMenu()
         {
+            ProductionManager.Instance.Clean();
+            ProductionManager.Instance.SetupNewReference(this);
+            ProductionManager.Instance.ReloadCards();
             UIManager.Instance.ControlProductionMenu(true);
         }
 
         private void CloseProductionMenu()
         {
+            ProductionManager.Instance.Clean();
             UIManager.Instance.ControlProductionMenu(false);
         }
 
         public void SelectProduction()
         {
-            hasChoosedProduction = true;
-            production = ProductionManager.Instance.GetNewProduction();
-            ProductionManager.Instance.OnChooseProduction -= SelectProduction;
+            this.production = ProductionManager.Instance.GetNewProduction();
             CloseProductionMenu();
+            if (production == null) return;
+
+            hasChoosedProduction = true;
+            ProductionManager.Instance.OnChooseProduction -= SelectProduction;
+            ProductionManager.Instance.Clean();
             StartCoroutine(GrowthCycle());
         }
 

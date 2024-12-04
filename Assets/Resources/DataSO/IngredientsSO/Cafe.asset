@@ -15,4 +15,4 @@ MonoBehaviour:
   productName: Cafe
   quality: 10
   productID: 1
-  model: {fileID: 250678698178614334, guid: 61f4538f74ad36d4193eb8f2a1ed2dc5, type: 3}
+  model: {fileID: 192516758668468510, guid: deb25e0eb97f4ed43a94ba5fa88f6df9, type: 3}

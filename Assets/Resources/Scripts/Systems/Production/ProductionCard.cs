@@ -7,6 +7,9 @@ namespace Tcp4
     public class ProductionCard : MonoBehaviour
     {
         public Production myProduction;
+        private CollectArea reference;
+
+        public void SetColletArea(CollectArea collectarea) => reference = collectarea;
 
         public void Setup()
         {
