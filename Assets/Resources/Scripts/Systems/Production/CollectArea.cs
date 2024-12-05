@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Tcp4.Assets.Resources.Scripts.Managers;
 using UnityEngine;
 
@@ -12,18 +11,19 @@ namespace Tcp4
         [SerializeField] private float timeToGive;
         [SerializeField] private Transform pointToSpawn;
         [SerializeField] private GameObject currentModel;
+
         private float currentTime;
         private bool isAbleToGive;
         private bool isGrown;
         private bool hasChoosedProduction;
 
-        public void Start()
+        private void Start()
         {
             hasChoosedProduction = false;
             ProductionManager.Instance.OnChooseProduction += SelectProduction;
         }
 
-        public void Update()
+        private void Update()
         {
             if (currentTime > 0 && !isAbleToGive)
             {
@@ -36,19 +36,22 @@ namespace Tcp4
             }
         }
 
-        public void OnTriggerStay(Collider other)
+        private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Player") && !hasChoosedProduction)
+            if (other.CompareTag("Player"))
             {
-                OpenProductionMenu();
-            }
-            else if (other.CompareTag("Player"))
-            {
-                HarvestProduct(other);
+                if (!hasChoosedProduction)
+                {
+                    OpenProductionMenu();
+                }
+                else
+                {
+                    HarvestProduct(other);
+                }
             }
         }
 
-        public void OnTriggerExit(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Player"))
             {
@@ -70,11 +73,11 @@ namespace Tcp4
             UIManager.Instance.ControlProductionMenu(false);
         }
 
-        public void SelectProduction()
+        private void SelectProduction()
         {
             if (ProductionManager.Instance.GetCurrentReference() != this) return;
 
-            this.production = ProductionManager.Instance.GetNewProduction();
+            production = ProductionManager.Instance.GetNewProduction();
 
             if (production == null) return;
 
@@ -105,9 +108,9 @@ namespace Tcp4
             isGrown = true;
         }
 
-        public void HarvestProduct(Collider player)
+        private void HarvestProduct(Collider player)
         {
-            if (player.CompareTag("Player") && isAbleToGive && isGrown)
+            if (isAbleToGive && isGrown)
             {
                 Inventory playerInventory = player.GetComponent<Inventory>();
                 playerInventory.AddProduct(production.product, amount);

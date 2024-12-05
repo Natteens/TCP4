@@ -8,10 +8,9 @@ namespace Tcp4
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] private List<BaseProduct> productInventory = new List<BaseProduct>();
-        [SerializeField] private List<GameObject> instanceInventory = new List<GameObject>();
+        [SerializeField] private List<BaseProduct> productInventory = new();
+        [SerializeField] private List<GameObject> instanceInventory = new();
         [SerializeField] private Transform bagPoint;
-        [SerializeField] private GameObject pfDebugItem; //tirar isso dps e substituir dentro dos proprios ingredientes os modelos
 
         public List<BaseProduct> GetInventory() => productInventory;
 
@@ -45,6 +44,23 @@ namespace Tcp4
             }
         }
 
+        public void RefineProduct(BaseProduct product)
+        {
+            if (product == null)
+            {
+                Debug.LogError("Erro: produto nulo.");
+                return;
+            }
+
+            BaseProduct refinedProduct = RefinamentManager.Instance.Refine(product);
+
+            if (refinedProduct != null)
+            {
+                RemoveProduct(product, 1);
+                AddProduct(refinedProduct, 1);
+            }
+        }
+
         void Spawn(GameObject model)
         {
             var offset = productInventory.Count / 3.5f;
@@ -60,23 +76,20 @@ namespace Tcp4
             GameObject instanceToRemove = null;
             int index = 0;
 
-            for(int i = 0; i < instanceInventory.Count; i++)
+            for (int i = 0; i < instanceInventory.Count; i++)
             {
                 if (instanceInventory[i].GetComponent<MeshFilter>().mesh == model.GetComponent<MeshFilter>().mesh)
                 {
                     instanceToRemove = instanceInventory[i];
                     index = i;
                 }
-                    
             }
-               
-            if(instanceToRemove != null)
+
+            if (instanceToRemove != null)
             {
                 Destroy(instanceToRemove);
                 instanceInventory.RemoveAt(index);
             }
-     
-           
         }
     }
 }
