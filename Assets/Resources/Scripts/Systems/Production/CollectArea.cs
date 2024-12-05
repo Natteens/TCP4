@@ -72,8 +72,10 @@ namespace Tcp4
 
         public void SelectProduction()
         {
+            if (ProductionManager.Instance.GetCurrentReference() != this) return;
+
             this.production = ProductionManager.Instance.GetNewProduction();
-            
+
             if (production == null) return;
 
             CloseProductionMenu();
@@ -85,7 +87,6 @@ namespace Tcp4
 
         private IEnumerator GrowthCycle()
         {
-
             if (currentModel != null)
             {
                 Destroy(currentModel);
@@ -102,9 +103,7 @@ namespace Tcp4
             }
 
             isGrown = true;
-
         }
-
 
         public void HarvestProduct(Collider player)
         {
