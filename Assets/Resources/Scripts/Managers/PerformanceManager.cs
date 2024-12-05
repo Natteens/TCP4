@@ -222,11 +222,11 @@ namespace Tcp4
         {
             if (settingsText == null) return;
 
-            settingsText.text = $"Settings:\n" +
-                              $"Resolution: {Screen.currentResolution.width}x{Screen.currentResolution.height}\n" +
-                              $"Quality: {QualitySettings.GetQualityLevel()}\n" +
-                              $"Shadows: {QualitySettings.shadowDistance}m\n" +
-                              $"Textures: {QualitySettings.globalTextureMipmapLimit}";
+            settingsText.text = $"\n" +
+                              $"Resolucao: {Screen.currentResolution.width}x{Screen.currentResolution.height}\n" +
+                              $"Qualidade: {QualitySettings.GetQualityLevel()}\n" +
+                              $"Sombras: {QualitySettings.shadowDistance}m\n" +
+                              $"Texturas: {QualitySettings.globalTextureMipmapLimit}";
         }
 
         private void CleanupComponentCache()
