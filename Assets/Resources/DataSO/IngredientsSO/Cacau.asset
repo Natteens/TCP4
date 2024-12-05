@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbb4f07877bea0489ed2bd40d13b5a5, type: 3}
   m_Name: Cacau
   m_EditorClassIdentifier: 
-  productName: 
-  quality: 0
-  productID: 0
-  model: {fileID: 0}
+  productName: Cacau
+  quality: 20
+  productID: 2
+  model: {fileID: 1754855764662629944, guid: 39cc1db3138a4c3429f496bd4c322a1f, type: 3}

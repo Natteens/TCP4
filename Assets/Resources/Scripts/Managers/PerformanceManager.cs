@@ -51,6 +51,7 @@ namespace Tcp4
         [field: SerializeField] private readonly SerializableDictionary<int, WeakReference<Component>> componentCache = new SerializableDictionary<int, WeakReference<Component>>();
         private Camera mainCamera;
         private bool isApplicationQuitting;
+        [SerializeField] private CanvasGroup debugCanvasGroup;
 
         private async void Start()
         {
@@ -72,6 +73,11 @@ namespace Tcp4
             }
         }
 
+        public void Update()
+        {
+            debugCanvasGroup.alpha = showDebugUI ? 1f : 0f;
+        }
+
         private void InitializeSettings()
         {
             mainCamera = Camera.main;
@@ -80,6 +86,11 @@ namespace Tcp4
             SetupDynamicResolution();
             SetupResolutionDropdown();
             SetupRenderScaleSlider();
+        }
+
+        public void ControlDebug()
+        {
+            showDebugUI = !showDebugUI;
         }
 
         private void SetupGraphicsSettings()

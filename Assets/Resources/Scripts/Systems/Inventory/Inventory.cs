@@ -39,8 +39,12 @@ namespace Tcp4
 
             for (int i = 0; i < amount; i++)
             {
-                productInventory.RemoveAll(x => x.productID == product.productID);
-                Despawn(product.model);
+                BaseProduct itemToRemove = productInventory.Find(x => x.productID == product.productID);
+                if (itemToRemove != null)
+                {
+                    productInventory.Remove(itemToRemove);
+                    Despawn(product.model);
+                }
             }
         }
 
@@ -63,10 +67,9 @@ namespace Tcp4
 
         void Spawn(GameObject model)
         {
-            var offset = productInventory.Count / 3.5f;
             GameObject instance = Instantiate(model, bagPoint);
-            instance.transform.position += new Vector3(0, offset, 0);
             instanceInventory.Add(instance);
+            ReorganizeInventory();
         }
 
         void Despawn(GameObject model)
@@ -74,22 +77,34 @@ namespace Tcp4
             if (instanceInventory.Count == 0) return;
 
             GameObject instanceToRemove = null;
-            int index = 0;
+            int index = -1;
 
             for (int i = 0; i < instanceInventory.Count; i++)
             {
-                if (instanceInventory[i].GetComponent<MeshFilter>().mesh == model.GetComponent<MeshFilter>().mesh)
+                if (instanceInventory[i].GetComponent<MeshFilter>().sharedMesh == model.GetComponent<MeshFilter>().sharedMesh)
                 {
                     instanceToRemove = instanceInventory[i];
                     index = i;
+                    break; // Encontramos a instância, podemos sair do loop
                 }
             }
 
-            if (instanceToRemove != null)
+            if (instanceToRemove != null && index != -1)
             {
                 Destroy(instanceToRemove);
                 instanceInventory.RemoveAt(index);
+                ReorganizeInventory();
             }
         }
+
+        void ReorganizeInventory()
+        {
+            for (int i = 0; i < instanceInventory.Count; i++)
+            {
+                var offset = i / 3.5f;
+                instanceInventory[i].transform.position = bagPoint.position + new Vector3(0, offset, 0);
+            }
+        }
+        
     }
 }
