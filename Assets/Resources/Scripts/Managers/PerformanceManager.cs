@@ -57,10 +57,11 @@ namespace Tcp4
         {
             cancellationTokenSource = new CancellationTokenSource();
             InitializeSettings();
-
+           
             if (showDebugUI)
             {
                 CreateDebugUI();
+                debugCanvasGroup.alpha = 0f;
             }
 
             try
