@@ -1,7 +1,6 @@
 ﻿using ComponentUtils.ComponentUtils.Scripts;
 using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +22,11 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public Production GetNewProduction() => productionToSet;
 
-        public void Clean() { productionToSet = null; reference = null; }
+        public void Clean()
+        {
+            productionToSet = null;
+            reference = null;
+        }
 
         public void InvokeChooseProduction() => OnChooseProduction?.Invoke();
 
@@ -31,13 +34,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         {
             choices.Clear();
 
-            GameObject[] goList = GameObject.FindGameObjectsWithTag("ProductionCard");
+            var goList = GameObject.FindGameObjectsWithTag("ProductionCard");
 
-            for (int i = 0; i < goList.Length; i++)
+            foreach (var go in goList)
             {
-                ProductionCard p = goList[i].GetComponent<ProductionCard>();
-                p.SetColletArea(reference);
-                choices.Add(p);
+                var p = go.GetComponent<ProductionCard>();
+                if (p != null)
+                {
+                    p.SetColletArea(reference);
+                    choices.Add(p);
+                }
             }
         }
     }

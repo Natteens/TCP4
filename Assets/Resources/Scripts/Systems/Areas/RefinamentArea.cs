@@ -6,23 +6,20 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
     public class RefinamentArea : MonoBehaviour
     {
         [SerializeField] private RawProduct expectedProduct;
-        [SerializeField] private float refinementTime = 5f; 
+        [SerializeField] private float refinementTime = 5f;
         private bool isPlayerInArea = false;
         private bool isRefining = false;
         private Inventory playerInventory;
 
         private void Update()
         {
-            if (isPlayerInArea && !isRefining && playerInventory != null)
+            if (isPlayerInArea && !isRefining && playerInventory != null && playerInventory.GetInventory().Contains(expectedProduct))
             {
-                if (playerInventory.GetInventory().Contains(expectedProduct))
-                {
-                    StartCoroutine(RefineProduct());
-                }
+                StartCoroutine(RefineProduct());
             }
         }
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
