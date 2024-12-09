@@ -61,7 +61,7 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
             volume.profile.TryGet(out _colorAdjustments);
             OnSunrise += () => Debug.Log("Sunrise");
             OnSunset += () => Debug.Log("Sunset");
-            OnHourChange += () => Debug.Log("Hour change");
+            //OnHourChange += () => Debug.Log("Hour change");
             _calendarService.OnDayChanged += (day, month, year) =>
             {
                 Debug.Log($"Novo dia: {day}/{month}/{year}");

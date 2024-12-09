@@ -27,14 +27,23 @@ namespace Tcp4
             if (screenPosition.z > 0)
             {
                 // Converte a posição da tela para a posição da UI
-                _ = RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    uiElement.parent as RectTransform,
+                Vector2 uiPosition;
+                RectTransform canvasRect = uiElement.parent as RectTransform;
+
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    canvasRect,
                     screenPosition,
                     mainCamera,
-                    out Vector2 uiPosition);
+                    out uiPosition))
+                {
+                    // Clamping para garantir que a posição da UI esteja dentro dos limites da tela
+                    uiPosition.x = Mathf.Clamp(uiPosition.x, 0, canvasRect.rect.width);
+                    uiPosition.y = Mathf.Clamp(uiPosition.y, 0, canvasRect.rect.height);
 
-                // Define a posição do elemento da UI
-                uiElement.localPosition = uiPosition;
+                    // Define a posição do elemento da UI
+                    uiElement.localPosition = uiPosition;
+                    uiElement.gameObject.SetActive(true); // Garante que o elemento da UI está ativo
+                }
             }
             else
             {
@@ -42,6 +51,9 @@ namespace Tcp4
                 uiElement.gameObject.SetActive(false);
             }
         }
+
+
+
 
     }
 }

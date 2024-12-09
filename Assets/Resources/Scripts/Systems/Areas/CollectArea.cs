@@ -34,35 +34,49 @@ namespace Tcp4
             ProductionManager.Instance.OnChooseProduction += SelectProduction;
             var ui = UIManager.Instance;
             var obj = Instantiate(ui.pfImageToFill, ui.productionImagesParent);
-            
+
             if (!obj.TryGetComponent<ImageToFill>(out timeImage)) Debug.LogError("DEU MERDA");
             if (timeImage.GetRectTransform() == null) Debug.LogError("DEU MERDA");
 
             ui.SyncUIWithWorldObject(pointToSpawn, timeImage.GetRectTransform());
-            timeImage.ChangeSprite(null);
         }
 
         private void InitializeObjectPools()
         {
             objectPools = new ObjectPool(pointToSpawn);
-
             objectPools.AddPool(production.models);
-            
         }
 
         private void Update()
         {
-            if (!isAbleToGive)
-            {
-                currentTime -= Time.deltaTime;
-                timeImage.UpdateFill(currentTime / timeToGive);
+            SpritesLogic();
+            //UpdateCurrentTime();
+        }
 
-                if (currentTime <= 0)
-                {
-                    currentTime = 0;
-                    isAbleToGive = true;
-                    timeImage.ChangeSprite(UIManager.Instance.Ready);
-                }
+        private void UpdateCurrentTime()
+        {
+            if (production != null && !isGrown)
+            {
+                currentTime = Mathf.Clamp(currentTime, 0, production.timeToGrow);
+                timeImage.UpdateFill(currentTime);
+            }
+        }
+
+        private void SpritesLogic()
+        {
+            if (production == null)
+            {
+                timeImage.ChangeSprite(null);
+                return;
+            }
+
+            if (!isAbleToGive && currentTime < production.timeToGrow)
+            {
+                timeImage.ChangeSprite(UIManager.Instance.sprProductionWait);
+            }
+            else if (isAbleToGive)
+            {
+                timeImage.ChangeSprite(UIManager.Instance.Ready);
             }
         }
 
@@ -115,7 +129,8 @@ namespace Tcp4
 
             if (production == null) return;
 
-            timeImage.ChangeSprite(UIManager.Instance.sprProductionWait);
+            currentTime = 0;
+            timeImage.SetupMaxTime(production.timeToGrow);
             CloseProductionMenu();
             hasChoosedProduction = true;
             productionManager.OnChooseProduction -= SelectProduction;
@@ -131,27 +146,39 @@ namespace Tcp4
 
         private IEnumerator GrowthCycle()
         {
-            if (currentModel != null)
-            {
-                objectPools.Return(currentModel);
-            }
 
             var models = production.models;
-            var timeToGrow = production.timeToGrow / models.Length;
+            var timeToGrow = production.timeToGrow;
+            int modelIndex = 0;
 
-            for (int i = 0; i < models.Length; i++)
+            while (modelIndex < models.Length)
             {
                 if (currentModel != null)
                 {
                     objectPools.Return(currentModel);
                 }
-                currentModel = objectPools.Get(models[i]);
-                currentModel.transform.SetPositionAndRotation(pointToSpawn.position, models[i].transform.rotation);
-                //currentModel.transform.localScale = models[i].transform.localScale;
-                yield return new WaitForSeconds(timeToGrow);
+
+                currentModel = objectPools.Get(models[modelIndex]);
+                currentModel.transform.SetPositionAndRotation(pointToSpawn.position, models[modelIndex].transform.rotation);
+                Debug.Log($"Modelo atual: {currentModel.name} / Rotacao: {currentModel.transform.rotation} / Index: {modelIndex}");
+                //currentModel.transform.localScale = models[modelIndex].transform.localScale;
+
+                float modelGrowTime = timeToGrow / models.Length;
+                float elapsedTime = 0;
+
+                while (elapsedTime < modelGrowTime)
+                {
+                    elapsedTime += Time.deltaTime;
+                    currentTime += Time.deltaTime;
+                    UpdateCurrentTime();
+                    yield return null;
+                }
+
+                modelIndex++;
             }
 
             isGrown = true;
+            isAbleToGive = true;
         }
 
         private void HarvestProduct()
@@ -159,7 +186,7 @@ namespace Tcp4
             if (isAbleToGive && isGrown && playerInventory != null)
             {
                 playerInventory.AddProduct(production.product, amount);
-                currentTime = timeToGive;
+                currentTime = 0;
                 isAbleToGive = false;
                 isGrown = false;
                 StartCoroutine(GrowthCycle());
