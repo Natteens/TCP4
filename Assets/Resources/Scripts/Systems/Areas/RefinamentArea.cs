@@ -48,7 +48,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
 
         private void OnTriggerStay(Collider other)
         {
-            if (isPlayerInArea && !isRefining && playerInventory != null && playerInventory.GetInventory().Contains(expectedProduct) && !isReady)
+            if (isPlayerInArea && !isRefining && !isReady && playerInventory != null && playerInventory.GetInventory().Contains(expectedProduct) )
             {
                 StartCoroutine(RefineProduct());
             }
