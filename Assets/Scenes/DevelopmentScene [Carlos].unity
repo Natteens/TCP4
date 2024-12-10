@@ -9106,11 +9106,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   productionMenu: {fileID: 1538957485}
-  productionImagesParent: {fileID: 999584154}
   sprProductionWait: {fileID: 21300000, guid: fb224836be44abb44b63df04f2733534, type: 3}
   sprRefinamentWait: {fileID: 21300000, guid: d9a9fdab3def17c4a9e5c640f5bf15dd, type: 3}
-  Ready: {fileID: 21300000, guid: cb23968ffb8ff7e4abc3066b3c934f68, type: 3}
+  ready: {fileID: 21300000, guid: cb23968ffb8ff7e4abc3066b3c934f68, type: 3}
   pfImageToFill: {fileID: 6260145864655188467, guid: d999800fdb2dbb049bf172e4214810af, type: 3}
+  worldCanvas: {fileID: 999584157}
 --- !u!1 &1996612131
 GameObject:
   m_ObjectHideFlags: 0

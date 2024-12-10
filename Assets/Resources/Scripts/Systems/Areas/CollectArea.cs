@@ -33,12 +33,9 @@ namespace Tcp4
             hasChoosedProduction = false;
             ProductionManager.Instance.OnChooseProduction += SelectProduction;
             var ui = UIManager.Instance;
-            var obj = Instantiate(ui.pfImageToFill, ui.productionImagesParent);
-
-            if (!obj.TryGetComponent<ImageToFill>(out timeImage)) Debug.LogError("DEU MERDA");
-            if (timeImage.GetRectTransform() == null) Debug.LogError("DEU MERDA");
-
-            ui.SyncUIWithWorldObject(pointToSpawn, timeImage.GetRectTransform());
+            var obj = Instantiate(ui.pfImageToFill, ui.worldCanvas.gameObject.transform);
+            timeImage = obj.GetComponent<ImageToFill>();
+            ui.PlaceInWorld(pointToSpawn, timeImage.GetRectTransform());
         }
 
         private void InitializeObjectPools()
@@ -76,7 +73,7 @@ namespace Tcp4
             }
             else if (isAbleToGive)
             {
-                timeImage.ChangeSprite(UIManager.Instance.Ready);
+                timeImage.ChangeSprite(UIManager.Instance.ready);
             }
         }
 
@@ -161,7 +158,6 @@ namespace Tcp4
                 currentModel = objectPools.Get(models[modelIndex]);
                 currentModel.transform.SetPositionAndRotation(pointToSpawn.position, models[modelIndex].transform.rotation);
                 Debug.Log($"Modelo atual: {currentModel.name} / Rotacao: {currentModel.transform.rotation} / Index: {modelIndex}");
-                //currentModel.transform.localScale = models[modelIndex].transform.localScale;
 
                 float modelGrowTime = timeToGrow / models.Length;
                 float elapsedTime = 0;
