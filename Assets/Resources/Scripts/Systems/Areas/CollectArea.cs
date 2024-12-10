@@ -63,7 +63,7 @@ namespace Tcp4
         {
             if (production == null)
             {
-                timeImage.ChangeSprite(null);
+                timeImage.ChangeSprite(UIManager.Instance.transparent);
                 return;
             }
 
@@ -157,7 +157,7 @@ namespace Tcp4
 
                 currentModel = objectPools.Get(models[modelIndex]);
                 currentModel.transform.SetPositionAndRotation(pointToSpawn.position, models[modelIndex].transform.rotation);
-                Debug.Log($"Modelo atual: {currentModel.name} / Rotacao: {currentModel.transform.rotation} / Index: {modelIndex}");
+                //Debug.Log($"Modelo atual: {currentModel.name} / Rotacao: {currentModel.transform.rotation} / Index: {modelIndex}");
 
                 float modelGrowTime = timeToGrow / models.Length;
                 float elapsedTime = 0;

@@ -9,6 +9,7 @@ namespace Tcp4
         [SerializeField] private GameObject productionMenu;
         public Sprite sprProductionWait, sprRefinamentWait;
         public Sprite ready;
+        public Sprite transparent;
         public GameObject pfImageToFill;
         public Canvas worldCanvas;
 
