@@ -7,6 +7,7 @@ namespace Tcp4
     public class UIManager : Singleton<UIManager>
     {
         [SerializeField] private GameObject productionMenu;
+        [SerializeField] private GameObject storageMenu;
         public Sprite sprProductionWait, sprRefinamentWait;
         public Sprite ready;
         public Sprite transparent;
@@ -16,6 +17,11 @@ namespace Tcp4
         public void ControlProductionMenu(bool _bool)
         { 
             productionMenu.SetActive(_bool);
+        }
+
+        public void ControlStorageMenu(bool _bool)
+        {
+            storageMenu.SetActive(_bool);
         }
 
         public void PlaceInWorld(Transform worldObject, RectTransform uiElement, bool isWorldCanvas = true)
