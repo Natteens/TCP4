@@ -10,7 +10,8 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
         public byte startHour = 12;
         public byte sunriseHour = 6;
         public byte sunsetHour = 18;
-        
+        public byte closeCoffeeShop = 00;
+
         [Header("Calender")]
         public int startDay = 1;
         public int startMonth = 1;

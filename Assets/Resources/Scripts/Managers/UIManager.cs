@@ -1,4 +1,5 @@
 using ComponentUtils.ComponentUtils.Scripts;
+using Tcp4.Assets.Resources.Scripts.Systems.Clients;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,25 @@ namespace Tcp4
         {
             storageMenu.SetActive(_bool);
         }
+
+        #region Notification System
+        public void NewClientNotification(Client clientSettings)
+        {
+            Debug.Log("Novo cliente!");
+            Debug.Log($"{clientSettings.nameClient}/ {clientSettings.stars}");
+        }
+
+        public void OpenShopNotification()
+        {
+            Debug.Log("Loja aberta!");
+        }
+
+        public void CloseShopNotification()
+        {
+            Debug.Log("Loja fechada!");
+        }
+        #endregion
+
 
         public void PlaceInWorld(Transform worldObject, RectTransform uiElement, bool isWorldCanvas = true)
         {
