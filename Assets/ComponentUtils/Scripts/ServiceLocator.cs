@@ -1,30 +1,31 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace ComponentUtils.ComponentUtils.Scripts
+namespace ComponentUtils
 {
     public class ServiceLocator
     {
-        // Dicionï¿½rio que armazena serviï¿½os por tipo, especï¿½fico para uma instï¿½ncia
+        // Dicionário que armazena serviços por tipo, específico para uma instância
         private Dictionary<Type, object> services = new Dictionary<Type, object>();
 
-        // Registra um novo serviï¿½o para a instï¿½ncia
+        // Registra um novo serviço para a instância
         public void RegisterService<T>(T service)
         {
             var type = typeof(T);
             if (services.ContainsKey(type))
             {
-             //   Debug.Log($"ServiceLocator: Serviï¿½o do tipo {type} jï¿½ registrado. Substituindo pelo novo.");
-                services[type] = service;  // Substitui o serviï¿½o existente
+             //   Debug.Log($"ServiceLocator: Serviço do tipo {type} já registrado. Substituindo pelo novo.");
+                services[type] = service;  // Substitui o serviço existente
             }
             else
             {
                 services.Add(type, service);
-              //  Debug.Log($"ServiceLocator: Serviï¿½o do tipo {type} registrado com sucesso.");
+              //  Debug.Log($"ServiceLocator: Serviço do tipo {type} registrado com sucesso.");
             }
         }
 
-        // Remove um serviï¿½o para a instï¿½ncia
+        // Remove um serviço para a instância
         public void UnregisterService<T>()
         {
             var type = typeof(T);
@@ -34,7 +35,7 @@ namespace ComponentUtils.ComponentUtils.Scripts
             }
         }
 
-        // Retorna um serviï¿½o registrado para a instï¿½ncia
+        // Retorna um serviço registrado para a instância
         public T GetService<T>()
         {
             var type = typeof(T);
@@ -44,11 +45,11 @@ namespace ComponentUtils.ComponentUtils.Scripts
             }
             else
             {
-                throw new Exception($"Serviï¿½o do tipo {type} nï¿½o estï¿½ registrado para esta entidade.");
+                throw new Exception($"Serviço do tipo {type} não está registrado para esta entidade.");
             }
         }
 
-        // Limpa todos os serviï¿½os registrados para a instï¿½ncia
+        // Limpa todos os serviços registrados para a instância
         public void ClearAllServices()
         {
             services.Clear();

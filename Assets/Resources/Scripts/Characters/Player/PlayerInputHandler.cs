@@ -1,37 +1,31 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Tcp4.Resources.Scripts.Characters.Player
+namespace Tcp4
 {
     public class PlayerInputHandler : MonoBehaviour
     {
-        private Vector3 _rawDirection;
-        private bool _interactInput;
-        private bool _runningInput;
+        private Vector3 RawDirection;
+        private bool interactInput;
 
+        #region PC
         #region Movement
-
         public void OnMovement(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                Vector3 moveInput = context.ReadValue<Vector2>();
-                _rawDirection = new Vector3(moveInput.x, 0f,moveInput.y);
+                Vector2 moveInput = context.ReadValue<Vector2>();
+                RawDirection = new Vector3(moveInput.x, 0, moveInput.y);
             }
             else if (context.canceled)
             {
-                _rawDirection = Vector3.zero;
+                RawDirection = Vector3.zero;
             }
         }
-
         public Vector3 GetRawMovementDirection()
         {
-            return _rawDirection;
-        }
-
-        public Vector3 OnGetRawMovement(Vector3 rawDirection)
-        {
-           return _rawDirection = rawDirection;
+            return RawDirection;
         }
 
         #endregion
@@ -40,38 +34,21 @@ namespace Tcp4.Resources.Scripts.Characters.Player
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            _interactInput = context.performed;
+            if (context.performed)
+            {
+                interactInput = true;
+            }
+            else if (context.canceled)
+            {
+                interactInput = false;
+            }
         }
-
         public bool GetInteractInput()
         {
-            return _interactInput;
+            return interactInput;
         }
 
-        public bool OnInteract(bool interactInput)
-        {
-            return _interactInput = interactInput;
-        }
-
-        #endregion
-
-        #region Running
-
-        public void OnRunning(InputAction.CallbackContext context)
-        {
-            _runningInput = context.performed;
-        }
-
-        public bool GetRunningInput()
-        {
-            return _runningInput;
-        }
-        
-        public bool OnRunning(bool runInput)
-        {
-            return _runningInput = runInput;
-        }
-        
+        #endregion 
         #endregion
     }
 }

@@ -1,11 +1,17 @@
 using System;
-using Tcp4.Resources.Scripts.Core;
 using Tcp4.Resources.Scripts.Types;
 
 namespace Tcp4.Resources.Scripts.Interfaces
 {
     public interface IInteractable
     {
-        void Interact(BaseEntity interactor);
+        InteractionType InteractionKey { get; }
+        event Action OnInteractionStart;
+        event Action OnInteractionExecute;
+        event Action OnInteractionEnd;
+    
+        void StartInteraction();
+        void ExecuteInteraction();
+        void EndInteraction();
     }
 }

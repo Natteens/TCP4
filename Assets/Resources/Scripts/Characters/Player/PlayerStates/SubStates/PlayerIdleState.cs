@@ -1,4 +1,4 @@
-using Tcp4.Assets.Resources.Scripts.Core;
+using CrimsonReaper.Resources.Scripts.Core;
 using Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SuperStates;
 using UnityEngine;
 
@@ -19,13 +19,10 @@ namespace Tcp4.Resources.Scripts.Characters.Player.PlayerStates.SubStates
             base.DoEnterLogic();
             Movement(Vector3.zero);
         }
-        
-        public override void DoFrameUpdateLogic()
-        {
-            base.DoFrameUpdateLogic();
-            HandleStateTransitions();
-            CheckInteractable();
-        }
 
+        public override void DoExitLogic()
+        {
+            base.DoExitLogic();
+        }
     }
 }

@@ -10,19 +10,13 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
         DateTime currentTime;
         readonly TimeSpan sunriseTime;
         readonly TimeSpan sunsetTime;
-        readonly TimeSpan closeCoffeeShop;
 
         public event Action OnSunrise = delegate { }; 
         public event Action OnSunset = delegate { }; 
-
-        public event Action OnCloseCoffeeShop = delegate { };
-        public event Action OnOpenCoffeeShop = delegate { };
-
         public event Action OnHourChange = delegate { }; 
         public event Action OnDayPassed = delegate { };
         
         private readonly Observable<bool> isDayTime;
-        private readonly Observable<bool> isOpenShop;
         private readonly Observable<int> currentHour;
         
         public TimeService(TimeSettings settings)
@@ -32,14 +26,11 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
                           + TimeSpan.FromHours(settings.startHour);
             sunriseTime = TimeSpan.FromHours(settings.sunriseHour);
             sunsetTime = TimeSpan.FromHours(settings.sunsetHour);
-            closeCoffeeShop = TimeSpan.FromHours(settings.closeCoffeeShop);
 
             isDayTime = new Observable<bool>(IsDayTime());
-            isOpenShop = new Observable<bool>(IsOpenShop());
             currentHour = new Observable<int>(currentTime.Hour);
             
             isDayTime.ValueChanged += day => (day ? OnSunrise : OnSunset)?.Invoke();
-            isOpenShop.ValueChanged += open => (open ? OnOpenCoffeeShop : OnCloseCoffeeShop)?.Invoke();
             currentHour.ValueChanged += _ => OnHourChange?.Invoke();
         }
 
@@ -48,7 +39,6 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
             DateTime previousTime = currentTime;
             currentTime = currentTime.AddSeconds(deltaTime * settings.timeMultiplier);
             isDayTime.Value = IsDayTime();
-            isOpenShop.Value = IsOpenShop();
             currentHour.Value = currentTime.Hour;
             if (previousTime.Day != currentTime.Day) OnDayPassed?.Invoke();
         }
@@ -92,7 +82,6 @@ namespace Tcp4.Resources.Scripts.Systems.DayNightCycle
         
         public DateTime CurrentTime => currentTime;
         bool IsDayTime() => currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime;
-        bool IsOpenShop() => currentTime.TimeOfDay >= sunsetTime && currentTime.TimeOfDay != closeCoffeeShop;
 
         TimeSpan CalculateDifference(TimeSpan from, TimeSpan to)
         {

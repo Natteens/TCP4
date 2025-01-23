@@ -1,11 +1,11 @@
 ﻿public interface IHealth
 {
-    short MaxHealth { get; }
-    short CurrentHealth { get; }
+    float MaxHealth { get; }
+    float CurrentHealth { get; }
     bool IsAlive { get; }
 
-    void TakeDamage(short amount);
-    void Heal(short amount);
+    void TakeDamage(float amount);
+    void Heal(float amount);
     void Die();
     void Revive();
 }

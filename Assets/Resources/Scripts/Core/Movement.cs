@@ -19,11 +19,8 @@ namespace Tcp4
         {
             if (direction.magnitude > 0)
             {
-                // Movimento do NPC
                 Vector3 movement = direction.normalized * moveSpeed;
-                Rb.linearVelocity = new Vector3(movement.x, Rb.linearVelocity.y, movement.z);  // Modifica a velocidade do Rigidbody
-
-                // Rotaciona o NPC na dire��o do movimento
+                Rb.linearVelocity = new Vector3(movement.x, Rb.linearVelocity.y, movement.z);
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 entityTransform.rotation = Quaternion.Slerp(
                     entityTransform.rotation,
@@ -33,11 +30,9 @@ namespace Tcp4
             }
             else
             {
-                // Se n�o houver movimento, a velocidade � zerada
                 Rb.linearVelocity = new Vector3(0f, Rb.linearVelocity.y, 0f);
             }
         }
-
 
         public Vector3 GetFacingDirection()
         {
