@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using Microsoft.Unity.VisualStudio.Editor;
 using Tcp4.Assets.Resources.Scripts.Managers;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
 {
     public class Client: MonoBehaviour
     {
+        public string ID;
         public float stars;
         public float minimum;
         public string nameClient;
+        public  TextMeshProUGUI nameTmp;
         public Drink wantedProduct;
         public Sprite spriteClient;
-        public Sprite ui_wantedProductSprite;
-        public Image ui_wantedProduct;
-        public Image ui_timer;
+        public UnityEngine.UI.Image ui_wantedProduct;
+        public UnityEngine.UI.Image ui_timer;
         private float max_wait_time;
         private float wait_time;
 
@@ -25,14 +28,18 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             minimum = _minimum;
             spriteClient = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
-            max_wait_time = 120f - (stars * 2); 
+            nameTmp.text = nameClient;
+            max_wait_time = 15f - (stars * 2); 
             wait_time = max_wait_time;
+            ui_timer.fillAmount = wait_time / max_wait_time;
+            ID = GameAssets.GenerateID(5);
 
             ChooseDrink();
         }
 
         public void Update()
         {
+            ui_timer.fillAmount = wait_time / max_wait_time;
 
             if(wait_time > 0f) wait_time -= Time.deltaTime;
             else { NotDelivered(); }
@@ -42,22 +49,24 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         {
             ShopManager.Instance.IncreaseMoney(10); 
             ShopManager.Instance.IncreaseStar(0.1f + (stars / 10f));
+            ClientManager.Instance.DeleteSpecificClient(this);
         }
 
         public void NotDelivered()
         {
             ShopManager.Instance.DecreaseMoney(10);
-             ShopManager.Instance.DecreaseStar(0.1f + (stars / 10f));
+            ShopManager.Instance.DecreaseStar(0.1f + (stars / 10f));
+            ClientManager.Instance.DeleteSpecificClient(this);
         }
 
-        void ChooseDrink()
+        public void ChooseDrink()
         {
             //Decidindo o pedido que eu quero!
-            var rand = Random.Range(0, ShopManager.Instance.GetMenu().Count);
+            var rand = Random.Range(0, ShopManager.Instance.GetMenu().Count - 1);
 
             Drink _drink = ShopManager.Instance.GetMenu()[rand];
             wantedProduct = _drink;
-            ui_wantedProductSprite = wantedProduct.drinkImage;  
+            ui_wantedProduct.sprite = wantedProduct.drinkImage; 
         }
 
     }

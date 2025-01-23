@@ -16,5 +16,9 @@ MonoBehaviour:
   quality: 0
   productID: 5
   model: {fileID: 0}
-  drinkImage: {fileID: 21300000, guid: cdaff29bb488a4944a9332885c228170, type: 3}
+  drinkImage: {fileID: 21300000, guid: bcc7dd75abdc1a74497c9d657e1d6cf5, type: 3}
+  requiredIngredients:
+  - {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
+  - {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
+  - {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
   preparationTime: 1

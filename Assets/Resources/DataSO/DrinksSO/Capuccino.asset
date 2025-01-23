@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b25347fc6246e4a96380bc8a5f5fae, type: 3}
   m_Name: Capuccino
   m_EditorClassIdentifier: 
-  drinkName: 
+  productName: 
+  quality: 0
+  productID: 2
+  model: {fileID: 0}
+  drinkImage: {fileID: 21300000, guid: d1ebd193278945643a3764b6bf7eab45, type: 3}
   requiredIngredients: []
-  Quality: 0
   preparationTime: 0

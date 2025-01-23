@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ComponentUtils.ComponentUtils.Scripts;
 using PlasticPipe.PlasticProtocol.Client;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -28,10 +30,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         public int GetMoney() => money;
         public List<Drink> GetMenu() => menu;
 
+
         void UpdateMenu()
         {
             //Adicionar ou remover itens do menu de acordo com as estrelas
             // No RefinamentManager tem uma lista de todos os Drinks do jogo e vc pode pegar um por ID
+        }
+
+        void UpdateStars()
+        {
+            stars = Mathf.Clamp(stars, 0f,MaxStar);
         }
 
     }
