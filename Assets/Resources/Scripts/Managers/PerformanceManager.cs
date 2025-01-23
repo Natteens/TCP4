@@ -241,7 +241,7 @@ namespace Tcp4
                               $"Resolucao: {Screen.currentResolution.width}x{Screen.currentResolution.height}\n" +
                               $"Qualidade: {QualitySettings.GetQualityLevel()}\n" +
                               $"Sombras: {QualitySettings.shadowDistance}m\n" +
-                              $"Nivel de Textura: {QualitySettings.globalTextureMipmapLimit}";
+                              $"Nivel de Textura: {3 - textureQuality}";
         }
 
         private void CleanupComponentCache()

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
 using Tcp4.Assets.Resources.Scripts.Managers;
 using UnityEngine;
 
@@ -10,13 +11,40 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         public float minimum;
         public string nameClient;
         public Sprite sprite;
+        public BaseProduct wantedProduct;
+        public Image ui_wantedProduct;
+        public Image ui_timer;
+        private float max_wait_time;
+        private float wait_time;
 
         public void Setup(float _starts, float _minimum)
         {
+            //setup basico
             stars = _starts;
             minimum = _minimum;
             sprite = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
+            max_wait_time = 120f - (stars * 2); 
+            wait_time = max_wait_time;
+
+            //Decidindo o pedido que eu quero!
+        }
+
+        public void Update()
+        {
+
+            if(wait_time > 0f) wait_time -= Time.deltaTime;
+            else { NotDelivered(); }
+        }
+
+        public void Delivered()
+        {
+            ShopManager.Instance.IncreaseMoney(10); //valor teste
+        }
+
+        public void NotDelivered()
+        {
+            ShopManager.Instance.DecreaseMoney(10);
         }
 
     }
