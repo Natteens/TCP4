@@ -7,14 +7,15 @@ namespace Tcp4
     public class RefinamentManager : Singleton<RefinamentManager>
     {
         [SerializeField] private List<RefinementRecipe> recipes;
+        [SerializeField] private List<Drink> drinks;
 
         public BaseProduct Refine(BaseProduct inputProduct)
         {
-            foreach (var recipe in recipes)
+            foreach (var r in recipes)
             {
-                if (recipe.inputProduct == inputProduct)
+                if (r.inputProduct == inputProduct)
                 {
-                    return recipe.outputProduct;
+                    return r.outputProduct;
                 }
             }
 
@@ -22,7 +23,37 @@ namespace Tcp4
             return null;
         }
 
+        public Drink CreateDrink(List<BaseProduct> inputIngredients)
+        {
+            foreach(var d in drinks)
+            {
+                if(d.requiredIngredients == inputIngredients)
+                {
+                    int newQ = 0;
+
+                    foreach(var i in inputIngredients) {newQ += i.quality;}
+                    d.quality = newQ;
+                    return d;
+                }
+            }
+
+            Debug.LogError("Nenhuma receita de drink encontrada para os ingredientes!");
+            return null;
+        }
+
         public List<RefinementRecipe> GetRecipes() => recipes;
+        public Drink GetDrinkByID(int ID)
+        {
+            for(var i = 0; i < drinks.Count; i++)
+            {
+                if(i == ID)
+                {
+                    return drinks[i];
+                }
+            }
+
+            return null;
+        }
     }
 
     [System.Serializable]

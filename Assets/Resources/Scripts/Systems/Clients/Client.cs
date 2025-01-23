@@ -57,8 +57,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
 
             Drink _drink = ShopManager.Instance.GetMenu()[rand];
             wantedProduct = _drink;
-            ui_wantedProductSprite = wantedProduct.drinkImage;
-        
+            ui_wantedProductSprite = wantedProduct.drinkImage;  
         }
 
     }

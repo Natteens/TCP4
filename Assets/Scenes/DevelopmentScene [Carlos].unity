@@ -1521,6 +1521,7 @@ MonoBehaviour:
     outputProduct: {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
   - inputProduct: {fileID: 11400000, guid: f8c402991715c3147a4c108993b828b8, type: 2}
     outputProduct: {fileID: 11400000, guid: 9993b18cd8f91e641925f92575c6007f, type: 2}
+  drinks: []
 --- !u!1 &301794484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,7 +4053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93e108f9729364cb5a44d471fba1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spot: {fileID: 1770762188}
+  clientSpots: []
   prefab: {fileID: 1277494111889277734, guid: 76b18891a1a76f9449ba706dcc18b0ba, type: 3}
   clients: []
   canSpawn: 0
@@ -4901,7 +4902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77aa70fa988114f44922d77669d688ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stars: 0
+  menu:
+  - {fileID: 11400000, guid: 8946233ee6c9a7c499750d8577ac7826, type: 2}
+  - {fileID: 0}
 --- !u!1 &1052680369
 GameObject:
   m_ObjectHideFlags: 0

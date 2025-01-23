@@ -39,6 +39,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             clients.Add(_prefab);
 
+            OrganizeClients();
             maxCounter = 2 - ShopManager.Instance.GetStars() / 2;
             counter = 0;
         }
@@ -58,11 +59,11 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         void OrganizeClients()
         {
-            for(var i = 0; i < clients.Count; i++)
+            for(var i = 0; i < clientSpots.Count; i++)
             {
-                
+                clients[i].transform.position = clientSpots[i].position;
             }
-
+            
         }
 
         void DeleteClients()

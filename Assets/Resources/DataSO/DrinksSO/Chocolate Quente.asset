@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b25347fc6246e4a96380bc8a5f5fae, type: 3}
   m_Name: Chocolate Quente
   m_EditorClassIdentifier: 
-  drinkName: 
-  requiredIngredients: []
-  Quality: 0
+  productName: Chocolate Quente
+  quality: 0
+  productID: 0
+  model: {fileID: 0}
+  drinkImage: {fileID: 0}
   preparationTime: 0
