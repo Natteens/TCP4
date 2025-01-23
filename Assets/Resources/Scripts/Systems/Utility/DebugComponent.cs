@@ -44,7 +44,7 @@ namespace Tcp4.Resources.Scripts.Systems.Utility
             {
                 GUI.color = textColor;
                 GUI.Label(new Rect(10, 10, 300, textSize + 5), $"State: {entity.Machine.CurrentState.GetType().Name}");
-                GUI.Label(new Rect(10, 10 + textSize + 5, 300, textSize + 5), $"FPS: {Mathf.Round(1 / Time.deltaTime)}");
+                //GUI.Label(new Rect(10, 10 + textSize + 5, 300, textSize + 5), $"FPS: {Mathf.Round(1 / Time.deltaTime)}");
                 foreach (var field in entity.GetType().GetFields())
                 {
                     GUI.Label(new Rect(10, 30 + (textSize + 5) * field.MetadataToken, 300, textSize + 5), $"{field.Name}: {field.GetValue(entity)}");

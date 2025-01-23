@@ -1,4 +1,4 @@
-namespace CrimsonReaper.Resources.Scripts.Core
+namespace Tcp4.Assets.Resources.Scripts.Core
 {
     public class AnimationData
     {
@@ -7,7 +7,7 @@ namespace CrimsonReaper.Resources.Scripts.Core
         public int Layer { get; private set; }
 
         public AnimationData(
-            string stateName, 
+            string stateName,
             float transitionDuration = 0.05f,
             int layer = 0)
         {

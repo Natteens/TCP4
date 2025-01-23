@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CrimsonReaper.Resources.Scripts.Core;
+using Tcp4.Assets.Resources.Scripts.Core;
 using Tcp4.Resources.Scripts.Core;
 
 namespace Tcp4.Resources.Scripts.FSM

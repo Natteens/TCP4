@@ -8,6 +8,6 @@ namespace Tcp4
     public interface ISkill
     {
         void ExecuteSkill(DynamicEntity player);
-        float GetCooldown();
+        int GetCooldown();
     }
 }

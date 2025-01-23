@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using ComponentUtils;
+using ComponentUtils.ComponentUtils.Scripts;
+using Tcp4.Resources.Scripts.Systems.CollisionCasters;
 using Tcp4.Resources.Scripts.Systems.Interaction;
 using Tcp4.Resources.Scripts.Types;
 using UnityEngine;
@@ -63,14 +65,12 @@ namespace Tcp4.Resources.Scripts.Core
             return componentType switch
             {
                 ComponentType.StatusComponent => typeof(StatusComponent),
-                //ComponentType.HealthComponent => typeof(HealthComponent),
                 ComponentType.Animator => typeof(Animator),
                 ComponentType.SpriteRenderer => typeof(SpriteRenderer),
                 ComponentType.Rigidbody => typeof(Rigidbody),
                 ComponentType.Collider => typeof(Collider),
                 ComponentType.CollisionComponent => typeof(CollisionComponent),
-                ComponentType.InteractionManager => typeof(InteractionManager),
-              //  ComponentType.SkillComponent => typeof(SkillComponent),
+                ComponentType.InteractableHandler => typeof(InteractableHandler),
                 _ => null
             };
         }

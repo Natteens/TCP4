@@ -21,7 +21,7 @@ namespace Tcp4.Resources.Scripts.Editor
                 int newId = allEntities.Count > 0 ? 
                     allEntities.Max(e => e.Id) + 1 : 1;
                 
-                entity.Id = newId;
+                entity.Id = (byte)newId;
                 allEntities.Add(entity);
             }
 
@@ -36,7 +36,7 @@ namespace Tcp4.Resources.Scripts.Editor
 
             int tempId = allEntities[indexA].Id;
             allEntities[indexA].Id = allEntities[indexB].Id;
-            allEntities[indexB].Id = tempId;
+            allEntities[indexB].Id = (byte)tempId;
 
             var temp = allEntities[indexA];
             allEntities[indexA] = allEntities[indexB];
