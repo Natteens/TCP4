@@ -11,7 +11,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         public float minimum;
         public string nameClient;
         public Sprite sprite;
-        public BaseProduct wantedProduct;
+        public Drink wantedProduct;
         public Image ui_wantedProduct;
         public Image ui_timer;
         private float max_wait_time;
@@ -28,6 +28,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             wait_time = max_wait_time;
 
             //Decidindo o pedido que eu quero!
+            
         }
 
         public void Update()

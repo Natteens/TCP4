@@ -22,14 +22,14 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public void Start()
         {
-            maxCounter = 2 - ShopManager.Instance.stars / 2;
+            maxCounter = 2 - ShopManager.Instance.GetStars() / 2;
         }
         public void Spawn()
         {
             OnSpawnClient?.Invoke();
 
-            float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.stars);
-            float minimum = UnityEngine.Random.Range(0.1f, ShopManager.Instance.stars / 5f);
+            float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.GetStars());
+            float minimum = UnityEngine.Random.Range(0.1f, ShopManager.Instance.GetStars() / 5f);
 
             GameObject _prefab = Instantiate(prefab, spot.position, Quaternion.identity);
             Client prefabClient = _prefab.GetComponent<Client>();
@@ -39,7 +39,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             clients.Add(_prefab);
 
-            maxCounter = 2 - ShopManager.Instance.stars / 2;
+            maxCounter = 2 - ShopManager.Instance.GetStars() / 2;
             counter = 0;
         }
 

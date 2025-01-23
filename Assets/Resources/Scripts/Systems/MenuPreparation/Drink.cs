@@ -6,6 +6,7 @@ namespace Tcp4
     public class Drink : ScriptableObject
     {
         public string drinkName;
+        public Sprite drinkImage;
         public Ingredients[] requiredIngredients;
         public float quality;
         public float preparationTime;
