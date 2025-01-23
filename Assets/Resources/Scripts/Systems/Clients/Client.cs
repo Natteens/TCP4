@@ -10,8 +10,9 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         public float stars;
         public float minimum;
         public string nameClient;
-        public Sprite sprite;
         public Drink wantedProduct;
+        public Sprite spriteClient;
+        public Sprite ui_wantedProductSprite;
         public Image ui_wantedProduct;
         public Image ui_timer;
         private float max_wait_time;
@@ -22,13 +23,12 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             //setup basico
             stars = _starts;
             minimum = _minimum;
-            sprite = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
+            spriteClient = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             max_wait_time = 120f - (stars * 2); 
             wait_time = max_wait_time;
 
-            //Decidindo o pedido que eu quero!
-            
+            ChooseDrink();
         }
 
         public void Update()
@@ -40,12 +40,25 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
 
         public void Delivered()
         {
-            ShopManager.Instance.IncreaseMoney(10); //valor teste
+            ShopManager.Instance.IncreaseMoney(10); 
+            ShopManager.Instance.IncreaseStar(0.1f + (stars / 10f));
         }
 
         public void NotDelivered()
         {
             ShopManager.Instance.DecreaseMoney(10);
+             ShopManager.Instance.DecreaseStar(0.1f + (stars / 10f));
+        }
+
+        void ChooseDrink()
+        {
+            //Decidindo o pedido que eu quero!
+            var rand = Random.Range(0, ShopManager.Instance.GetMenu().Count);
+
+            Drink _drink = ShopManager.Instance.GetMenu()[rand];
+            wantedProduct = _drink;
+            ui_wantedProductSprite = wantedProduct.drinkImage;
+        
         }
 
     }

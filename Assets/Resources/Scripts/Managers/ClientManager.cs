@@ -12,7 +12,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
     {
         public event Action OnSpawnClient;
         public event Action<Client> OnClientSetup;
-        [SerializeField] private Transform spot;
+        [SerializeField] private List<Transform> clientSpots;
         [SerializeField] private GameObject prefab;
         [SerializeField] private List<GameObject> clients = new();
 
@@ -31,7 +31,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.GetStars());
             float minimum = UnityEngine.Random.Range(0.1f, ShopManager.Instance.GetStars() / 5f);
 
-            GameObject _prefab = Instantiate(prefab, spot.position, Quaternion.identity);
+            GameObject _prefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
             Client prefabClient = _prefab.GetComponent<Client>();
             prefabClient.Setup(stars, minimum);
 
@@ -54,6 +54,15 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             counter += Time.deltaTime;
             if (counter >= maxCounter) Spawn();
+        }
+
+        void OrganizeClients()
+        {
+            for(var i = 0; i < clients.Count; i++)
+            {
+                
+            }
+
         }
 
         void DeleteClients()

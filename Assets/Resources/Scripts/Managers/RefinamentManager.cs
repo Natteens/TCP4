@@ -21,6 +21,8 @@ namespace Tcp4
             Debug.LogError("Nenhuma receita de refinamento encontrada para o produto: " + inputProduct.productName);
             return null;
         }
+
+        public List<RefinementRecipe> GetRecipes() => recipes;
     }
 
     [System.Serializable]
