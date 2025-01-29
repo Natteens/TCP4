@@ -72,6 +72,18 @@ namespace Tcp4
             ReorganizeInventory();
         }
 
+        public int CountItem(BaseProduct itemToCount)
+        {
+            int counter = 0;
+
+            foreach(var item in productInventory)
+            {
+                if(item == itemToCount) {counter ++;}
+            }
+
+            return counter;
+
+        }
         void Despawn(GameObject model)
         {
             if (instanceInventory.Count == 0) return;
