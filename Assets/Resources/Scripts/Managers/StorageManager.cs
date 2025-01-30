@@ -10,13 +10,21 @@ namespace Tcp4
     {
         [SerializeField] private StorageArea currentStorage;
         public Inventory playerInventory;
+        public GameObject pfSlot;
+
+        public Transform spotToSpawn;
 
         public void SetupCurrentStorage(StorageArea newStorage)
         {
             currentStorage = newStorage;
         }
 
-         public void TransferItems()
+        public void UpdateStorageUI()
+        {
+            
+        }
+
+        public void TransferItems()
         {
             var storageInventory = currentStorage.inventory;
 
@@ -28,6 +36,21 @@ namespace Tcp4
             {
                 playerInventory.RemoveProduct(currentStorage.item, 1);
                 storageInventory.AddProduct(currentStorage.item, 1);
+            }
+        }
+
+        public void GetItems()
+        {
+            var storageInventory = currentStorage.inventory;
+
+            if(playerInventory == null || storageInventory == null) return;
+
+            bool isAbleToTransfer = storageInventory.CountItem(currentStorage.item) > 0;
+
+            if (isAbleToTransfer)
+            {
+                playerInventory.AddProduct(currentStorage.item, 1);
+                storageInventory.RemoveProduct(currentStorage.item, 1);
             }
         }
 
