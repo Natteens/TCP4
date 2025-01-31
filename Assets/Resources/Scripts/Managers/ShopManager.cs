@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ComponentUtils.ComponentUtils.Scripts;
 using PlasticPipe.PlasticProtocol.Client;
@@ -15,19 +16,44 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         private readonly float MaxStar = 1000f;
 
         private int money = 0;
+
+        public event Action OnChangeMoney, OnChangeStar;
         
         [SerializeField] private List<Drink> menu;
 
-        public void IncreaseMoney(int value) { money += value;}
-        public void IncreaseStar(float value) {stars += value; UpdateMenu();}
-        public void DecreaseMoney(int value) { money -= value;}
-        public void DecreaseStar(float value) {stars -= value; UpdateMenu();}
+        public void IncreaseMoney(int value) 
+        {
+             money += value;
+             OnChangeMoney.Invoke();
+        }
+        public void DecreaseMoney(int value) 
+        { 
+            money -= value; 
+            OnChangeMoney.Invoke();
+        }
+        public void IncreaseStar(float value) 
+        {
+            stars += value; 
+            OnChangeStar.Invoke();
+            stars = Mathf.Clamp(stars, 0f, MaxStar);
+        }
+        public void DecreaseStar(float value) 
+        {
+            stars -= value;
+            OnChangeStar.Invoke();
+            stars = Mathf.Clamp(stars, 0f, MaxStar);
+        }
 
-        public void AddNewDrink(Drink drink) {menu.Add(drink);}
+        public void AddNewDrink(Drink drink) 
+        {
+            menu.Add(drink);
+        }
 
         //Getters
         public float GetStars() => stars;
+        public float GetMaxStars() => MaxStar;
         public int GetMoney() => money;
+
         public List<Drink> GetMenu() => menu;
 
 
@@ -37,9 +63,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             // No RefinamentManager tem uma lista de todos os Drinks do jogo e vc pode pegar um por ID
         }
 
-        void UpdateStars()
+        void Start()
         {
-            stars = Mathf.Clamp(stars, 0f,MaxStar);
+            StartCoroutine(InitialSetup());
+        }
+
+        IEnumerator InitialSetup()
+        {
+            yield return new WaitForSeconds(.2f);
+            OnChangeMoney?.Invoke();
+            OnChangeStar?.Invoke();
         }
 
     }

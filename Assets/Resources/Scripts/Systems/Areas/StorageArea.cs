@@ -37,7 +37,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
             if (other.CompareTag("Player") && isInterfaceOpen)
             {
                 CloseInterface();
-                StorageManager.Instance.SetupCurrentStorage(null);
+                //StorageManager.Instance.SetupCurrentStorage(null);
                 StorageManager.Instance.ClearSlots();
             }
         }

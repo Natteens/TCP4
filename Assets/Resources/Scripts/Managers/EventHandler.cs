@@ -13,6 +13,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         public TimeManager timeManager;
         public StorageManager storageManager;
 
+        public ShopManager shopManager;
+
         private void Start()
         {
             StartCoroutine(SubscribeEvents());
@@ -31,6 +33,10 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             storageManager.OnChangeStorage += uiManager.UpdateStorageView;
             storageManager.OnCleanStorage += uiManager.CleanStorageSlots;
+
+            shopManager.OnChangeMoney += uiManager.UpdateMoney;
+            shopManager.OnChangeStar += uiManager.UpdateStars;
+
         }
 
 
