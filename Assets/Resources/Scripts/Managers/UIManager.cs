@@ -1,6 +1,11 @@
+using System.Collections.Generic;
+using System.Linq;
 using ComponentUtils.ComponentUtils.Scripts;
+using GDX.Collections.Generic;
 using Tcp4.Assets.Resources.Scripts.Systems.Clients;
 using Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook;
+using TMPro;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,17 +19,60 @@ namespace Tcp4
         public Sprite ready;
         public Sprite transparent;
         public GameObject pfImageToFill;
+        public GameObject pfSlotStorage;
+        public Transform slotHolder;
         public Canvas worldCanvas;
+        
+        private List<GameObject> slotInstances = new();
+
+        public TextMeshProUGUI nameStorage, amountStorage;
 
         public void ControlProductionMenu(bool _bool)
         { 
             productionMenu.SetActive(_bool);
         }
 
-
         public void ControlStorageMenu(bool _bool)
         {
             storageMenu.SetActive(_bool);
+        }
+
+
+        public void CleanStorageSlots()
+        {
+            if(slotInstances != null && slotInstances.Count > 0)
+            {
+                foreach(var go in slotInstances) 
+                {
+                    Destroy(go);   
+                }
+
+                slotInstances.Clear();
+            }
+            
+        }
+
+        public void UpdateStorageView()
+        {
+            StorageArea storage = StorageManager.Instance.GetStorageArea();
+
+            if(storage == null) return;
+
+            Inventory i = storage.inventory;
+
+            nameStorage.text = storage.item.productName;
+            amountStorage.text = $"{i.CountItem(storage.item)} / {i.GetLimit()}";
+            
+            CleanStorageSlots();
+
+            foreach (BaseProduct _ in i.GetInventory())
+            {
+                GameObject go = Instantiate(pfSlotStorage, slotHolder);
+                slotInstances.Add(go);
+                DataStorageSlot data = go.GetComponent<DataStorageSlot>();
+
+                data.Setup(storage.item.productImage, 1);
+            }
         }
 
         #region Notification System

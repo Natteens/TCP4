@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using ComponentUtils.ComponentUtils.Scripts;
 using Tcp4.Assets.Resources.Scripts.Systems.Clients;
 using Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook;
@@ -12,16 +14,29 @@ namespace Tcp4
         public Inventory playerInventory;
         public GameObject pfSlot;
 
-        public Transform spotToSpawn;
+        public event Action OnChangeStorage;
+        public event Action OnCleanStorage;
+
 
         public void SetupCurrentStorage(StorageArea newStorage)
         {
             currentStorage = newStorage;
+            OnChangeStorage.Invoke();
         }
 
-        public void UpdateStorageUI()
+        public void ClearSlots()
         {
-            
+            OnCleanStorage.Invoke();
+        }
+        public StorageArea GetStorageArea()
+        {
+            if(currentStorage != null)
+            {
+                return currentStorage;
+            }
+
+            Debug.LogError("Storage nulo!");
+            return null;
         }
 
         public void TransferItems()
@@ -37,6 +52,8 @@ namespace Tcp4
                 playerInventory.RemoveProduct(currentStorage.item, 1);
                 storageInventory.AddProduct(currentStorage.item, 1);
             }
+
+            OnChangeStorage.Invoke();
         }
 
         public void GetItems()
@@ -52,6 +69,8 @@ namespace Tcp4
                 playerInventory.AddProduct(currentStorage.item, 1);
                 storageInventory.RemoveProduct(currentStorage.item, 1);
             }
+
+            OnChangeStorage.Invoke();
         }
 
     }

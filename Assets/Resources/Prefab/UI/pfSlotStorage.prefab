@@ -220,9 +220,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8019709639198578377}
+  - component: {fileID: 8392300514929070844}
   m_Layer: 0
   m_Name: pfSlotStorage
-  m_TagString: Untagged
+  m_TagString: StorageSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,3 +249,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8392300514929070844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957933487080865127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa27e4d901aed4d49b4f46fd3b18cffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1815197843725901093}
+  amount: {fileID: 8751060770287219579}

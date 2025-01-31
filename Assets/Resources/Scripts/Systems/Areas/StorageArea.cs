@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
@@ -9,13 +10,14 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
         public Inventory inventory;
         public BaseProduct item;
 
-        [SerializeField] private float interfaceDelay = 0.5f; // Tempo para exibir a interface
+        [SerializeField] private float interfaceDelay = 0f; // Tempo para exibir a interface
 
         private bool isInterfaceOpen;
 
         private void Start()
         {
             inventory = GetComponent<Inventory>();
+            inventory.UpdateLimit(400);
             isInterfaceOpen = false;
         }
 
@@ -35,15 +37,17 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
             if (other.CompareTag("Player") && isInterfaceOpen)
             {
                 CloseInterface();
+                StorageManager.Instance.SetupCurrentStorage(null);
+                StorageManager.Instance.ClearSlots();
             }
         }
 
-
         private IEnumerator OpenInterfaceAfterDelay()
         {
-            yield return new WaitForSeconds(interfaceDelay);
-
+        
             StorageManager.Instance.SetupCurrentStorage(this);
+
+            yield return new WaitForSeconds(interfaceDelay);
 
             if (!isInterfaceOpen)
             {
@@ -55,7 +59,6 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
         private void CloseInterface()
         {
             UIManager.Instance.ControlStorageMenu(false);
-            StorageManager.Instance.SetupCurrentStorage(null);
             isInterfaceOpen = false;
         }
 

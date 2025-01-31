@@ -6,7 +6,6 @@ namespace Tcp4
     [CreateAssetMenu(fileName = "NewDrink", menuName = "Menu/Drink")]
     public class Drink : BaseProduct
     {
-        public Sprite drinkImage;
         public List<BaseProduct> requiredIngredients;
         public float preparationTime;
     }

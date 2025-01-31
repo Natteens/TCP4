@@ -8,11 +8,13 @@ namespace Tcp4
 {
     public class Inventory : MonoBehaviour
     {
+        private int limit = 10;
         [SerializeField] private List<BaseProduct> productInventory = new();
         [SerializeField] private List<GameObject> instanceInventory = new();
         [SerializeField] private Transform bagPoint;
 
         public List<BaseProduct> GetInventory() => productInventory;
+        public int GetLimit() => limit;
 
         public void AddProduct(BaseProduct product, int amount)
         {
@@ -20,6 +22,11 @@ namespace Tcp4
             {
                 Debug.LogError("Erro: quantidade inválida ou produto nulo.");
                 return;
+            }
+
+            if(CountItem(product) + amount > limit)
+            {   
+                Debug.Log("Inventário Cheio!!");
             }
 
             for (int i = 0; i < amount; i++)
@@ -65,6 +72,11 @@ namespace Tcp4
             }
         }
 
+
+        public void UpdateLimit(int newLimit)
+        {
+            limit = newLimit;
+        }
         void Spawn(GameObject model)
         {
             GameObject instance = Instantiate(model, bagPoint);

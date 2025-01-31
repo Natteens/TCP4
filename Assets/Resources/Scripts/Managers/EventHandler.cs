@@ -1,7 +1,6 @@
 ﻿using ComponentUtils.ComponentUtils.Scripts;
 using System.Collections;
 using Tcp4.Resources.Scripts.Systems.DayNightCycle;
-using UnityEditor;
 using UnityEngine;
 
 namespace Tcp4.Assets.Resources.Scripts.Managers
@@ -12,6 +11,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         public ClientManager clientManager;
         public UIManager uiManager;
         public TimeManager timeManager;
+        public StorageManager storageManager;
 
         private void Start()
         {
@@ -28,6 +28,9 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             timeManager.OnCloseCoffeeShop += clientManager.StopSpawnClients;
 
             clientManager.OnClientSetup += uiManager.NewClientNotification;
+
+            storageManager.OnChangeStorage += uiManager.UpdateStorageView;
+            storageManager.OnCleanStorage += uiManager.CleanStorageSlots;
         }
 
 
