@@ -19,6 +19,7 @@ namespace Tcp4
         [Header("Menus")]
         [SerializeField] private GameObject productionMenu;
         [SerializeField] private GameObject storageMenu;
+        [SerializeField] private GameObject configMenu;
 
         [Header("Sprites")]
         public Sprite sprProductionWait;
@@ -57,6 +58,22 @@ namespace Tcp4
         private List<GameObject> slotInstances = new();
 
         public void ControlStorageMenu(bool isActive) => storageMenu.SetActive(isActive);
+
+        public void QuitApplication() => UnityEngine.Application.Quit();
+
+        public void ControlConfigMenu()
+        {
+            if (configMenu.activeSelf)
+            {
+                configMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                configMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
 
         public void CleanStorageSlots()
         {
