@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.452, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5659378625903311360}
@@ -117,7 +117,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -15.38, y: 1.9665357, z: -16.242434}
-  m_LocalScale: {x: 1.3019222, y: 1, z: 1.3367047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8347209515041054040}
@@ -137,8 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   item: {fileID: 11400000, guid: 31ce6c66ce14f2e40baf34d7a438a15c, type: 2}
-  textName: {fileID: 0}
-  amount: {fileID: 0}
   interfaceDelay: 0.5
 --- !u!114 &5589774045257058792
 MonoBehaviour:
