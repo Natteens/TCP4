@@ -99,7 +99,15 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public void ServeClient(Drink d)
         {
-            foreach (var client in clients)
+            List<GameObject> listaClientes = clients;
+
+            if(clients == null) 
+            {
+                listaClientes = clients;
+                //garantindo que vou tentar pegar a lista dnv se for nula
+            }
+
+            foreach (GameObject client in listaClientes)
             {
                 Client c = client.GetComponent<Client>();
 
@@ -113,6 +121,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
                 {
                     Debug.Log($"{d} com {d.quality} de qualidade, entregue para {c}!");
                     c.Delivered();
+                    return;
                 }
             }
 

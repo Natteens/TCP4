@@ -50,6 +50,8 @@ namespace Tcp4
         {
             Drink newDrink = RefinamentManager.Instance.CreateDrink(Ingredients);
 
+            Debug.Log($"{newDrink} criado!");
+
             if(newDrink != null)
             {
                 ClientManager.Instance.ServeClient(newDrink);

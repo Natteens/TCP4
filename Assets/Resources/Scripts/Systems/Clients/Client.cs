@@ -47,14 +47,14 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
 
         public void Delivered()
         {
-            ShopManager.Instance.IncreaseMoney(100); 
+            ShopManager.Instance.IncreaseMoney(10); 
             ShopManager.Instance.IncreaseStar(0.1f + (stars / 10f));
             ClientManager.Instance.DeleteSpecificClient(this);
         }
 
         public void NotDelivered()
         {
-            ShopManager.Instance.DecreaseMoney(10);
+            //ShopManager.Instance.DecreaseMoney(10);
             ShopManager.Instance.DecreaseStar(0.1f + (stars / 10f));
             ClientManager.Instance.DeleteSpecificClient(this);
         }

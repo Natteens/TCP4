@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656ba0cd701aadf419bab56fd130f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebugUI: 1
+  showDebugUI: 0
   fpsText: {fileID: 1616998904}
   memoryText: {fileID: 1960518109}
   settingsText: {fileID: 1346733378}
@@ -1682,10 +1682,7 @@ MonoBehaviour:
   - inputProduct: {fileID: 11400000, guid: f8c402991715c3147a4c108993b828b8, type: 2}
     outputProduct: {fileID: 11400000, guid: 9993b18cd8f91e641925f92575c6007f, type: 2}
   drinks:
-  - {fileID: 11400000, guid: 8946233ee6c9a7c499750d8577ac7826, type: 2}
-  - {fileID: 11400000, guid: 2b0d376919a0e10408348c4ad9dd9b5e, type: 2}
   - {fileID: 11400000, guid: 27c8ecdb80ae6e24aa65e947be778fca, type: 2}
-  - {fileID: 11400000, guid: 40c413e35dba2664492c2e11c4f0cce5, type: 2}
 --- !u!1 &273680404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8435,10 +8432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbada6c4cb4ec34c9be239cfbcc8294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productInventory:
-  - {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
-  - {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
-  - {fileID: 11400000, guid: ad5d708b28f03f74386f9ed6df8eb4db, type: 2}
+  productInventory: []
   instanceInventory: []
   bagPoint: {fileID: 430835617}
 --- !u!1 &1378752022
