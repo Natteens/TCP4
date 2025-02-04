@@ -16,17 +16,14 @@ namespace Tcp4
         public List<BaseProduct> GetInventory() => productInventory;
         public int GetLimit() => limit;
 
+        public bool CanStorage(){return productInventory.Count < limit;}
+
         public void AddProduct(BaseProduct product, int amount)
         {
-            if (amount <= 0 || product == null)
+            if (amount <= 0 || product == null || !CanStorage())
             {
-                Debug.LogError("Erro: quantidade inválida ou produto nulo.");
+                Debug.LogError("Erro: quantidade inválida, produto nulo ou inventário cheio.");
                 return;
-            }
-
-            if(CountItem(product) + amount > limit)
-            {   
-                Debug.Log("Inventário Cheio!!");
             }
 
             for (int i = 0; i < amount; i++)

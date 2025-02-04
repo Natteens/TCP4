@@ -91,7 +91,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
 
         private void Collect()
         {
-            if (playerInventory != null && playerInventory.GetInventory().Contains(expectedProduct))
+            if (playerInventory != null && playerInventory.GetInventory().Contains(expectedProduct) && playerInventory.CanStorage())
             {
                 playerInventory.RefineProduct(expectedProduct);
                 isReady = false;

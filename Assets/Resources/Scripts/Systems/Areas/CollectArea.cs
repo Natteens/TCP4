@@ -179,7 +179,7 @@ namespace Tcp4
 
         private void HarvestProduct()
         {
-            if (isAbleToGive && isGrown && playerInventory != null)
+            if (isAbleToGive && isGrown && playerInventory != null && playerInventory.CanStorage())
             {
                 playerInventory.AddProduct(production.product, amount);
                 currentTime = 0;

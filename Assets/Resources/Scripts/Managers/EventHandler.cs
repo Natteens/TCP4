@@ -14,6 +14,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public ShopManager shopManager;
 
+        public CreationManager creationManager;
+
         private void Start()
         {
             StartCoroutine(SubscribeEvents());
@@ -21,20 +23,23 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         IEnumerator SubscribeEvents()
         {
-            yield return new WaitForSeconds(1);
-            timeManager.OnOpenCoffeeShop += uiManager.OpenShopNotification;
-            timeManager.OnOpenCoffeeShop += clientManager.StartSpawnClients;
+            yield return new WaitForSeconds(1f);
+            timeManager.OnOpenCoffeeShop            += uiManager.OpenShopNotification;
+            timeManager.OnOpenCoffeeShop            += clientManager.StartSpawnClients;
 
-            timeManager.OnCloseCoffeeShop += uiManager.CloseShopNotification;
-            timeManager.OnCloseCoffeeShop += clientManager.StopSpawnClients;
+            timeManager.OnCloseCoffeeShop           += uiManager.CloseShopNotification;
+            timeManager.OnCloseCoffeeShop           += clientManager.StopSpawnClients;
 
-            clientManager.OnClientSetup += uiManager.NewClientNotification;
+            clientManager.OnClientSetup             += uiManager.NewClientNotification;
 
-            storageManager.OnChangeStorage += uiManager.UpdateStorageView;
-            storageManager.OnCleanStorage += uiManager.CleanStorageSlots;
+            storageManager.OnChangeStorage          += uiManager.UpdateStorageView;
+            storageManager.OnCleanStorage           += uiManager.CleanStorageSlots;
 
-            shopManager.OnChangeMoney += uiManager.UpdateMoney;
-            shopManager.OnChangeStar += uiManager.UpdateStars;
+            creationManager.OnChangeInventory       += uiManager.UpdateCreationView;
+            creationManager.OnChangeInventory       += uiManager.UpdateIngredientsView;
+
+            shopManager.OnChangeMoney               += uiManager.UpdateMoney;
+            shopManager.OnChangeStar                += uiManager.UpdateStars;
 
         }
 

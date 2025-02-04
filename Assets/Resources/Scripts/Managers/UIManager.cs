@@ -1,12 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
 using ComponentUtils.ComponentUtils.Scripts;
-using GDX.Collections.Generic;
 using Tcp4.Assets.Resources.Scripts.Managers;
 using Tcp4.Assets.Resources.Scripts.Systems.Clients;
 using Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook;
 using TMPro;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +16,8 @@ namespace Tcp4
         [Header("Menus")]
         [SerializeField] private GameObject productionMenu;
         [SerializeField] private GameObject storageMenu;
-        [SerializeField] private GameObject configMenu;
+        [SerializeField] private GameObject creationMenu;
+		[SerializeField] private GameObject configMenu;
 
         [Header("Sprites")]
         public Sprite sprProductionWait;
@@ -30,9 +28,11 @@ namespace Tcp4
         [Header("Prefabs")]
         public GameObject pfImageToFill;
         public GameObject pfSlotStorage;
+        public GameObject pfSlotCreation, pfSlotCreationIngredient;
 
         [Header("UI Containers")]
-        public Transform slotHolder;
+        public Transform storageSlotHolder;
+        public Transform creationSlotHolder, ingredientSlotHolder;
         public Canvas worldCanvas;
 
         [Header("UI Animations")]
@@ -52,16 +52,8 @@ namespace Tcp4
         public Image starImage;
 
         #endregion
-
-        #region Storage Management
-
-        private List<GameObject> slotInstances = new();
-
-        public void ControlStorageMenu(bool isActive) => storageMenu.SetActive(isActive);
-
-        public void QuitApplication() => UnityEngine.Application.Quit();
-
-        public void ControlConfigMenu()
+		
+		 public void ControlConfigMenu()
         {
             if (configMenu.activeSelf)
             {
@@ -75,15 +67,21 @@ namespace Tcp4
             }
         }
 
+        #region Storage Management
+
+        private List<GameObject> StorageSlotInstances = new();
+        
+        public void ControlStorageMenu(bool isActive) => storageMenu.SetActive(isActive);
+
         public void CleanStorageSlots()
         {
-            if (slotInstances == null || slotInstances.Count == 0) return;
+            if (StorageSlotInstances == null || StorageSlotInstances.Count == 0) return;
 
-            foreach (var go in slotInstances)
+            foreach (var go in StorageSlotInstances)
             {
                 Destroy(go);
             }
-            slotInstances.Clear();
+            StorageSlotInstances.Clear();
         }
 
         public void UpdateStorageView()
@@ -100,14 +98,92 @@ namespace Tcp4
 
             foreach (BaseProduct _ in inventory.GetInventory())
             {
-                GameObject go = Instantiate(pfSlotStorage, slotHolder);
-                slotInstances.Add(go);
-                go.GetComponent<DataStorageSlot>().Setup(storage.item.productImage, 1);
+                GameObject go = Instantiate(pfSlotStorage, storageSlotHolder);
+                StorageSlotInstances.Add(go);
+                go.GetComponent<DataSlot>().Setup(storage.item.productImage, 1);
             }
         }
 
+        
+
+
         #endregion
 
+        #region Creation Management
+        private List<GameObject> CreationSlotInstances = new();
+        private List<GameObject> IngredientsSlotInstances = new();
+
+        public void ControlCreationMenu(bool isActive) => creationMenu.SetActive(isActive);
+
+        public void CleanCreationSlots()
+        {
+            if (CreationSlotInstances == null || CreationSlotInstances.Count == 0) return;
+
+            foreach (var go in CreationSlotInstances)
+            {
+                Destroy(go);
+            }
+            CreationSlotInstances.Clear();
+        }
+
+        public void CleanIngredientsSlots()
+        {
+            if (IngredientsSlotInstances == null || IngredientsSlotInstances.Count == 0) return;
+
+            foreach (var go in IngredientsSlotInstances)
+            {
+                Destroy(go);
+            }
+            IngredientsSlotInstances.Clear();
+        }
+
+        public void UpdateCreationView()
+        {
+            Inventory playerInventory = StorageManager.Instance.playerInventory;
+            if (playerInventory == null) 
+            {
+                Debug.Log($"{playerInventory} é nulo!");
+                return;
+            }
+
+            CleanCreationSlots();
+
+            foreach (BaseProduct _ in playerInventory.GetInventory())
+            {
+                GameObject go = Instantiate(pfSlotCreation, creationSlotHolder);
+                CreationSlotInstances.Add(go);
+                SelectProduct s = go.GetComponent<SelectProduct>();
+                s.myProduct = _;
+                go.GetComponent<DataSlot>().Setup(s.myProduct.productImage, 1);
+            }
+
+        }
+
+        public void UpdateIngredientsView()
+        {
+            List<BaseProduct> ingredients = CreationManager.Instance.Ingredients;
+            if (ingredients == null) 
+            {
+                Debug.Log($"{ingredients} é nulo!");
+                return;
+            }
+            
+
+            CleanIngredientsSlots();
+
+            foreach(var _ in ingredients)
+            {
+                GameObject go = Instantiate(pfSlotCreationIngredient, ingredientSlotHolder);
+                IngredientsSlotInstances.Add(go);
+                SelectProduct s = go.GetComponent<SelectProduct>();
+                s.myProduct = _;
+                go.GetComponent<DataSlot>().Setup(s.myProduct.productImage, s.myProduct.productName);
+            }
+
+        }
+
+        
+        #endregion
         #region Notifications
 
         public void NewClientNotification(Client clientSettings)

@@ -60,7 +60,7 @@ namespace Tcp4
         {
             var storageInventory = currentStorage.inventory;
 
-            if(playerInventory == null || storageInventory == null) return;
+            if(playerInventory == null || storageInventory == null || !playerInventory.CanStorage()) return;
 
             bool isAbleToTransfer = storageInventory.CountItem(currentStorage.item) > 0;
 
