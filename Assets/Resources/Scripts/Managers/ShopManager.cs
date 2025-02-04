@@ -2,11 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ComponentUtils.ComponentUtils.Scripts;
-using PlasticPipe.PlasticProtocol.Client;
-using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace Tcp4.Assets.Resources.Scripts.Managers
 {
