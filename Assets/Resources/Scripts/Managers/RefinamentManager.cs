@@ -46,6 +46,7 @@ namespace Tcp4
 
                     foreach(var i in inputIngredients) {newQ += i.quality;}
                     d.quality = newQ;
+                    Debug.Log($"Receita feita: {d} com {d.quality} de qualidade!");
                     return d;
                 }
             }

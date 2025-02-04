@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using ComponentUtils.ComponentUtils.Scripts;
+using Tcp4.Assets.Resources.Scripts.Managers;
+using UnityEngine;
 
 
 namespace Tcp4
@@ -47,7 +49,20 @@ namespace Tcp4
         public void Create()
         {
             Drink newDrink = RefinamentManager.Instance.CreateDrink(Ingredients);
-            StorageManager.Instance.playerInventory.AddProduct(newDrink, 1); //so por enquanto
+
+            if(newDrink != null)
+            {
+                ClientManager.Instance.ServeClient(newDrink);
+
+                Ingredients.Clear();
+
+                OnChangeInventory?.Invoke();
+            }
+            else
+            {
+                Debug.Log("Drink está nulo e nao pode ser servido!");
+            }
+            
         }
     }
 

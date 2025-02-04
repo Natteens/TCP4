@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66faa371c0004c0d9bc3295490044948, type: 3}
   m_Name: TimeSettings
   m_EditorClassIdentifier: 
-  timeMultiplier: 99
-  startHour: 6
+  timeMultiplier: 350
+  startHour: 17
   sunriseHour: 6
   sunsetHour: 18
   closeCoffeeShop: 0

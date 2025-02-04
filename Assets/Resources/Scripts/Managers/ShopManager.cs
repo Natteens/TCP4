@@ -18,6 +18,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         private int money = 0;
 
         public event Action OnChangeMoney, OnChangeStar;
+
+        public GameObject porta;
         
         [SerializeField] private List<Drink> menu;
 
@@ -47,6 +49,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         public void AddNewDrink(Drink drink) 
         {
             menu.Add(drink);
+        }
+
+        public void AbrirPorta()
+        {
+            porta.SetActive(false);
+        }
+
+        public void FecharPorta()
+        {
+            porta.SetActive(true);
         }
 
         //Getters

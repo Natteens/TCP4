@@ -29,10 +29,12 @@ namespace Tcp4
         public GameObject pfImageToFill;
         public GameObject pfSlotStorage;
         public GameObject pfSlotCreation, pfSlotCreationIngredient;
+        public GameObject pfClientNotification;
 
         [Header("UI Containers")]
         public Transform storageSlotHolder;
         public Transform creationSlotHolder, ingredientSlotHolder;
+        public Transform notificationHolder;
         public Canvas worldCanvas;
 
         [Header("UI Animations")]
@@ -188,7 +190,9 @@ namespace Tcp4
 
         public void NewClientNotification(Client clientSettings)
         {
-            Debug.Log($"Novo cliente: {clientSettings.nameClient}, Estrelas: {clientSettings.stars}");
+            GameObject go = Instantiate(pfClientNotification, notificationHolder);
+            ClientNotification c = go.GetComponent<ClientNotification>();
+            c.Setup(clientSettings.spriteClient, clientSettings.wantedProduct.productImage, clientSettings.stars);
         }
 
         public void OpenShopNotification() => Debug.Log("Loja aberta!");
@@ -200,7 +204,7 @@ namespace Tcp4
 
         public void UpdateMoney()
         {
-            moneyText.text = ShopManager.Instance.GetMoney().ToString();
+            moneyText.text = "$"+ShopManager.Instance.GetMoney().ToString();
             money.ExecuteAnimation("pop");
         }
 

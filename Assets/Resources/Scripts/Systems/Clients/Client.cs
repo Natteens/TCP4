@@ -47,7 +47,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
 
         public void Delivered()
         {
-            ShopManager.Instance.IncreaseMoney(10); 
+            ShopManager.Instance.IncreaseMoney(100); 
             ShopManager.Instance.IncreaseStar(0.1f + (stars / 10f));
             ClientManager.Instance.DeleteSpecificClient(this);
         }

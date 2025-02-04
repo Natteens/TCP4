@@ -97,6 +97,28 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             OrganizeClients();
         }
 
+        public void ServeClient(Drink d)
+        {
+            foreach (var client in clients)
+            {
+                Client c = client.GetComponent<Client>();
+
+                if(c == null)
+                {
+                    Debug.Log($"Cliente nulo!!");
+                    return;
+                }
+                
+                if(c.wantedProduct.name == d.name)
+                {
+                    Debug.Log($"{d} com {d.quality} de qualidade, entregue para {c}!");
+                    c.Delivered();
+                }
+            }
+
+            Debug.Log($"Nenhum cliente precisa de {d}!");
+        }
+
         public void StartSpawnClients() { canSpawn = true; Debug.Log("Posso spawnar clientes!"); }
         public void StopSpawnClients() { canSpawn = false; Debug.Log("NÃO posso spawnar clientes!"); counter = 0f; DeleteClients(); }
 }
