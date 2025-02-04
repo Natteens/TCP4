@@ -1,17 +1,20 @@
 ﻿using ComponentUtils.ComponentUtils.Scripts;
 using System.Collections;
 using Tcp4.Resources.Scripts.Systems.DayNightCycle;
-using UnityEditor;
 using UnityEngine;
 
 namespace Tcp4.Assets.Resources.Scripts.Managers
 {
     public class EventHandler : Singleton<EventHandler>
     {
-
         public ClientManager clientManager;
         public UIManager uiManager;
         public TimeManager timeManager;
+        public StorageManager storageManager;
+
+        public ShopManager shopManager;
+
+        public CreationManager creationManager;
 
         private void Start()
         {
@@ -20,14 +23,26 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         IEnumerator SubscribeEvents()
         {
-            yield return new WaitForSeconds(1);
-            timeManager.OnOpenCoffeeShop += uiManager.OpenShopNotification;
-            timeManager.OnOpenCoffeeShop += clientManager.StartSpawnClients;
+            yield return new WaitForSeconds(1f);
+            timeManager.OnOpenCoffeeShop            += uiManager.OpenShopNotification;
+            timeManager.OnOpenCoffeeShop            += shopManager.AbrirPorta;
+            timeManager.OnOpenCoffeeShop            += clientManager.StartSpawnClients;
 
-            timeManager.OnCloseCoffeeShop += uiManager.CloseShopNotification;
-            timeManager.OnCloseCoffeeShop += clientManager.StopSpawnClients;
+            timeManager.OnCloseCoffeeShop           += uiManager.CloseShopNotification;
+            timeManager.OnCloseCoffeeShop           += shopManager.FecharPorta;
+            timeManager.OnCloseCoffeeShop           += clientManager.StopSpawnClients;
 
-            clientManager.OnClientSetup += uiManager.NewClientNotification;
+            clientManager.OnClientSetup             += uiManager.NewClientNotification;
+
+            storageManager.OnChangeStorage          += uiManager.UpdateStorageView;
+            storageManager.OnCleanStorage           += uiManager.CleanStorageSlots;
+
+            creationManager.OnChangeInventory       += uiManager.UpdateCreationView;
+            creationManager.OnChangeInventory       += uiManager.UpdateIngredientsView;
+
+            shopManager.OnChangeMoney               += uiManager.UpdateMoney;
+            shopManager.OnChangeStar                += uiManager.UpdateStars;
+
         }
 
 

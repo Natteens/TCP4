@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Leite
   m_EditorClassIdentifier: 
   productName: Leite
-  quality: 5
+  quality: 6
   productID: 4
   model: {fileID: 250678698178614334, guid: 61f4538f74ad36d4193eb8f2a1ed2dc5, type: 3}
+  productImage: {fileID: 21300000, guid: 076da54cb41addf48879d3702db7c6d3, type: 3}

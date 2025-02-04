@@ -7,6 +7,7 @@ public class BaseProduct : ScriptableObject
     public int quality;
     public byte productID;
     public GameObject model;
+    public Sprite productImage;
 
     private static byte nextID = 0;
 

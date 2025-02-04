@@ -16,3 +16,4 @@ MonoBehaviour:
   quality: 10
   productID: 2
   model: {fileID: 628106749096662211, guid: 67201e37dc46b864d911c2123ddf7b0f, type: 3}
+  productImage: {fileID: 21300000, guid: fb224836be44abb44b63df04f2733534, type: 3}

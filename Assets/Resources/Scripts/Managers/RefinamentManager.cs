@@ -27,12 +27,26 @@ namespace Tcp4
         {
             foreach(var d in drinks)
             {
-                if(d.requiredIngredients == inputIngredients)
+                int max = d.requiredIngredients.Count;
+                int c = 0;
+
+                //Validando ingredientes
+                for(var i = 0; i < max; i++)
+                {
+                    if(d.requiredIngredients[i] == inputIngredients[i])
+                    {
+                        c++;
+                    }
+                }
+
+                //Conferindo se receita bate e passando qualidade
+                if(c == max)
                 {
                     int newQ = 0;
 
                     foreach(var i in inputIngredients) {newQ += i.quality;}
                     d.quality = newQ;
+                    Debug.Log($"Receita feita: {d} com {d.quality} de qualidade!");
                     return d;
                 }
             }

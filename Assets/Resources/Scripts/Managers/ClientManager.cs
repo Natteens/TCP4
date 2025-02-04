@@ -19,13 +19,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         [SerializeField] private bool canSpawn;
         [SerializeField] private float counter;
         [SerializeField] private float maxCounter;
+        [SerializeField] private int maxClients = 24;
 
         public void Start()
         {
-            maxCounter = 2 - ShopManager.Instance.GetStars() / 2;
+            RestartCounter();
         }
         public void Spawn()
         {
+            if (clients.Count >= maxClients) return;
+
             OnSpawnClient?.Invoke();
 
             float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.GetStars());
@@ -40,14 +43,15 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             clients.Add(_prefab);
 
             OrganizeClients();
-            maxCounter = 2 - ShopManager.Instance.GetStars() / 2;
-            counter = 0;
+            RestartCounter();
         }
 
         public void Update()
         {
             HandleLogicSpawn();
         }
+
+        void RestartCounter(){ maxCounter = 60 - ShopManager.Instance.GetStars() / 100f; counter = 0;}
 
         void HandleLogicSpawn()
         {
@@ -59,7 +63,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         void OrganizeClients()
         {
-            for(var i = 0; i < clientSpots.Count; i++)
+            for(var i = 0; i < clients.Count; i++)
             {
                 clients[i].transform.position = clientSpots[i].position;
             }
@@ -74,6 +78,54 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             }
 
             clients.Clear();
+        }
+
+        public void DeleteSpecificClient(Client client)
+        {
+            foreach (GameObject c in clients)
+            {
+                Client cClient = c.GetComponent<Client>();
+
+                if(cClient.ID == client.ID)
+                {
+                    clients.Remove(c);
+                    Destroy(client.gameObject);
+                    break;
+                }
+            }
+
+            OrganizeClients();
+        }
+
+        public void ServeClient(Drink d)
+        {
+            List<GameObject> listaClientes = clients;
+
+            if(clients == null) 
+            {
+                listaClientes = clients;
+                //garantindo que vou tentar pegar a lista dnv se for nula
+            }
+
+            foreach (GameObject client in listaClientes)
+            {
+                Client c = client.GetComponent<Client>();
+
+                if(c == null)
+                {
+                    Debug.Log($"Cliente nulo!!");
+                    return;
+                }
+                
+                if(c.wantedProduct.name == d.name)
+                {
+                    Debug.Log($"{d} com {d.quality} de qualidade, entregue para {c}!");
+                    c.Delivered();
+                    return;
+                }
+            }
+
+            Debug.Log($"Nenhum cliente precisa de {d}!");
         }
 
         public void StartSpawnClients() { canSpawn = true; Debug.Log("Posso spawnar clientes!"); }
