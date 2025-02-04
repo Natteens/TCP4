@@ -51,7 +51,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             HandleLogicSpawn();
         }
 
-        void RestartCounter(){ maxCounter = 5 - ShopManager.Instance.GetStars() / 10f; counter = 0;}
+        void RestartCounter(){ maxCounter = 60 - ShopManager.Instance.GetStars() / 100f; counter = 0;}
 
         void HandleLogicSpawn()
         {

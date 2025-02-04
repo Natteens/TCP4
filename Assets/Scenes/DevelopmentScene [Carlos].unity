@@ -3237,9 +3237,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientSprites:
-  - {fileID: 21300000, guid: 7484fc3ac24ae9b4abcb6278d0f44bda, type: 3}
-  - {fileID: 21300000, guid: 076da54cb41addf48879d3702db7c6d3, type: 3}
-  - {fileID: 21300000, guid: 4b10b33d0ebf01445a5fb69b3de8182c, type: 3}
+  - {fileID: 21300000, guid: 6239491d71492854f9341fbbce25cb1e, type: 3}
+  - {fileID: 21300000, guid: 908240bc2fbdd164885fdd5277d69a2d, type: 3}
+  - {fileID: 21300000, guid: 67d1e207cb5ea5047b8e00e02534c227, type: 3}
+  - {fileID: 21300000, guid: 52ab4bd044ccf36449d11a3e606a548a, type: 3}
   clientNames:
   - Nathan
   - Carlos
@@ -5537,7 +5538,7 @@ MonoBehaviour:
   clients: []
   canSpawn: 0
   counter: 0
-  maxCounter: 10
+  maxCounter: 60
   maxClients: 16
 --- !u!1 &858664991
 GameObject:
