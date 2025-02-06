@@ -10,8 +10,9 @@ namespace Tcp4
     {
         [Header("Setup")]
         [SerializeField] private Production production;
-        [SerializeField] private float timeToGive;
+        [SerializeField] private float timeToGive = 1.3f;
         [SerializeField] private int amount;
+        [SerializeField] private float timeToOpenInterface;
 
         [Space(10)]
 
@@ -84,7 +85,7 @@ namespace Tcp4
                 playerInventory = other.GetComponent<Inventory>();
                 if (!hasChoosedProduction)
                 {
-                    OpenProductionMenu();
+                    StartCoroutine(OpenProductionCoroutine());
                 }
                 else
                 {
@@ -93,10 +94,19 @@ namespace Tcp4
             }
         }
 
+        IEnumerator OpenProductionCoroutine()
+        {
+            yield return new WaitForSeconds(timeToOpenInterface);
+
+            if(playerInventory != null)
+            OpenProductionMenu();
+        }
+
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag(PlayerTag))
             {
+                StopAllCoroutines();
                 CloseProductionMenu();
                 playerInventory = null;
             }
