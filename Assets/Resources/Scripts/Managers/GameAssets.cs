@@ -10,6 +10,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
     {
         public List<Sprite> clientSprites;
         public List<string> clientNames;
+        public Sprite Money;
 
         public static string GenerateID(int tamanho)
         {

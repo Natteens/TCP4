@@ -10,7 +10,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
         public Inventory inventory;
         public BaseProduct item;
 
-        [SerializeField] private float interfaceDelay = 0f; // Tempo para exibir a interface
+        [SerializeField] private float interfaceDelay; 
 
         private bool isInterfaceOpen;
 
@@ -34,10 +34,10 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook
 
         public void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Player") && isInterfaceOpen)
+            if (other.CompareTag("Player"))
             {
+                StopAllCoroutines();
                 CloseInterface();
-                //StorageManager.Instance.SetupCurrentStorage(null);
                 StorageManager.Instance.ClearSlots();
             }
         }

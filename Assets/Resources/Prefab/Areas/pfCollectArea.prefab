@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   production: {fileID: 0}
-  amount: 1
   timeToGive: 0.5
+  amount: 1
+  timeToOpenInterface: 1
   pointToSpawn: {fileID: 5387840811869932407}
   currentModel: {fileID: 0}
