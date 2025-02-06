@@ -774,6 +774,7 @@ GameObject:
   - component: {fileID: 6827593727256620449}
   - component: {fileID: 4690998466794993355}
   - component: {fileID: 4199734829957065630}
+  - component: {fileID: 665231896898521929}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1093,6 +1094,18 @@ MonoBehaviour:
   productInventory: []
   instanceInventory: []
   bagPoint: {fileID: 6805297808265520897}
+--- !u!114 &665231896898521929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614605616244362947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81de7a27df80a33459490afde166a839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3791090111673035679
 GameObject:
   m_ObjectHideFlags: 0

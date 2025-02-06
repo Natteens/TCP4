@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using ComponentUtils.ComponentUtils.Scripts;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Tcp4.Assets.Resources.Scripts.Managers
 {
     public class ShopManager : Singleton<ShopManager>
     {
-        private float stars = 0f;
+        [SerializeField] private float stars = 0f;
         private readonly float MaxStar = 1000f;
 
-        private int money = 0;
+        [SerializeField] private int money = 0;
 
         public event Action OnChangeMoney, OnChangeStar;
 
@@ -26,8 +27,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         }
         public void DecreaseMoney(int value) 
         { 
-            money -= value; 
-            OnChangeMoney.Invoke();
+            if(money >= value)
+            {
+                money -= value; 
+                OnChangeMoney.Invoke();
+            }
+            else
+            {
+                Debug.Log("Voce está pobre demais para diminuir o dinheiro...");
+            }
+            
         }
         public void IncreaseStar(float value) 
         {
@@ -69,6 +78,16 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         {
             //Adicionar ou remover itens do menu de acordo com as estrelas
             // No RefinamentManager tem uma lista de todos os Drinks do jogo e vc pode pegar um por ID
+        }
+
+        void Update()
+        {
+#if UNITY_EDITOR
+            if(Input.GetKeyDown(KeyCode.Tab))
+            {
+                IncreaseMoney(1000);
+            }
+#endif
         }
 
         void Start()

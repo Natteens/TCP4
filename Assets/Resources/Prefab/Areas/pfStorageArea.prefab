@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   item: {fileID: 11400000, guid: 31ce6c66ce14f2e40baf34d7a438a15c, type: 2}
-  interfaceDelay: 0.5
+  interfaceDelay: 1
 --- !u!114 &5589774045257058792
 MonoBehaviour:
   m_ObjectHideFlags: 0
