@@ -2459,7 +2459,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -14.87, y: 11.524388, z: -10.843865}
+  m_LocalPosition: {x: -24.19, y: 11.524387, z: -0.6623882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17363,7 +17363,7 @@ Transform:
   m_GameObject: {fileID: 1830768029}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -14.87, y: 11.524388, z: -10.843865}
+  m_LocalPosition: {x: -24.19, y: 11.524387, z: -0.6623882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20437,7 +20437,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.87
+      value: -24.19
       objectReference: {fileID: 0}
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20445,7 +20445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.6514769
+      value: 8.53
       objectReference: {fileID: 0}
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20498,7 +20498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191938513, guid: 6eb08bfc0fd869c47b796c42ada099da, type: 3}
       propertyPath: joystickRange
-      value: 85
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 191938513, guid: 6eb08bfc0fd869c47b796c42ada099da, type: 3}
       propertyPath: invertYOutputValue

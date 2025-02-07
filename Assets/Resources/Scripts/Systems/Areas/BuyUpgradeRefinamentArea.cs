@@ -40,6 +40,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
         {
             stackedMoney = 0f;
             price *= priceMultiplier;
+            priceImage.SetupMaxTime(price);
         }
 
         public void OnChangePrice()

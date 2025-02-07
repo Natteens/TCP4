@@ -19,7 +19,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
         public void DecreaseRefinementTime(float value)
         {
             refinementTime -= value;
-            Mathf.Clamp(refinementTime, 0.1f, 5f);
+            refinementTime = Mathf.Clamp(refinementTime, 0.5f, 5f);
             timeImage.SetupMaxTime(refinementTime);
         }
 
