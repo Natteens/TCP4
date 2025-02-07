@@ -16,6 +16,13 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
 
         ImageToFill timeImage;
 
+        public void DecreaseRefinementTime(float value)
+        {
+            refinementTime -= value;
+            Mathf.Clamp(refinementTime, 0.1f, 5f);
+            timeImage.SetupMaxTime(refinementTime);
+        }
+
         private void Start()
         {
             var ui = UIManager.Instance;

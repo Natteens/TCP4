@@ -106,7 +106,7 @@ namespace Tcp4
         {
             if (other.CompareTag(PlayerTag))
             {
-                StopAllCoroutines();
+                //StopAllCoroutines();
                 CloseProductionMenu();
                 playerInventory = null;
             }
