@@ -31,8 +31,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             OnSpawnClient?.Invoke();
 
-            float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.GetStars());
-            float minimum = UnityEngine.Random.Range(0.1f, ShopManager.Instance.GetStars() / 5f);
+            float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.GetStars() / 1000f * 5f);
+            float minimum = UnityEngine.Random.Range(0.1f, ShopManager.Instance.GetStars() / 1000f * 5f);
 
             GameObject _prefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
             Client prefabClient = _prefab.GetComponent<Client>();

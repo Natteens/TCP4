@@ -8,7 +8,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
     {
         public string ID;
         public float stars;
-        public float minimum;
+        public float minimumQuality;
         public string nameClient;
         public  TextMeshProUGUI nameTmp;
         public Drink wantedProduct;
@@ -18,11 +18,11 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         private float max_wait_time;
         private float wait_time;
 
-        public void Setup(float _starts, float _minimum)
+        public void Setup(float _stars, float _minimum)
         {
             //setup basico
-            stars = _starts;
-            minimum = _minimum;
+            stars = _stars;
+            minimumQuality = _minimum;
             spriteClient = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameTmp.text = nameClient;
@@ -45,14 +45,14 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         public void Delivered()
         {
             ShopManager.Instance.IncreaseMoney(10); 
-            ShopManager.Instance.IncreaseStar(10f + (stars / 10f));
+            ShopManager.Instance.IncreaseStar(10f + stars);
             ClientManager.Instance.DeleteSpecificClient(this);
         }
 
         public void NotDelivered()
         {
             //ShopManager.Instance.DecreaseMoney(10);
-            ShopManager.Instance.DecreaseStar(0.5f + (stars / 10f));
+            ShopManager.Instance.DecreaseStar(0.5f + stars);
             ClientManager.Instance.DeleteSpecificClient(this);
         }
 
