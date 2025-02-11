@@ -24,7 +24,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             stars = _stars;
             minimumQuality = _minimum;
             spriteClient = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
-            nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
+            nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientNames.Count)];
             nameTmp.text = nameClient;
             max_wait_time = 15f - (stars * 2); 
             wait_time = max_wait_time;
@@ -39,7 +39,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             ui_timer.fillAmount = wait_time / max_wait_time;
 
             if(wait_time > 0f) wait_time -= Time.deltaTime;
-            else { NotDelivered(); }
+            else { this.NotDelivered(); }
         }
 
         public void Delivered()
@@ -47,23 +47,36 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             ShopManager.Instance.IncreaseMoney(10); 
             ShopManager.Instance.IncreaseStar(10f + stars);
             ClientManager.Instance.DeleteSpecificClient(this);
+            Destroy(this.gameObject);
         }
 
         public void NotDelivered()
         {
-            //ShopManager.Instance.DecreaseMoney(10);
             ShopManager.Instance.DecreaseStar(0.5f + stars);
             ClientManager.Instance.DeleteSpecificClient(this);
+            Destroy(this.gameObject);
         }
 
         public void ChooseDrink()
         {
             //Decidindo o pedido que eu quero!
-            var rand = Random.Range(0, ShopManager.Instance.GetMenu().Count - 1);
+            var rand = Random.Range(0, ShopManager.Instance.GetMenu().Count);
 
             Drink _drink = ShopManager.Instance.GetMenu()[rand];
+
+            if(_drink == null) 
+            {
+                //Se nao achou pega um expresso de cria mesmo
+                _drink = ShopManager.Instance.GetMenu()[0];
+            }
+
             wantedProduct = _drink;
             ui_wantedProduct.sprite = wantedProduct.productImage; 
+        }
+
+        void Start()
+        {
+            transform.rotation = Quaternion.Euler(0, -90, 0);
         }
 
     }

@@ -10,7 +10,15 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
     public class ShopManager : Singleton<ShopManager>
     {
         [SerializeField] private float stars = 0f;
+
+        [SerializeField] private int cupLevel = 0;
+        [SerializeField] private List<GameObject> cupPrefabs = new();
+
+        //Caminhos para o copo
+        public Transform point;
+        public Transform cupHolder;
         private readonly float MaxStar = 1000f;
+
 
         RefinamentManager refManager;
         ProductionManager prodManager;
@@ -24,6 +32,12 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         
         [SerializeField] private List<Drink> menu;
 
+
+        public void IncreaseCupLevel() 
+        {
+            cupLevel ++; 
+            cupLevel = Mathf.Clamp(cupLevel, 0, 2);
+        }
 
         public void IncreaseMoney(int value) 
         {
@@ -47,13 +61,14 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         {
             stars += value; 
             OnChangeStar.Invoke();
-            stars = Mathf.Clamp(stars, 0f, MaxStar);
+            if(stars > MaxStar) {stars = MaxStar;}
         }
+
         public void DecreaseStar(float value) 
         {
             stars -= value;
             OnChangeStar.Invoke();
-            stars = Mathf.Clamp(stars, 0f, MaxStar);
+            if(stars < 0) {stars = 0;}
         }
 
         public void AddNewDrink(Drink drink) 
@@ -89,6 +104,10 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             // Converte a pontuação para um nível de 0 a 5
             int starLevel = Mathf.FloorToInt(stars / MaxStar * 5f);
+
+            if(starLevel < 0) starLevel = 0;
+
+            Debug.Log("Nivel de Estrela: " + starLevel.ToString());
 
             // Lista de IDs das bebidas desbloqueáveis por nível
             int[][] drinkLevels = new int[][]
@@ -140,6 +159,14 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
                 }
             }
 
+        }
+
+        public void SpawnCup(Drink d)
+        {
+            GameObject go = Instantiate(cupPrefabs[cupLevel], cupHolder);
+            Cup cup =  go.GetComponent<Cup>();
+            cup.myDrink = d;
+            cup.point = this.point;
         }
 
         void Update()

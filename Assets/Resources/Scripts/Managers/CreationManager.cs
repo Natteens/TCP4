@@ -54,7 +54,9 @@ namespace Tcp4
 
             if(newDrink != null)
             {
-                ClientManager.Instance.ServeClient(newDrink);
+                //ClientManager.Instance.ServeClient(newDrink);
+
+                ShopManager.Instance.SpawnCup(newDrink);
 
                 Ingredients.Clear();
 

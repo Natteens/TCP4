@@ -82,6 +82,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public void DeleteSpecificClient(Client client)
         {
+
             foreach (GameObject c in clients)
             {
                 Client cClient = c.GetComponent<Client>();
@@ -89,7 +90,6 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
                 if(cClient.ID == client.ID)
                 {
                     clients.Remove(c);
-                    Destroy(client.gameObject);
                     break;
                 }
             }
