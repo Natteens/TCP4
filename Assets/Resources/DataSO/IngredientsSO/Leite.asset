@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6718556ead9eb114581990b08f3d82f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bbb4f07877bea0489ed2bd40d13b5a5, type: 3}
   m_Name: Leite
   m_EditorClassIdentifier: 
   productName: Leite
-  quality: 6
-  productID: 4
-  model: {fileID: 250678698178614334, guid: 61f4538f74ad36d4193eb8f2a1ed2dc5, type: 3}
-  productImage: {fileID: 21300000, guid: 076da54cb41addf48879d3702db7c6d3, type: 3}
+  quality: 11
+  productID: 142
+  model: {fileID: 129258641539217464, guid: 6d66c35e357d4774c8e82e9e018570e8, type: 3}
+  productImage: {fileID: 21300000, guid: 926296b10b255b242828d7a353268d65, type: 3}

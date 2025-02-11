@@ -30,9 +30,11 @@ namespace Tcp4
         public GameObject pfSlotStorage;
         public GameObject pfSlotCreation, pfSlotCreationIngredient;
         public GameObject pfClientNotification;
+        public GameObject pfProductionCard;
 
         [Header("UI Containers")]
         public Transform storageSlotHolder;
+        public Transform productionSlotHolder;
         public Transform creationSlotHolder, ingredientSlotHolder;
         public Transform notificationHolder;
         public Canvas worldCanvas;
@@ -54,20 +56,6 @@ namespace Tcp4
         public Image starImage;
 
         #endregion
-		
-		 public void ControlConfigMenu()
-        {
-            if (configMenu.activeSelf)
-            {
-                configMenu.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                configMenu.SetActive(true);
-                Time.timeScale = 0;
-            }
-        }
 
         #region Storage Management
 
@@ -112,6 +100,7 @@ namespace Tcp4
         #endregion
 
         #region Creation Management
+
         private List<GameObject> CreationSlotInstances = new();
         private List<GameObject> IngredientsSlotInstances = new();
 
@@ -186,6 +175,46 @@ namespace Tcp4
 
         
         #endregion
+        
+        #region Production Management
+        private List<GameObject> productionCardInstances = new();
+        public List<GameObject> GetCardInstances() => productionCardInstances;
+        public void CreateNewProductionCard(Production p)
+        {
+            if (p == null)
+            {
+                Debug.LogError("Tentativa de criar um cartão de produção com um Production nulo!");
+                return;
+            }
+
+            GameObject go = Instantiate(pfProductionCard, productionSlotHolder);
+            ProductionCard card = go.GetComponent<ProductionCard>();
+
+            if (card == null)
+            {
+                Debug.LogError("O prefab da ProductionCard não contém o componente ProductionCard!");
+                Destroy(go);
+                return;
+            }
+
+            card.myProduction = p;
+            card.ConfigureVisuals();
+            
+            go.name = $"PRODUCAO: {p.product.productName}";
+            productionCardInstances.Add(go);
+        }
+
+        public void ClearProductionCards()
+        {
+            foreach(var v in productionCardInstances)
+            {
+                Destroy(v);
+            }
+
+            productionCardInstances.Clear();
+        }
+        #endregion
+
         #region Notifications
 
         public void NewClientNotification(Client clientSettings)
@@ -219,6 +248,20 @@ namespace Tcp4
         #region Utility
 
         public void ControlProductionMenu(bool isActive) => productionMenu.SetActive(isActive);
+
+        public void ControlConfigMenu()
+        {
+            if (configMenu.activeSelf)
+            {
+                configMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                configMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
 
         public void PlaceInWorld(Transform worldObject, RectTransform uiElement, bool isWorldCanvas = true)
         {

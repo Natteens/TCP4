@@ -9,6 +9,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
     public class ProductionManager : Singleton<ProductionManager>
     {
         private readonly List<ProductionCard> choices = new();
+
+        [SerializeField] private List<Production> productions;
         private CollectArea reference;
 
         private Production productionToSet;
@@ -30,11 +32,24 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public void InvokeChooseProduction() => OnChooseProduction?.Invoke();
 
+        public Production GetProductionByID(int ID)
+        {
+            for(var i = 0; i < productions.Count; i++)
+            {
+                if(i == ID)
+                {
+                    return productions[i];
+                }
+            }
+
+            return null;
+        }
+
         public void ReloadCards()
         {
             choices.Clear();
 
-            var goList = GameObject.FindGameObjectsWithTag("ProductionCard");
+            var goList = UIManager.Instance.GetCardInstances();
 
             foreach (var go in goList)
             {
