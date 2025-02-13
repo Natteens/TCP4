@@ -15,5 +15,5 @@ MonoBehaviour:
   productName: Mel
   quality: 25
   productID: 66
-  model: {fileID: 129258641539217464, guid: 6d66c35e357d4774c8e82e9e018570e8, type: 3}
-  productImage: {fileID: 21300000, guid: 5a14f8f0449f37e4bbae05b4f4d62dba, type: 3}
+  model: {fileID: 6681378206972770670, guid: 332020a8cbdd6a64dbec3fc2bb5d7beb, type: 3}
+  productImage: {fileID: 21300000, guid: 2ebfb91ebb28f58478a3a2031ac69cfd, type: 3}

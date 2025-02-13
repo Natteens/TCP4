@@ -8,7 +8,7 @@ namespace Tcp4
 {
     public class Inventory : MonoBehaviour
     {
-        private int limit = 10;
+        private int limit = 6;
         [SerializeField] private List<BaseProduct> productInventory = new();
         [SerializeField] private List<GameObject> instanceInventory = new();
         [SerializeField] private Transform bagPoint;
@@ -76,6 +76,7 @@ namespace Tcp4
         }
         void Spawn(GameObject model)
         {
+            
             GameObject instance = Instantiate(model, bagPoint);
             instanceInventory.Add(instance);
             ReorganizeInventory();
@@ -123,7 +124,7 @@ namespace Tcp4
             for (int i = 0; i < instanceInventory.Count; i++)
             {
                 var offset = i / 3.5f;
-                instanceInventory[i].transform.position = bagPoint.position + new Vector3(0, offset, 0);
+                instanceInventory[i].transform.position = bagPoint.position + new Vector3(0, offset, 0);   
             }
         }
         

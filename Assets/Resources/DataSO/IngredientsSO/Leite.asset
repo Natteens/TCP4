@@ -15,5 +15,5 @@ MonoBehaviour:
   productName: Leite
   quality: 11
   productID: 142
-  model: {fileID: 129258641539217464, guid: 6d66c35e357d4774c8e82e9e018570e8, type: 3}
-  productImage: {fileID: 21300000, guid: 926296b10b255b242828d7a353268d65, type: 3}
+  model: {fileID: 3078594667278054549, guid: 3d0f9fcb572b1be45ad971c94e3e9dd0, type: 3}
+  productImage: {fileID: 21300000, guid: 9e81e92f28685c04faef504e8ae123a9, type: 3}
