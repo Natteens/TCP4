@@ -12563,7 +12563,9 @@ MonoBehaviour:
   stars: 0
   cupLevel: 0
   cupPrefabs:
-  - {fileID: 697358417046331546, guid: 853571c8e33ca024a9dc2189d39719ee, type: 3}
+  - {fileID: 7397341027057396301, guid: 236d1308a8fd663428f008a3caa11a45, type: 3}
+  - {fileID: 7142305427428192452, guid: c9944032e7dfd9243ba51f044364c3db, type: 3}
+  - {fileID: 2236595817528045868, guid: cb1a6d93ee7a64640ae7833a65d15d35, type: 3}
   point: {fileID: 1923516233}
   cupHolder: {fileID: 84693927}
   money: 0
@@ -24362,6 +24364,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038957236}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2047799447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012178150412933135, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995627649836575067, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
+      propertyPath: m_Name
+      value: pfUpgradeCups
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6932cfd6abc324a49905548d9a0443bb, type: 3}
 --- !u!1 &2050212506
 GameObject:
   m_ObjectHideFlags: 0
@@ -26404,3 +26463,4 @@ SceneRoots:
   - {fileID: 727856217}
   - {fileID: 339803330}
   - {fileID: 1607301625}
+  - {fileID: 2047799447}
