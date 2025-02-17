@@ -6,6 +6,7 @@ using Tcp4.Assets.Resources.Scripts.Systems.Collect_Cook;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Tcp4
 {
@@ -261,6 +262,11 @@ namespace Tcp4
                 configMenu.SetActive(true);
                 Time.timeScale = 0;
             }
+        }
+
+        public void VoltarMenu()
+        {
+            SceneManager.LoadScene("InitialMenu");
         }
 
         public void PlaceInWorld(Transform worldObject, RectTransform uiElement, bool isWorldCanvas = true)

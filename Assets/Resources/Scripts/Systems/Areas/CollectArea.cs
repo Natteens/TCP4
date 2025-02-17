@@ -43,6 +43,7 @@ namespace Tcp4
         {
             objectPools = new ObjectPool(pointToSpawn);
             objectPools.AddPool(production.models);
+            SoundManager.PlaySound(SoundType.plantar);
         }
 
         private void Update()
@@ -191,6 +192,7 @@ namespace Tcp4
         {
             if (isAbleToGive && isGrown && playerInventory != null && playerInventory.CanStorage())
             {
+                SoundManager.PlaySound(SoundType.coletar);
                 playerInventory.AddProduct(production.product, amount);
                 currentTime = 0;
                 isAbleToGive = false;

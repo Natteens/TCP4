@@ -3,15 +3,51 @@ using UnityEngine.UI;
 
 namespace Tcp4
 {
+    public enum SoundType
+    {
+        coletar,
+        interagir,
+        passos,
+        plantar,
+        click
+    }
+
+    [RequireComponent(typeof(AudioSource))]
     public class SoundManager : MonoBehaviour
     {
+        [SerializeField] private AudioClip[] soundList;
+        private static SoundManager instance;
+        private AudioSource audioSource;
+
         public AudioSource musicSource;
-        public AudioSource[] sfxSources;
         public Toggle toggleMusic;
         public Toggle toggleSFX;
 
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        public static void PlaySound(SoundType sound, float volume = 1)
+        {
+            if (instance != null && instance.audioSource != null)
+            {
+                instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume * instance.GetSFXVolume());
+            }
+        }
+
         private void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+
             bool isMusicOn = PlayerPrefs.GetInt("Music", 1) == 1;
             bool isSFXOn = PlayerPrefs.GetInt("SFX", 1) == 1;
 
@@ -33,11 +69,18 @@ namespace Tcp4
 
         public void ToggleSFX(bool isOn)
         {
-            foreach (AudioSource sfx in sfxSources)
-            {
-                sfx.mute = isOn;
-            }
+            SetSFXVolume(isOn ? 0 : 1);
             PlayerPrefs.SetInt("SFX", isOn ? 0 : 1);
+        }
+
+        private void SetSFXVolume(float volume)
+        {
+            audioSource.volume = volume;
+        }
+
+        private float GetSFXVolume()
+        {
+            return audioSource.volume;
         }
     }
 }
