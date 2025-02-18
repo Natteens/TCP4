@@ -3,7 +3,47 @@ guid: 94363b6f3cc8f7a4593255db8bd8ac85
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: caule
+    second: {fileID: 2100000, guid: e285aee2ab5e3064bb1f3bf97f0d3563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flores
+    second: {fileID: 2100000, guid: 96f23376b56d1a84da1481c08460ae64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: folhas
+    second: {fileID: 2100000, guid: e4a71bd4acbc1774e93223234c63197b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pauzinho
+    second: {fileID: 2100000, guid: 636b572df1fca3240ac59e51e88f5217, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lirio2
+    second: {fileID: 2800000, guid: f93b4a986ffbbdb4f88a9fde0987e2e4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lirioCAULE
+    second: {fileID: 2800000, guid: 0d484bd23fd994d42bfabdd3252a3166, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lirioFOLHA
+    second: {fileID: 2800000, guid: 17b45307225e1cb448eaafe0cfe9366d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lirioPAUZINHO
+    second: {fileID: 2800000, guid: d9d6d063be9082148a570304647c7122, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
