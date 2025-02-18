@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CollisionChecker : MonoBehaviour
@@ -9,7 +10,18 @@ public class CollisionChecker : MonoBehaviour
     {
         if(IsUpgradeTag(other.gameObject))
         {
-            if (other.gameObject.TryGetComponent(out IUpgradable upgrade))
+            StartCoroutine(SetupReference(other.gameObject));
+        }
+        
+    }
+
+    IEnumerator SetupReference(GameObject _object)
+    {
+        yield return new WaitForSeconds(1f);
+
+        if(_object != null)
+        {
+            if (_object.TryGetComponent(out IUpgradable upgrade))
             {
                 upgradeReference = upgrade;
                 Debug.Log("Componente de Upgrade encontrado!");
@@ -19,7 +31,8 @@ public class CollisionChecker : MonoBehaviour
                 Debug.Log("Componente de Upgrade não encontrado.");
             }
         }
-        
+
+        yield return null;
     }
 
     void OnTriggerStay(Collider other)
@@ -34,6 +47,7 @@ public class CollisionChecker : MonoBehaviour
     {
         if (IsUpgradeTag(other.gameObject))
         {
+            StopAllCoroutines();
             upgradeReference = null;
         }
     }
