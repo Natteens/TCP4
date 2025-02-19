@@ -19,7 +19,6 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         public Transform cupHolder;
         private readonly float MaxStar = 1000f;
 
-
         RefinamentManager refManager;
         ProductionManager prodManager;
         UIManager uiManager;
@@ -31,7 +30,6 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         public GameObject porta;
         
         [SerializeField] private List<Drink> menu;
-
 
         public void IncreaseCupLevel() 
         {

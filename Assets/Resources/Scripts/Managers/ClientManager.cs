@@ -16,6 +16,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
         [SerializeField] private GameObject prefab;
         [SerializeField] private List<GameObject> clients = new();
 
+        [SerializeField] private float baseTime;
         [SerializeField] private bool canSpawn;
         [SerializeField] private float counter;
         [SerializeField] private float maxCounter;
@@ -31,8 +32,10 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
             OnSpawnClient?.Invoke();
 
-            float stars = UnityEngine.Random.Range(0f, ShopManager.Instance.GetStars() / 1000f * 5f);
-            float minimum = UnityEngine.Random.Range(0.1f, ShopManager.Instance.GetStars() / 1000f * 5f);
+            var totalStars = ShopManager.Instance.GetStars() / ShopManager.Instance.GetMaxStars() * 5f;
+
+            float stars = UnityEngine.Random.Range(0f, totalStars);
+            float minimum = UnityEngine.Random.Range(0.1f, 0.5f + totalStars * 10);
 
             GameObject _prefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
             Client prefabClient = _prefab.GetComponent<Client>();
@@ -51,7 +54,11 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             HandleLogicSpawn();
         }
 
-        void RestartCounter(){ maxCounter = 5 - ShopManager.Instance.GetStars() / 100f; counter = 0;}
+        void RestartCounter()
+        { 
+            maxCounter = baseTime - ShopManager.Instance.GetStars() / ShopManager.Instance.GetMaxStars() * 2; 
+            counter = 0;
+        }
 
         void HandleLogicSpawn()
         {
