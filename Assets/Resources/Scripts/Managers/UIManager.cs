@@ -38,6 +38,7 @@ namespace Tcp4
         public Transform productionSlotHolder;
         public Transform creationSlotHolder, ingredientSlotHolder;
         public Transform notificationHolder;
+        public Canvas hudCanvas;
         public Canvas worldCanvas;
 
         [Header("UI Animations")]

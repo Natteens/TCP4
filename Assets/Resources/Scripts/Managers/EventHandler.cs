@@ -1,4 +1,5 @@
 ﻿using ComponentUtils.ComponentUtils.Scripts;
+using DG.Tweening;
 using System.Collections;
 using Tcp4.Resources.Scripts.Systems.DayNightCycle;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             timeManager.OnCloseCoffeeShop           += uiManager.CloseShopNotification;
             timeManager.OnCloseCoffeeShop           += shopManager.FecharPorta;
             timeManager.OnCloseCoffeeShop           += clientManager.StopSpawnClients;
+            timeManager.OnCloseCoffeeShop           += RestartDay;
 
             clientManager.OnClientSetup             += uiManager.NewClientNotification;
 
@@ -44,6 +46,13 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             shopManager.OnChangeStar                += uiManager.UpdateStars;
             shopManager.OnChangeStar                += shopManager.CheckUpgradeStar;
 
+
+        }
+
+        public void RestartDay()
+        {
+            GameAssets.Instance.player.transform.position = GameAssets.Instance.safePoint.position;
+            Instantiate(GameAssets.Instance.pfNovoDia, uiManager.hudCanvas.transform);
         }
 
 

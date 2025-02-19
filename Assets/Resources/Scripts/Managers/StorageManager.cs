@@ -17,7 +17,10 @@ namespace Tcp4
         public event Action OnChangeStorage;
         public event Action OnCleanStorage;
 
-
+        public void Start()
+        {
+            playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        }
         public void SetupCurrentStorage(StorageArea newStorage)
         {
             currentStorage = newStorage;
