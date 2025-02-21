@@ -3828,7 +3828,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -19.878, y: 9.477, z: 2}
+  m_LocalPosition: {x: -19.878, y: 9.977, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22136,7 +22136,7 @@ Transform:
   m_GameObject: {fileID: 1830768029}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -19.878, y: 9.477, z: 2}
+  m_LocalPosition: {x: -19.878, y: 9.977, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22199,11 +22199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0.1, y: 0.1, z: 0.1}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 8, z: -8}
+  FollowOffset: {x: 0, y: 8.5, z: -8}
 --- !u!1 &1831197703
 GameObject:
   m_ObjectHideFlags: 0
@@ -26158,15 +26158,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.05
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.05
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.05
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1391653257690711975, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26231,6 +26231,18 @@ PrefabInstance:
     - target: {fileID: 4382591530723877732, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805297808265520897, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805297808265520897, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805297808265520897, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7551525465106733685, guid: 7025c65720fc87b41a63d094a96cdba3, type: 3}
       propertyPath: m_Controller
