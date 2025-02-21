@@ -746,6 +746,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: interface geral_26
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 3114
+        width: 206
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22600e69ebea6f4798ca1863c67c58c
+      internalID: 1298950738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interface geral_27
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 3112
+        width: 206
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725bbcd754e355e49b946cc887a22430
+      internalID: -1715071253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -779,6 +823,8 @@ TextureImporter:
       interface geral_23: -1601718628
       interface geral_24: 1962495795
       interface geral_25: 1216207605
+      interface geral_26: 1298950738
+      interface geral_27: -1715071253
       interface geral_3: 442827971
       interface geral_4: 2044272453
       interface geral_5: 1464176784
