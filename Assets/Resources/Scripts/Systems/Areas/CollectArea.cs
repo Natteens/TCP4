@@ -167,14 +167,19 @@ namespace Tcp4
                 }
 
                 currentModel = objectPools.Get(models[modelIndex]);
-                currentModel.transform.SetPositionAndRotation(pointToSpawn.position, models[modelIndex].transform.rotation);
-                //Debug.Log($"Modelo atual: {currentModel.name} / Rotacao: {currentModel.transform.rotation} / Index: {modelIndex}");
+
+                Vector3 normalizedPosition = new(pointToSpawn.position.x,
+                pointToSpawn.position.y, pointToSpawn.position.z);
+
+                currentModel.transform.SetPositionAndRotation(normalizedPosition, models[modelIndex].transform.rotation);
+                Debug.Log($"Modelo atual: {currentModel.name} // Posicao: {normalizedPosition}");
 
                 float modelGrowTime = timeToGrow / models.Length;
                 float elapsedTime = 0;
 
                 while (elapsedTime < modelGrowTime)
                 {
+                    
                     elapsedTime += Time.deltaTime;
                     currentTime += Time.deltaTime;
                     UpdateCurrentTime();
