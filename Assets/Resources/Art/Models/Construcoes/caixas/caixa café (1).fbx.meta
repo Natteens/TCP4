@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eb84d027f90e5643b066aab2f86bed6
+guid: 941ea713e12b3294993df816aaa86330
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 69bf04cc6c721cd468b8021810260544, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 9f4117c884499664e9c7c589036df86d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: cortador
-    second: {fileID: 2100000, guid: e73e3a93bca88284092d4be96aefd7f5, type: 2}
+      name: fruta
+    second: {fileID: 2100000, guid: 9a06fdcabcb314642a50b429f234faa7, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: caixas fruta cafe
+    second: {fileID: 2800000, guid: 1846bab05d2eaf8479bba64cb3b73846, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fruta de cafe
+    second: {fileID: 2800000, guid: 0b123ac8afe2f014387d822f41083743, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

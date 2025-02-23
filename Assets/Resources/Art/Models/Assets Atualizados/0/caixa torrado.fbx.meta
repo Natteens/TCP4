@@ -3,7 +3,27 @@ guid: b34ee43841455fb45946caf3668f450a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 3c30a833e938e9f4686b96759e20d4fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: torrado
+    second: {fileID: 2100000, guid: 88055941f67f6f74c8d6bf6b8b1b2306, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cafe torrado
+    second: {fileID: 2800000, guid: 290f9ffed6a197142a732b60437e8273, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: caixas cafe torado
+    second: {fileID: 2800000, guid: f5fe01bb5157f6d469fefc861f202d52, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

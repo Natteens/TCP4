@@ -3,7 +3,12 @@ guid: 4182378730d92f6408a37526b74d3a07
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PLACA
+    second: {fileID: 2100000, guid: 6ef0a012540cbe94fb79d66bf210006a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

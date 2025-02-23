@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eb84d027f90e5643b066aab2f86bed6
+guid: 77055a4dbf74d13419a0fc4a687c163d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 69bf04cc6c721cd468b8021810260544, type: 2}
+      name: Material.004
+    second: {fileID: 2100000, guid: 9fe0c28db1656944181a819a002c6ba5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: cortador
-    second: {fileID: 2100000, guid: e73e3a93bca88284092d4be96aefd7f5, type: 2}
+      name: chocolate
+    second: {fileID: 2100000, guid: 120e6fac4c1a6e74a8858dd2eec3871f, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: caixas chocolate
+    second: {fileID: 2800000, guid: b5f40f957bdb72d4989715694cb00cfd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: chocolate
+    second: {fileID: 2800000, guid: b3019d948ad93e34db3aed5f33ed1cc5, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
