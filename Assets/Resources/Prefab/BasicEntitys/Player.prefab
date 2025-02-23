@@ -578,6 +578,10 @@ PrefabInstance:
       value: Personagem_v1
       objectReference: {fileID: 0}
     - target: {fileID: 2560319331050122598, guid: 08e8ad2f5ad10c54891ff49ee7d7c74e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560319331050122598, guid: 08e8ad2f5ad10c54891ff49ee7d7c74e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7302594ee701a8f49818dbc1d47a109e, type: 2}
