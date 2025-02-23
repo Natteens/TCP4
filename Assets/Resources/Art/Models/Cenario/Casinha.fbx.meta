@@ -3,7 +3,62 @@ guid: 17e0e38a97787e84caa7cd3a59e70c9c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MACANETA
+    second: {fileID: 2100000, guid: d4bf128eb3ab515419b56f4dadcbd5c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MACANETA.001
+    second: {fileID: 2100000, guid: 9031287c4ebfb5045bc22ca9f028abe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Madeira
+    second: {fileID: 2100000, guid: 2e0cc30cbfcbb0c459ab96e3ed0d51d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Madeira.001
+    second: {fileID: 2100000, guid: 91205a216966db148b26af0f48d0531b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PAREDE
+    second: {fileID: 2100000, guid: 88d8b8fea2a4d3845a7241af8e7415a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PORTA
+    second: {fileID: 2100000, guid: 68f801fc1c22e2a4fa6e054c02030463, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PORTA.001
+    second: {fileID: 2100000, guid: ea2a9a1c208332748a4f4c5b5e2250b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VIDRO
+    second: {fileID: 2100000, guid: b78deb82ecc07934bb344d11cd9fa33a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VIDRO.001
+    second: {fileID: 2100000, guid: e565a14ea1f60664890497af7dba0314, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: telha
+    second: {fileID: 2100000, guid: f6e04d2d4ede17f4b9b564030b0e2e74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: telha.001
+    second: {fileID: 2100000, guid: 43d7bd038a4101a4d816e7f4adbbeac9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

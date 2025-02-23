@@ -3,7 +3,12 @@ guid: 76898a943f1120b4db097ccce3309a01
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gengibre moido
+    second: {fileID: 2100000, guid: 1a3cea33ca8037f478799633065ace6c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
