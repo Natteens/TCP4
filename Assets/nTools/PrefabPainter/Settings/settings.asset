@@ -151,7 +151,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
       customPreviewImage: {fileID: 0}
     - name: tree2
@@ -573,8 +573,8 @@ MonoBehaviour:
       customPreviewImage: {fileID: 0}
     - name: tree random
       settings:
-        brushRadius: 5.9484143
-        brushSpacing: 3
+        brushRadius: 9.36
+        brushSpacing: 2.36
         brushOverlapCheckMode: 0
         brushOverlapDistance: 5
         brushOverlapCheckObjects: 1
@@ -586,13 +586,13 @@ MonoBehaviour:
         orientationMode: 2
         alongBrushStroke: 0
         rotation: {x: 0, y: 0, z: 0}
-        randomizeOrientationX: 5
-        randomizeOrientationY: 100
-        randomizeOrientationZ: 5
-        scaleTransformMode: 0
+        randomizeOrientationX: 2
+        randomizeOrientationY: 0
+        randomizeOrientationZ: 2
+        scaleTransformMode: 1
         scaleMode: 0
-        scaleUniformMin: 0.8
-        scaleUniformMax: 1.3
+        scaleUniformMin: 0.9
+        scaleUniformMax: 1.5
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -615,70 +615,70 @@ MonoBehaviour:
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
-        - enabled: 1
-          raiting: 0.15714286
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
-        - enabled: 1
-          raiting: 0.2
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
-        - enabled: 1
-          raiting: 0.071428575
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
         - enabled: 1
           raiting: 1
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
         - enabled: 1
           raiting: 1
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
         - enabled: 1
           raiting: 1
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
         - enabled: 1
           raiting: 1
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
         - enabled: 1
           raiting: 1
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
         - enabled: 1
           raiting: 1
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
-          pivotOffset: {x: 0, y: 0, z: 0}
+          pivotOffset: {x: 1, y: 1, z: 1}
+        - enabled: 1
+          raiting: 1
+          position: {x: 0, y: 0, z: 0}
+          rotation: {x: 0, y: 0, z: 0}
+          scale: {x: 1, y: 1, z: 1}
+          pivotMode: 0
+          pivotOffset: {x: 1, y: 1, z: 1}
+        - enabled: 1
+          raiting: 1
+          position: {x: 0, y: 0, z: 0}
+          rotation: {x: 0, y: 0, z: 0}
+          scale: {x: 1, y: 1, z: 1}
+          pivotMode: 0
+          pivotOffset: {x: 1, y: 1, z: 1}
+        - enabled: 1
+          raiting: 1
+          position: {x: 0, y: 0, z: 0}
+          rotation: {x: 0, y: 0, z: 0}
+          scale: {x: 1, y: 1, z: 1}
+          pivotMode: 0
+          pivotOffset: {x: 1, y: 1, z: 1}
         multibrushPaintSelectedSlot: 0
         multibrushMode: 0
         multibrushPattern: 0 1 2 3 5 6 7 8 9
@@ -696,18 +696,18 @@ MonoBehaviour:
         gridNormal: {x: 0, y: 1, z: 0}
         gridAngle: 0
       prefabSlots:
-      - gameObject: {fileID: 142772, guid: 8e66ff4afa28c4be7821a9ae9372d1f7, type: 3}
-      - gameObject: {fileID: 100618, guid: e07b9ca3ecaff4d4fbf82c30d96cf38b, type: 3}
-      - gameObject: {fileID: 178792, guid: 0dd60fda408f047bfb07894449319218, type: 3}
-      - gameObject: {fileID: 131906, guid: ba260558c316b4cda92178dc6fef1161, type: 3}
+      - gameObject: {fileID: 5086249414353075562, guid: b4e500543a1913648ba7b1da7124690e, type: 3}
+      - gameObject: {fileID: 3771818004562772007, guid: 76917aa005098d94da85b1fedb82f137, type: 3}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
-      selectedSlot: 6
-      selected: 0
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
+      selectedSlot: 0
+      selected: 1
       colorTag: 0
       customPreviewImage: {fileID: 0}
     levelsGamma: 1
@@ -3312,11 +3312,11 @@ MonoBehaviour:
     levelsInWhite: 255
     levelsOutBlack: 0
     levelsOutWhite: 255
-  activeTab: 3
+  activeTab: 0
   paintOnSelected: 0
   paintLayers:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 8
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 32
