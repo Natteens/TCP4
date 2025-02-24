@@ -221,6 +221,7 @@ namespace Tcp4
 
         public void NewClientNotification(Client clientSettings)
         {
+            SoundManager.PlaySound(SoundType.interacao, 0.2f);
             GameObject go = Instantiate(pfClientNotification, notificationHolder);
             ClientNotification c = go.GetComponent<ClientNotification>();
             c.Setup(clientSettings.spriteClient, clientSettings.wantedProduct.productImage, clientSettings.stars);
@@ -253,6 +254,7 @@ namespace Tcp4
 
         public void ControlConfigMenu()
         {
+            SoundManager.PlaySound(SoundType.feedback);
             if (configMenu.activeSelf)
             {
                 configMenu.SetActive(false);
@@ -268,6 +270,7 @@ namespace Tcp4
         public void VoltarMenu()
         {
             SceneManager.LoadScene("InitialMenu");
+            SoundManager.PlaySound(SoundType.feedback);
         }
 
         public void PlaceInWorld(Transform worldObject, RectTransform uiElement, bool isWorldCanvas = true)

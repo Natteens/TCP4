@@ -22,7 +22,7 @@ namespace Tcp4
         public void StartGame(int sceneId)
         {
             StartCoroutine(LoadSceneAsync(sceneId));
-            SoundManager.PlaySound(SoundType.click);
+            SoundManager.PlaySound(SoundType.feedback);
         }
 
         IEnumerator LoadSceneAsync(int sceneId)
@@ -47,31 +47,31 @@ namespace Tcp4
         public void OpenSettings()
         {
             settingsPanel.SetActive(true);
-            SoundManager.PlaySound(SoundType.click);
+            SoundManager.PlaySound(SoundType.feedback);
         }
 
         public void CloseSettings()
         {
             settingsPanel.SetActive(false);
-            SoundManager.PlaySound(SoundType.click);
+            SoundManager.PlaySound(SoundType.feedback);
         }
 
         public void OpenCredits()
         {
             creditsPanel.SetActive(true);
-            SoundManager.PlaySound(SoundType.click);
+            SoundManager.PlaySound(SoundType.feedback);
         }
 
         public void CloseCredits()
         {
             creditsPanel.SetActive(false);
-            SoundManager.PlaySound(SoundType.click);
+            SoundManager.PlaySound(SoundType.feedback);
         }
 
         public void QuitGame()
         {
             Application.Quit();
-            SoundManager.PlaySound(SoundType.click);
+            SoundManager.PlaySound(SoundType.feedback);
 
             // p ver no editor
             #if UNITY_EDITOR

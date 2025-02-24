@@ -6,10 +6,16 @@ namespace Tcp4
     public enum SoundType
     {
         coletar,
-        interagir,
+        interacao,
         passos,
-        plantar,
-        click
+        plantando,
+        servindo,
+        colocando,
+        feedback,
+        concluido,
+        moendo,
+        leite
+
     }
 
     [RequireComponent(typeof(AudioSource))]
@@ -63,12 +69,14 @@ namespace Tcp4
 
         public void ToggleMusic(bool isOn)
         {
+            SoundManager.PlaySound(SoundType.feedback);
             musicSource.mute = isOn;
             PlayerPrefs.SetInt("Music", isOn ? 0 : 1);
         }
 
         public void ToggleSFX(bool isOn)
         {
+            SoundManager.PlaySound(SoundType.feedback);
             SetSFXVolume(isOn ? 0 : 1);
             PlayerPrefs.SetInt("SFX", isOn ? 0 : 1);
         }
@@ -81,6 +89,11 @@ namespace Tcp4
         private float GetSFXVolume()
         {
             return audioSource.volume;
+        }
+
+        public void feedbackSound()
+        {
+            SoundManager.PlaySound(SoundType.feedback, 0.5f);
         }
     }
 }

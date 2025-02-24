@@ -52,6 +52,7 @@ namespace Tcp4
 
             if (isAbleToTransfer)
             {
+                SoundManager.PlaySound(SoundType.colocando, 0.05f);
                 playerInventory.RemoveProduct(currentStorage.item, 1);
                 storageInventory.AddProduct(currentStorage.item, 1);
             }

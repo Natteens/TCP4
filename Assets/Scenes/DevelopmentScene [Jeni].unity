@@ -6609,6 +6609,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5e28339812eda042a8e0644f28dfb47, type: 3}
   - {fileID: 8300000, guid: 96c3f6fbc34680d44ba11a26e3771873, type: 3}
   - {fileID: 8300000, guid: eb396d92bbb6b564fb1b34c9a33813aa, type: 3}
+  - {fileID: 8300000, guid: b70597f2ccac2ad4b90a1649b6b1b9b8, type: 3}
+  - {fileID: 8300000, guid: a130c749f10d4af46a08d34c7888e237, type: 3}
+  - {fileID: 8300000, guid: f808bebd8d2bcb14fa1f44ee8b24857e, type: 3}
+  - {fileID: 8300000, guid: d627acbd65f8ff9418455b0ace9a66d9, type: 3}
+  - {fileID: 8300000, guid: 1be747e137f04b042916d78f55dc8d1d, type: 3}
+  - {fileID: 8300000, guid: bab21f249f99acc49946b7707f2d81a0, type: 3}
   musicSource: {fileID: 992617409}
   toggleMusic: {fileID: 2093366859}
   toggleSFX: {fileID: 1483607860}

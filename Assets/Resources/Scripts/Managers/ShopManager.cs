@@ -165,6 +165,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             Cup cup =  go.GetComponent<Cup>();
             cup.myDrink = d;
             cup.point = this.point;
+            SoundManager.PlaySound(SoundType.concluido, 0.6f);
         }
 
         void Update()

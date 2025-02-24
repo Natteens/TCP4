@@ -18,6 +18,7 @@ namespace Tcp4
         {
             if(CanAdd())
             {
+                SoundManager.PlaySound(SoundType.servindo, 0.2f);
                 StorageManager.Instance.playerInventory.RemoveProduct(pd, 1);
                 AddIngredient(pd);
                 OnChangeInventory?.Invoke();

@@ -79,6 +79,8 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
 
         private IEnumerator RefineProduct()
         {
+            SoundManager.PlaySound(SoundType.moendo, 0.08f);
+
             isRefining = true;
             float elapsedTime = 0f;
 

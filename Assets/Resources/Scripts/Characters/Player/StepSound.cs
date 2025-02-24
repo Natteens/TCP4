@@ -28,7 +28,7 @@ namespace Tcp4
                 stepTimer -= Time.deltaTime;
                 if (stepTimer <= 0)
                 {
-                    SoundManager.PlaySound(SoundType.passos);
+                    SoundManager.PlaySound(SoundType.passos, 0.2f);
                     stepTimer = stepInterval;
                 }
             }
