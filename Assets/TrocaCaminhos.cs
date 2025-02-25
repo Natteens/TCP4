@@ -1,48 +1,97 @@
-using System;
-using System.Collections;
-using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Splines;
+using System.Collections; // Adicionei este namespace para Coroutine
 
+public class TrocaCaminhos : MonoBehaviour
+{
+    private Unity.Cinemachine.CinemachineSplineCart cart;
+    public SplineContainer caminhoInicial;
+    [SerializeField] private SplineContainer[] caminhos;
+    private SplineContainer ultimoCaminho;
+    
+    private IEnumerator trocarCaminhosCoroutine; // Mudei para IEnumerator
 
-    public class TrocaCaminhos : MonoBehaviour
+    private void Awake()
     {
-        private CinemachineDollyCart cart;
-
-        public CinemachineSmoothPath caminhoInicial;
-
-
-
-        [SerializeField] private CinemachineSmoothPath[] caminhos; // Agora aparece no Inspector
-
-        private void Awake()
+        cart = GetComponent<Unity.Cinemachine.CinemachineSplineCart>();
+        
+        // Verificação crítica de segurança
+        if (cart == null) 
         {
-            cart = GetComponent<CinemachineDollyCart>();
-            ResetarCaminho();
+            Debug.LogError("CinemachineSplineCart não encontrado!");
+            enabled = false;
+            return;
+        }
+        
+        ResetarCaminho();
+    }
+
+    private void ResetarCaminho()
+    {
+        // Para a corrotina de forma segura
+        if (trocarCaminhosCoroutine != null)
+        {
+            StopCoroutine(trocarCaminhosCoroutine);
         }
 
-        private void ResetarCaminho()
-        {
-            StopAllCoroutines();
-            cart.m_Path = caminhoInicial;
-            cart.m_Position = 0;
-            StartCoroutine(MudarCaminhos());
-        }
+        cart.Spline = caminhoInicial;
+        cart.SplinePosition = 0;
 
-        private IEnumerator MudarCaminhos()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(4, 6));
+        // Inicia a corrotina corretamente
+        trocarCaminhosCoroutine = RotinaTrocaCaminhos();
+        StartCoroutine(trocarCaminhosCoroutine);
+    }
 
-                if (caminhos.Length > 0)
-                {
-                    var novoCaminho = caminhos[UnityEngine.Random.Range(0, caminhos.Length)];
-                    cart.m_Path = novoCaminho;
-                    cart.m_Position = 0;
-                }
-            }
+    private IEnumerator RotinaTrocaCaminhos()
+    {
+        // Intervalo inicial aleatório
+        yield return new WaitForSeconds(Random.Range(4f, 6f));
+
+        while (true)
+        {
+            MudarCaminho();
+            
+            // Adicionei um break de segurança
+            if (caminhos.Length == 0) yield break;
+
+            yield return new WaitForSeconds(Random.Range(4f, 6f));
         }
     }
 
+    private void MudarCaminho()
+    {
+        if (caminhos.Length == 0 || caminhos == null)
+        {
+            Debug.LogWarning("Array de caminhos vazio!");
+            return;
+        }
 
+        SplineContainer novoCaminho;
+        int tentativas = 0;
+        int maxTentativas = 10; // Prevenção contra loop infinito
 
+        do
+        {
+            novoCaminho = caminhos[Random.Range(0, caminhos.Length)];
+            tentativas++;
+            
+            // Quebra se encontrar muitas repetições
+            if (tentativas >= maxTentativas)
+            {
+                Debug.LogWarning("Possível loop infinito detectado!");
+                break;
+            }
+
+        } while (novoCaminho == ultimoCaminho && caminhos.Length > 1);
+
+        cart.Spline = novoCaminho;
+        cart.SplinePosition = 0;
+        ultimoCaminho = novoCaminho;
+    }
+
+    private void OnDisable()
+    {
+        // Para todas as corrotinas de forma mais eficaz
+        StopAllCoroutines();
+    }
+}

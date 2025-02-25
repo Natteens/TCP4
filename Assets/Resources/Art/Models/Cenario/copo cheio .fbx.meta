@@ -3,7 +3,17 @@ guid: 1b38b94eed7225a49a667d49cf876213
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cafe
+    second: {fileID: 2100000, guid: 503658ef5e69c0a49af428ffa3bc20ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: copo
+    second: {fileID: 2100000, guid: 03ec89c9707ee15479317e997bfd0b48, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
