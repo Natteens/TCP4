@@ -26,7 +26,7 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             spriteClient = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientNames.Count)];
             nameTmp.text = nameClient;
-            max_wait_time = 15f - (stars * 2); 
+            max_wait_time = 25f - (stars * 2); 
             wait_time = max_wait_time;
             ui_timer.fillAmount = wait_time / max_wait_time;
             ID = GameAssets.GenerateID(5);
