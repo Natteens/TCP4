@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
+
 public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     [System.Serializable]
@@ -19,6 +20,8 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
 
     [Header("Output")]
     public Event joystickOutputEvent;
+
+    public event Action OnMove;
 
     void Start()
     {
@@ -69,6 +72,7 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
     private void OutputPointerEventValue(Vector3 pointerPosition)
     {
         joystickOutputEvent.Invoke(pointerPosition);
+        OnMove?.Invoke();
     }
     private Vector3 ConvertToVector3(Vector2 input)
     {

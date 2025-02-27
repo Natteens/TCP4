@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 namespace Tcp4
 {
@@ -17,12 +18,16 @@ namespace Tcp4
             movementAction = playerInput.actions["Movement"];
         }
 
+        public void Moving()    {StartCoroutine(nameof(MovingCoroutine));}
+        IEnumerator MovingCoroutine()
+        {
+            isMoving = true;
+            yield return new WaitForSeconds(0.2f);
+            isMoving = false;
+        }
+
         private void Update()
         {
-            Vector2 input = movementAction.ReadValue<Vector2>();
-          
-            isMoving = input.magnitude > deadzone;
-
             if (isMoving)
             {
                 stepTimer -= Time.deltaTime;

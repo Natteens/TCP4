@@ -10,6 +10,8 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
         public float stars;
         public float minimumQuality;
         public string nameClient;
+
+        public GameObject modelClient;
         public  TextMeshProUGUI nameTmp;
         public Drink wantedProduct;
         public Sprite spriteClient;
@@ -25,11 +27,17 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Clients
             minimumQuality = _minimum;
             spriteClient = GameAssets.Instance.clientSprites[Random.Range(0, GameAssets.Instance.clientSprites.Count)];
             nameClient = GameAssets.Instance.clientNames[Random.Range(0, GameAssets.Instance.clientNames.Count)];
+            modelClient = GameAssets.Instance.clientModels[Random.Range(0, GameAssets.Instance.clientModels.Count)];
             nameTmp.text = nameClient;
             max_wait_time = 25f - (stars * 2); 
             wait_time = max_wait_time;
             ui_timer.fillAmount = wait_time / max_wait_time;
             ID = GameAssets.GenerateID(5);
+
+            //Criar model
+
+            Debug.Log(modelClient);
+            Instantiate(modelClient, gameObject.transform);
 
             ChooseDrink();
         }

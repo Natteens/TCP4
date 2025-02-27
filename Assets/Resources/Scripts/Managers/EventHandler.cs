@@ -17,6 +17,9 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public CreationManager creationManager;
 
+        public UIVirtualJoystick joystick;
+        
+
         private void Start()
         {
             StartCoroutine(SubscribeEvents());
@@ -46,6 +49,7 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             shopManager.OnChangeStar                += uiManager.UpdateStars;
             shopManager.OnChangeStar                += shopManager.CheckUpgradeStar;
 
+            joystick.OnMove                         += GameAssets.player.GetComponent<StepSound>().Moving;
 
         }
 

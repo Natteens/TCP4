@@ -10,6 +10,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
     {
         public List<Sprite> clientSprites;
         public List<string> clientNames;
+
+        public List<GameObject> clientModels;
         public GameObject pfNovoDia;
         public Sprite Money;
         public GameObject player;
