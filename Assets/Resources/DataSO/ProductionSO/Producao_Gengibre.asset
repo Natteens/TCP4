@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Producao_Gengibre
   m_EditorClassIdentifier: 
   models:
-  - {fileID: 129258641539217464, guid: 6d66c35e357d4774c8e82e9e018570e8, type: 3}
-  - {fileID: 129258641539217464, guid: 52e190326ca57bc47834ba4f71e3c651, type: 3}
-  - {fileID: 2255765643877195712, guid: 9f5237b5216a3ba4ba4cc9f1df3bc17f, type: 3}
+  - {fileID: 7308348144076414784, guid: dc27188d50206384099519fc3e5a9c29, type: 3}
+  - {fileID: 75523771866241713, guid: 81ad2c30e9ccb6d4dafcc368c5523090, type: 3}
+  - {fileID: 6183055583773952656, guid: 80923b92859e37d4e9451ec999a9a23a, type: 3}
   product: {fileID: 11400000, guid: df60ac8e23274b7439f757150af8ac6a, type: 2}
   timeToGrow: 25
   timeToHarvest: 10

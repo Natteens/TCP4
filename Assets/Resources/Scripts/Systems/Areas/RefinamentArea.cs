@@ -9,6 +9,8 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
         [SerializeField] private RawProduct expectedProduct;
         [SerializeField] private float refinementTime = 5f;
         [SerializeField] private Transform pointToSpawn;
+        [SerializeField] private AnimationExecute anim;
+
         private bool isPlayerInArea = false;
         private bool isRefining = false;
         private bool isReady = false;
@@ -58,6 +60,9 @@ namespace Tcp4.Assets.Resources.Scripts.Systems.Areas
             if (isPlayerInArea && !isRefining && !isReady && playerInventory != null && playerInventory.GetInventory().Contains(expectedProduct) )
             {
                 StartCoroutine(RefineProduct());
+
+                if(anim != null)
+                    anim.ExecuteAnimation("Refinar");
             }
             else if (isPlayerInArea && playerInventory != null && isReady && !isRefining)
             {
