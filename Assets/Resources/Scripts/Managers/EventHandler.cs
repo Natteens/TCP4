@@ -1,8 +1,8 @@
 ﻿using ComponentUtils.ComponentUtils.Scripts;
-using DG.Tweening;
 using System.Collections;
 using Tcp4.Resources.Scripts.Systems.DayNightCycle;
 using UnityEngine;
+using Tcp4.Assets.Resources.Scripts;
 
 namespace Tcp4.Assets.Resources.Scripts.Managers
 {
@@ -17,7 +17,8 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
 
         public CreationManager creationManager;
 
-        public UIVirtualJoystick joystick;
+        public UIVirtualJoystick LeftJoystick;
+        public UIVirtualJoystick RightJoystick;
         
 
         private void Start()
@@ -49,7 +50,10 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             shopManager.OnChangeStar                += uiManager.UpdateStars;
             shopManager.OnChangeStar                += shopManager.CheckUpgradeStar;
 
-            joystick.OnMove                         += GameAssets.player.GetComponent<StepSound>().Moving;
+            StepSound stepSound = GameAssets.Instance.player.GetComponent<StepSound>();
+
+            LeftJoystick.OnMove                     += (input) => stepSound.SetMovementInput(input);
+            RightJoystick.OnMove                    += (input) => stepSound.SetMovementInput(input);
 
         }
 
@@ -58,10 +62,6 @@ namespace Tcp4.Assets.Resources.Scripts.Managers
             GameAssets.Instance.player.transform.position = GameAssets.Instance.safePoint.position;
             Instantiate(GameAssets.Instance.pfNovoDia, uiManager.hudCanvas.transform);
         }
-
-
-
-
 
 
     }

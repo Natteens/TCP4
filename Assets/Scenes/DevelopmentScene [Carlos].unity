@@ -73954,6 +73954,8 @@ MonoBehaviour:
   storageManager: {fileID: 1255072469}
   shopManager: {fileID: 1050982170}
   creationManager: {fileID: 1264052201}
+  LeftJoystick: {fileID: 1795689755}
+  RightJoystick: {fileID: 1970905196}
 --- !u!43 &859373526
 Mesh:
   m_ObjectHideFlags: 0
@@ -156648,6 +156650,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1407806550736918862, guid: 6eb08bfc0fd869c47b796c42ada099da, type: 3}
   m_PrefabInstance: {fileID: 5959203425150101980}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1795689755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 191938513, guid: 6eb08bfc0fd869c47b796c42ada099da, type: 3}
+  m_PrefabInstance: {fileID: 5959203425150101980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cb8c4d669392748bb924209de33b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1798238305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169944,6 +169957,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3465184175294552087, guid: d5199848432c9224ba37df532994d74d, type: 3}
   m_PrefabInstance: {fileID: 1968252929}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1970905196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 191938513, guid: 6eb08bfc0fd869c47b796c42ada099da, type: 3}
+  m_PrefabInstance: {fileID: 1598815622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cb8c4d669392748bb924209de33b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1971205908
 Mesh:
   m_ObjectHideFlags: 0
