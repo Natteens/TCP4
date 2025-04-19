@@ -8,6 +8,7 @@ TagManager:
   - ProductionCard
   - StorageSlot
   - Upgrade
+  - Props
   layers:
   - Default
   - TransparentFX

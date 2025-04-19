@@ -13,15 +13,5 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   ComponentsToSetup:
-  - Type: 0
-    Scope: 0
-  - Type: 4
-    Scope: 0
-  - Type: 5
-    Scope: 0
   - Type: 1
     Scope: 1
-  - Type: 3
-    Scope: 0
-  - Type: 6
-    Scope: 0
