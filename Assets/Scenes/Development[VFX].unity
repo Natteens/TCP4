@@ -4008,6 +4008,7 @@ Transform:
   - {fileID: 963991429}
   - {fileID: 1403907650}
   - {fileID: 555420580}
+  - {fileID: 1898332263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &271178477
@@ -12458,7 +12459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a300d010f57451488aa99000126fbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputs: {fileID: 0}
 --- !u!114 &808697910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18918,7 +18918,7 @@ GameObject:
   - component: {fileID: 1283015941}
   - component: {fileID: 1283015943}
   - component: {fileID: 1283015942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19236,15 +19236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448cd6d8e2f2cb04096e777d99974bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonStateOutputEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 808697909}, m_TargetAssemblyTypeName: UICanvasControllerInput, Assembly-CSharp, m_MethodName: VirtualInteractInput, m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  buttonClickOutputEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
 --- !u!114 &1292701933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20832,15 +20823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448cd6d8e2f2cb04096e777d99974bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonStateOutputEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 808697909}, m_TargetAssemblyTypeName: UICanvasControllerInput, Assembly-CSharp, m_MethodName: VirtualSprintInput, m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  buttonClickOutputEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
 --- !u!114 &1396283632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27786,6 +27768,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892200299}
   m_CullTransparentMesh: 1
+--- !u!1 &1898332262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898332263}
+  - component: {fileID: 1898332264}
+  m_Layer: 0
+  m_Name: GrassSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898332263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898332262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -32.7, y: 1.91, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 271178476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898332264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898332262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3be7762afb77dc47b0aa153b967bd6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfGrass: {fileID: 2162447159513903546, guid: 7166ebaa81afca74a9b6a4bcb99200dd, type: 3}
+  instances: 100000
+  areaSize: 100
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  excludedLayers:
+    serializedVersion: 2
+    m_Bits: 2039
+  checkRadius: 1
 --- !u!1 &1911160359
 GameObject:
   m_ObjectHideFlags: 0
