@@ -64,6 +64,7 @@ namespace Tcp4
             animator.SetBool("IsRunning", isRunning);
 
             HandleRotation();
+            Debug.Log(Gamepad.current);
         }
 
         private void FixedUpdate()
