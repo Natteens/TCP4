@@ -27982,7 +27982,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1898332263
 Transform:
   m_ObjectHideFlags: 0
@@ -28011,7 +28011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfGrass: {fileID: 2162447159513903546, guid: 7166ebaa81afca74a9b6a4bcb99200dd, type: 3}
-  instances: 100000
+  instances: 50000
   areaSize: 100
   groundLayer:
     serializedVersion: 2
